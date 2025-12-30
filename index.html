@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="assets/code-icon.svg">
+    <title>Nomad Map - Discover & Track Places</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0f0f10;
+            color: #eaeaea;
+            line-height: 1.6;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Primary color */
+        :root { --primary: #F46952; }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-copy h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            color: #cfcfcf;
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .bullets {
+            list-style: none;
+            margin: 1rem 0 2rem 0;
+        }
+        .bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin: 0.4rem 0;
+            color: #e5e5e5;
+        }
+        .bullets li::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-top: 0.35rem;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 3px rgba(244,105,82,0.15);
+            flex-shrink: 0;
+        }
+
+        .store-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .store-links a {
+            display: inline-block;
+            transition: transform 0.15s ease;
+        }
+        .store-links a:hover {
+            transform: translateY(-2px);
+        }
+        .store-badge {
+            height: 54px;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 520px;
+        }
+        .phone {
+            position: absolute;
+            width: 230px;
+            height: 460px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.45),
+                0 0 0 2px rgba(255,255,255,0.05),
+                0 0 0 8px rgba(244,105,82,0.08);
+            background: #000;
+        }
+        .phone img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .phone.center { left: 50%; top: 30px; transform: translateX(-50%); z-index: 3; }
+        .phone.left { left: calc(50% - 260px); top: 70px; transform: rotate(-3deg); z-index: 2; }
+        .phone.right { left: calc(50% + 260px - 230px); top: 90px; transform: rotate(3deg); z-index: 2; }
+
+        .app-icon {
+            width: 128px;
+            height: 128px;
+            margin-bottom: 1rem;
+        }
+        .features-row .bullets { flex: 1; }
+        .title-icon {
+            width: 156px;
+            height: 156px;
+            display: inline-block;
+            vertical-align: -10px;
+            margin-right: 1px;
+        }
+
+        .features-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin: 1rem 0 2rem 0;
+        }
+        .features-icon {
+            width: 300px;
+            height: 300px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-copy h1 { font-size: 2.2rem; }
+            .store-badge { height: 48px; }
+            .hero-visual { height: 440px; }
+            .phone { width: 200px; height: 400px; }
+            .phone.center { top: 20px; }
+            .phone.left { left: calc(50% - 200px); top: 60px; transform: rotate(-2deg); }
+            .phone.right { left: calc(50% + 200px - 200px); top: 70px; transform: rotate(2deg); }
+            .app-icon { width: 88px; height: 88px; }
+            .title-icon { width: 44px; height: 44px; vertical-align: -8px; }
+            .features-row { gap: 0.5rem; align-items: flex-start; }
+            .features-icon { width: 300px; height: 300px; margin-left: auto; }
+        }
+
+        /* Phone-specific tightening */
+        @media (max-width: 600px) {
+            .features-row { gap: 0; }
+            .features-icon { display: none; }
+            .badge-row a {
+                flex: 1 1 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .badge-row img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        .badge-row {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .footer {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid white;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-copy">
+                <h1>Nomad Map - Discover & Track Work Places</h1>
+                <p class="tagline">Your all-in-one app to finding, saving, and sharing great work and hangout spots as you travel.</p>
+                <div class="features-row">
+                    <ul class="bullets">
+                        <li>Explore what’s happening nearby</li>
+                        <li>Add your favorite spots</li>
+                        <li>Your local nomad guide for best work locations</li>
+                        <li>Chat & connect instantly with other Nomads</li>
+                        <li>Map your adventures in a scratch-map style</li>
+                    </ul>
+                    <img class="features-icon" src="assets/appicon_transparent.png" alt="Nomad Map app icon">
+                </div>
+                <div class="store-links">
+                    <a href="https://apps.apple.com/us/app/nomad-map-discover-track/id6752256741" aria-label="Download on the App Store">
+                        <img class="store-badge" src="assets/app-store-badge.png" alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="phone left">
+                    <img src="assets/home.png" alt="Nomad Map home screen">
+                </div>
+                <div class="phone center">
+                    <img src="assets/dashboard.png" alt="Nomad Map dashboard screen">
+                </div>
+                <div class="phone right">
+                    <img src="assets/add.png" alt="Nomad Map add place screen">
+                </div>
+            </div>
+        </section>
+    </div>
+    <br><br>
+    <div class="badge-row">
+        <a href="https://www.producthunt.com/products/nomad-map?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-nomad&#0045;map" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1021905&theme=dark&t=1759320887988" alt="Nomad&#0032;Map - Discover&#0032;&#0038;&#0032;track&#0032;places | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+        <a href="https://auraplusplus.com/projects/nomad-map" target="_blank" title="Aura++ Top 1 Daily Winner">
+            <img 
+              src="https://auraplusplus.com/images/badges/top1-dark.svg" 
+              alt="Aura++ Top 1 Daily Winner" 
+              style="width: 195px; height: auto;" 
+            />
+          </a>
+          <a href="https://peerlist.io/miloscubrilo96/project/nomad-map" target="_blank" rel="noreferrer">
+            <img
+                src="https://peerlist.io/api/v1/projects/embed/PRJHA9ENALDQRLNG92N6KOR7PJ9K76?showUpvote=true&theme=dark"
+                alt="Nomad Map"
+                style="width: auto; height: 72px;"
+            />
+        </a>
+        <a href="https://startupfa.me/s/nomad-map?utm_source=nomadmap.link" target="_blank"><img src="https://startupfa.me/badges/featured-badge.webp" alt="Featured on Startup Fame" width="171" height="54" /></a>
+          <a href="https://launchigniter.com/product/nomad-map?ref=badge-nomad-map" target="_blank">
+  <img src="https://launchigniter.com/api/badge/nomad-map?theme=dark" alt="Featured on LaunchIgniter" width="212" height="55" />
+</a>
+    </div>
+    <div class="footer">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+    </div>
+</body>
+</html> 
