@@ -1,0 +1,300 @@
+{
+    "slug": "3-days-in-lisbon",
+    "title": "3 Days in Lisbon: What You Actually Have to See",
+    "titleTag": "3 Days in Lisbon: The Must-See Itinerary",
+    "ogTitle": "3 Days in Lisbon — The Must-See Itinerary",
+    "metaDescription": "The essential three-day Lisbon itinerary: the castle, Alfama, Belém and the Baixa hills, grouped by neighbourhood so you climb each one only once.",
+    "primaryQuery": "3 days in lisbon itinerary",
+    "secondaryQueries": [
+        "what to do in lisbon in 3 days",
+        "what to see in lisbon in 3 days",
+        "is 3 days enough for lisbon",
+        "lisbon must see attractions",
+        "top things to do in lisbon"
+    ],
+    "datePublished": "2026-07-25",
+    "dateModified": "2026-07-26",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "cardLabel": "3 days, the essentials",
+    "eyebrow": "Lisbon · 3 days",
+    "standfirst": "Three days is enough for Lisbon's essentials, but only if you group them properly. Here is what genuinely has to be on the list, in the order that saves you the most walking.",
+    "cardSummary": "The castle, Alfama, Belém and the Baixa hills — what to see and what to skip.",
+    "heroImage": {
+        "src": "alfama-portas-do-sol.jpg",
+        "alt": "Alfama's terracotta rooftops sloping down to the River Tagus, seen from Miradouro das Portas do Sol",
+        "width": 1400,
+        "height": 746,
+        "caption": "Alfama from Miradouro das Portas do Sol — the view most people picture when they picture Lisbon.",
+        "credit": "Sonse",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Alfama_from_Miradouro_das_Portas_do_Sol,_Lisbon.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "modified": "resized",
+        "workTitle": "Alfama from Miradouro das Portas do Sol, Lisbon"
+    },
+    "sections": [
+        {
+            "type": "prose",
+            "body": [
+                "Three days covers Lisbon's essentials comfortably: the castle and Alfama, the monuments at Belém, and the Baixa and Chiado hills in the middle. What it does not cover is Sintra, which needs a full day of its own and is the thing most three-day itineraries wrongly try to squeeze in.",
+                "The plan below groups everything by neighbourhood. Lisbon is built on hills, and the difference between a well-ordered day and a badly ordered one is roughly two hours of unnecessary climbing."
+            ]
+        },
+        {
+            "type": "callout",
+            "body": [
+                "**The maps lie about the hills.** A 700 m walk between two viewpoints can be a ten-minute climb on cobbles. Distances here are short; the gradients are not."
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 1 — The castle and Alfama",
+            "body": [
+                "Start high and walk down. São Jorge Castle sits at the top of the city's oldest hill, and every other stop on this day is below it — so doing the climb once, first thing, is the whole trick.",
+                "Alfama is the medieval quarter that survived the 1755 earthquake, and it is the one part of Lisbon best seen without a plan. Get deliberately lost in it."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "sao-jorge-castle.jpg",
+            "alt": "The stone walls and towers of São Jorge Castle on the hill above Lisbon",
+            "width": 1400,
+            "height": 929,
+            "caption": "São Jorge Castle. The walls, not the interior, are what you came for.",
+            "credit": "Aleksandr Zykov",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Castelo_de_S%C3%A3o_Jorge,_Lisbon_(11977473944).jpg",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "modified": "resized",
+            "workTitle": "Castelo de São Jorge, Lisbon"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "All within walking distance of each other, arranged downhill.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "São Jorge Castle",
+                    "detail": "Ramparts with a full sweep over the city and the river. Quietest in the first hour after opening."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Miradouro das Portas do Sol",
+                    "detail": "The classic Alfama view, straight down over the rooftops to the water. A few minutes' walk below the castle."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Alfama's lanes",
+                    "detail": "The oldest quarter in the city. No route required — head downhill and let the streets do the work."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Lisbon Cathedral (Sé)",
+                    "detail": "The city's oldest building, fortress-like, at the bottom of the hill. A quick stop rather than a long one."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Fado in Alfama",
+                    "detail": "The small fado houses are the real thing and they fill up. Book ahead rather than turning up."
+                }
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 2 — Belém",
+            "body": [
+                "Belém is 6 km west of the centre and holds most of Lisbon's heavyweight monuments in a single riverside strip. It is a half day of sights and a full day if you take it slowly.",
+                "Go early. Both major monuments have timed entry and both sell out. The train from Cais do Sodré takes about ten minutes; the riverside tram is slower and prettier, which makes it the better way back."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "jeronimos-monastery.jpg",
+            "alt": "The long limestone facade of Jerónimos Monastery in Belém, Lisbon",
+            "width": 1400,
+            "height": 933,
+            "caption": "Jerónimos Monastery. The cloister is the reason to come — not the church, which is free and far busier.",
+            "credit": "César Torres",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Mosteiro_dos_Jer%C3%B3nimos_-_Lisboa.jpg",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "modified": "resized",
+            "workTitle": "Mosteiro dos Jerónimos - Lisboa"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Book Jerónimos before you travel. It has the worst walk-up queue in the city.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Jerónimos Monastery",
+                    "detail": "The high point of Manueline architecture and the single most impressive building in Lisbon. Pay for the cloister."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Pastéis de Belém",
+                    "detail": "The original custard tart bakery, next door. The takeaway counter queue moves much faster than it looks."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Padrão dos Descobrimentos",
+                    "detail": "The Discoveries monument on the waterfront, with a lift to a viewing deck over the river."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Belém Tower",
+                    "detail": "Twenty flat minutes further along the river. Worth seeing from the outside even if the queue puts you off going in."
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "src": "belem-tower.jpg",
+            "alt": "Belém Tower, a white limestone fortified tower standing in the River Tagus",
+            "width": 1400,
+            "height": 987,
+            "caption": "Belém Tower, built to guard the harbour and now standing at the edge of the river.",
+            "credit": "Vitor Oliveira",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Torre_de_Bel%C3%A9m_-_Lisboa.jpg",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "modified": "resized",
+            "workTitle": "Torre de Belém - Lisboa"
+        },
+        {
+            "type": "prose",
+            "heading": "Day 3 — Baixa, Chiado and the viewpoints",
+            "body": [
+                "The centre is the flattest part of the city and the hills on either side are the steepest. This day alternates between them, which is easier than it sounds if you use the funiculars.",
+                "If you want to ride Tram 28, do it at opening or late in the evening. In the middle of the day it is a long queue for a crowded ride."
+            ]
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "The flat grid first, then one climb, then sunset.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Praça do Comércio",
+                    "detail": "The great riverfront square, and the obvious place to start. Walk north through the Baixa grid from here."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Santa Justa Lift",
+                    "detail": "A wrought-iron lift connecting the lower town to Chiado. The queue is long; the walk around it takes five minutes."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Carmo Convent",
+                    "detail": "A gothic church left roofless by the 1755 earthquake and never rebuilt. The most atmospheric ruin in the city."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Time Out Market",
+                    "detail": "Thirty-odd stalls from well-known Lisbon kitchens under one roof. Busy, but genuinely good."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Miradouro da Senhora do Monte",
+                    "detail": "The highest viewpoint in Lisbon and the least crowded of the famous ones. The best sunset in the city."
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "heading": "What it actually looks like",
+            "youtubeId": "TxHk2QSiJUs",
+            "title": "Lisbon in 3 Days - How to See It All",
+            "caption": "A three-day walkthrough covering most of the stops above. Video by Ian and Ana on YouTube."
+        },
+        {
+            "type": "table",
+            "heading": "What to prioritise if you lose a day",
+            "columns": [
+                "Sight",
+                "Skippable?",
+                "Why"
+            ],
+            "rows": [
+                [
+                    "São Jorge Castle",
+                    "No",
+                    "The view that orients you to the whole city"
+                ],
+                [
+                    "Alfama",
+                    "No",
+                    "The oldest quarter, and the reason Lisbon looks like Lisbon"
+                ],
+                [
+                    "Jerónimos Monastery",
+                    "No",
+                    "The best building in the city, comfortably"
+                ],
+                [
+                    "Pastéis de Belém",
+                    "No",
+                    "Ten minutes, and next door to the monastery"
+                ],
+                [
+                    "Belém Tower",
+                    "Outside only",
+                    "Impressive from the path; the interior is small and slow"
+                ],
+                [
+                    "Santa Justa Lift",
+                    "Yes",
+                    "Long queue for a short ride you can walk around"
+                ],
+                [
+                    "Tram 28",
+                    "Yes",
+                    "Walk the route instead and you will see more of it"
+                ]
+            ]
+        },
+        {
+            "type": "list",
+            "heading": "What three days does not cover",
+            "intro": "Cutting deliberately beats rushing. These need more time than you have:",
+            "items": [
+                "**Sintra** — a full day, not a half day. Rushing it is worse than saving it for a longer trip.",
+                "**Cascais** — pleasant, and entirely optional on a first visit.",
+                "**The big museums** (Gulbenkian, Ancient Art) — excellent, and a half day each.",
+                "**A second viewpoint circuit** — after three miradouros they begin to blur."
+            ]
+        }
+    ],
+    "faqHeading": "Common questions about 3 days in Lisbon",
+    "faq": [
+        {
+            "q": "Is 3 days enough for Lisbon?",
+            "a": "For the city itself, yes. Three days covers the castle, Alfama, Belém and the Baixa and Chiado hills at a reasonable pace. It is not enough to add Sintra properly, which needs a full day of its own."
+        },
+        {
+            "q": "What are the must-see attractions in Lisbon?",
+            "a": "São Jorge Castle, the Alfama district, Jerónimos Monastery and Belém Tower are the four nobody should miss. After those, the Carmo Convent ruins and a sunset from Miradouro da Senhora do Monte are the strongest additions."
+        },
+        {
+            "q": "Should I ride Tram 28?",
+            "a": "Only in the first hour of service or late in the evening. In the middle of the day it is a long queue for a crowded ride, and walking the same route through Graça and Alfama shows you more of it."
+        },
+        {
+            "q": "Do I need to book Jerónimos Monastery in advance?",
+            "a": "Yes. It is the busiest ticketed sight in Lisbon and the walk-up queue is long for most of the year. Book a timed slot before you travel and arrive near opening."
+        },
+        {
+            "q": "Is Lisbon walkable?",
+            "a": "Very, but it is steep. The distances are short and the hills are not. Budget roughly double the time your map suggests for anything between the river and the castle, and use the funiculars and metro when your legs have had enough."
+        }
+    ],
+    "related": [],
+    "cta": {
+        "heading": "Tailored to your trip",
+        "body": "Travelling to Lisbon? Plan your trip around your real arrival and departure times."
+    }
+}
