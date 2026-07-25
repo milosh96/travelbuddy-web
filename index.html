@@ -1,10 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="assets/code-icon.svg">
-    <title>Nomad Map - Discover & Track Places</title>
+    <link rel="icon" type="image/png" href="assets/appicon.png">
+    <link rel="apple-touch-icon" href="assets/appicon.png">
+    <title>Travel Planner: Owlio — Day-by-Day Trip Itinerary App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="description"
+        content="Get a day-by-day trip itinerary built around your real arrival and departure times. Every stop on a map, tickets in one place, landmarks identified by camera.">
+    <meta name="keywords"
+        content="travel planner, itinerary planner, trip planner app, day by day itinerary, travel itinerary, city trip planner, landmark identifier, travel documents app, trip map, vacation planner">
+    <meta name="author" content="Milos Cubrilo">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#5b2a9e">
+
+    <link rel="canonical" href="https://owlio.online/">
+
+    <!-- iOS Smart App Banner — surfaces the App Store listing to Safari visitors on iPhone -->
+    <meta name="apple-itunes-app" content="app-id=6753716189">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Travel Planner: Owlio">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://owlio.online/">
+    <meta property="og:title" content="Travel Planner: Owlio — Plan Smarter, Travel Better">
+    <meta property="og:description"
+        content="A day-by-day itinerary built around your real arrival and departure times, plotted on a map, with your documents and landmark recognition in one app.">
+    <meta property="og:image" content="https://owlio.online/assets/appicon.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Travel Planner: Owlio app icon">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Travel Planner: Owlio — Plan Smarter, Travel Better">
+    <meta name="twitter:description"
+        content="A day-by-day itinerary built around your real arrival and departure times, plotted on a map, with your documents and landmark recognition in one app.">
+    <meta name="twitter:image" content="https://owlio.online/assets/appicon.png">
+    <meta name="twitter:image:alt" content="Travel Planner: Owlio app icon">
+
+    <!-- No-op until the analytics module loads, so an early click can't throw -->
+    <script>window.trackEvent = window.trackEvent || function () { };</script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://owlio.online/#website",
+                "url": "https://owlio.online/",
+                "name": "Travel Planner: Owlio",
+                "description": "A day-by-day trip itinerary built around your real arrival and departure times.",
+                "inLanguage": "en-US",
+                "publisher": { "@id": "https://owlio.online/#author" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://owlio.online/#author",
+                "name": "Milos Cubrilo",
+                "email": "miloscubrilo96@gmail.com"
+            },
+            {
+                "@type": "MobileApplication",
+                "@id": "https://owlio.online/#app",
+                "name": "Travel Planner: Owlio",
+                "url": "https://owlio.online/",
+                "description": "A travel planning app that builds a day-by-day itinerary around your real arrival and departure times, plots your plans on a map, stores your travel documents, identifies landmarks and paintings, and finds nearby restaurants, cafes and nightlife.",
+                "applicationCategory": "TravelApplication",
+                "operatingSystem": "iOS 15.6 or later",
+                "softwareVersion": "1.0.4",
+                "downloadUrl": "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+                "installUrl": "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+                "featureList": [
+                    "Time-aware itineraries built around real arrival and departure times",
+                    "Every stop grouped and numbered on an interactive map",
+                    "Boarding passes, hotel confirmations and tickets stored with the plan",
+                    "Landmark and painting identification with the camera",
+                    "Nearby restaurants, cafes and nightlife, ranked",
+                    "Daily weather forecast alongside each day"
+                ],
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                },
+                "author": { "@id": "https://owlio.online/#author" },
+                "publisher": { "@id": "https://owlio.online/#author" },
+                "image": "https://owlio.online/assets/appicon.png",
+                "screenshot": [
+                    "https://owlio.online/assets/tp_sg1.png",
+                    "https://owlio.online/assets/tp_sg2.png",
+                    "https://owlio.online/assets/tp_sg3.png",
+                    "https://owlio.online/assets/tp_sg4.png",
+                    "https://owlio.online/assets/tp_sg5.png"
+                ],
+                "isPartOf": { "@id": "https://owlio.online/#website" }
+            }
+        ]
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -13,235 +116,740 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #0f0f10;
-            color: #eaeaea;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
             line-height: 1.6;
-            padding: 4rem 2rem 2rem 2rem;
         }
 
-        .container {
+        :root {
+            --accent: #a67ee8;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 5rem 4rem 5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Primary color */
-        :root { --primary: #5B3991; }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 3rem;
-            align-items: center;
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .hero-copy h1 {
-            font-size: 3rem;
+        .hero h1 {
+            font-size: 3.1rem;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 1rem;
+            line-height: 1.1;
             letter-spacing: -0.02em;
         }
 
-        .tagline {
-            color: #cfcfcf;
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-sub {
             font-size: 1.15rem;
-            margin-bottom: 1.25rem;
+            color: #b0b0b0;
+            max-width: 460px;
+            line-height: 1.65;
         }
 
-        .bullets {
-            list-style: none;
-            margin: 1rem 0 2rem 0;
+        .hero-sub strong {
+            color: var(--accent);
+            font-weight: 600;
         }
-        .bullets li {
+
+        .hero-note {
+            font-size: 0.95rem;
+            color: #808080;
+            margin-top: -0.5rem;
+        }
+
+        .badges {
             display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin: 0.4rem 0;
-            color: #e5e5e5;
-        }
-        .bullets li::before {
-            content: "";
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-top: 0.35rem;
-            border-radius: 50%;
-            background: var(--primary);
-            box-shadow: 0 0 0 3px rgba(244,105,82,0.15);
-            flex-shrink: 0;
-        }
-
-        .store-links {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        .store-links a {
-            display: inline-block;
-            transition: transform 0.15s ease;
-        }
-        .store-links a:hover {
-            transform: translateY(-2px);
-        }
-        .store-badge {
-            height: 54px;
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 520px;
-        }
-        .phone {
-            position: absolute;
-            width: 230px;
-            height: 460px;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow:
-                0 10px 30px rgba(0,0,0,0.45),
-                0 0 0 2px rgba(255,255,255,0.05),
-                0 0 0 8px rgba(244,105,82,0.08);
-            background: #000;
-        }
-        .phone img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .phone.center { left: 50%; top: 30px; transform: translateX(-50%); z-index: 3; }
-        .phone.left { left: calc(50% - 260px); top: 70px; transform: rotate(-3deg); z-index: 2; }
-        .phone.right { left: calc(50% + 260px - 230px); top: 90px; transform: rotate(3deg); z-index: 2; }
-
-        .app-icon {
-            width: 128px;
-            height: 128px;
-            margin-bottom: 1rem;
-        }
-        .features-row .bullets { flex: 1; }
-        .title-icon {
-            width: 156px;
-            height: 156px;
-            display: inline-block;
-            vertical-align: -10px;
-            margin-right: 1px;
-        }
-
-        .features-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin: 1rem 0 2rem 0;
-        }
-        .features-icon {
-            width: 300px;
-            height: 300px;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero-copy h1 { font-size: 2.2rem; }
-            .store-badge { height: 48px; }
-            .hero-visual { height: 440px; }
-            .phone { width: 200px; height: 400px; }
-            .phone.center { top: 20px; }
-            .phone.left { left: calc(50% - 200px); top: 60px; transform: rotate(-2deg); }
-            .phone.right { left: calc(50% + 200px - 200px); top: 70px; transform: rotate(2deg); }
-            .app-icon { width: 88px; height: 88px; }
-            .title-icon { width: 44px; height: 44px; vertical-align: -8px; }
-            .features-row { gap: 0.5rem; align-items: flex-start; }
-            .features-icon { width: 300px; height: 300px; margin-left: auto; }
-        }
-
-        /* Phone-specific tightening */
-        @media (max-width: 600px) {
-            .features-row { gap: 0; }
-            .features-icon { display: none; }
-            .badge-row a {
-                flex: 1 1 100%;
-                display: flex;
-                justify-content: center;
-            }
-            .badge-row img {
-                max-width: 100%;
-                height: auto;
-            }
-        }
-        .badge-row {
-            width: 100%;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-top: 0.25rem;
         }
-        .footer {
-            width: 100%;
+
+        .badges a img {
+            height: 64px;
+            border-radius: 6px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .badges a img:hover {
+            opacity: 1;
+        }
+
+        .hero-screenshots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-screenshots img {
+            width: auto;
+            border-radius: 24px;
+            flex-shrink: 0;
+        }
+
+        .hero-screenshots img:nth-child(1) {
+            height: 560px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.65);
+        }
+
+        .hero-screenshots img:nth-child(2) {
+            height: 480px;
+            position: relative;
+            z-index: 1;
+            margin-left: -44px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+            opacity: 0.8;
+        }
+
+        /* ── Divider ── */
+        .section-divider {
+            height: 1px;
+            background: #2d2d2d;
+            margin: 0 2rem;
+        }
+
+        /* ── Features ── */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
             text-align: center;
-            padding: 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background-color: #222;
+            border: 1px solid #2d2d2d;
+            border-radius: 14px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(166, 126, 232, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ── Steps ── */
+        .steps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .steps-grid .feature-card {
+            flex: 0 1 calc(33.333% - 1rem);
+            min-width: 240px;
+        }
+
+        .step-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1;
+        }
+
+        .feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #909090;
+            line-height: 1.55;
+        }
+
+        /* ── Screenshots ── */
+        .screenshots {
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .screenshots .section-label,
+        .screenshots .section-title {
+            padding: 0 2rem;
+        }
+
+        .screenshots-wrapper {
+            position: relative;
+        }
+
+        .screenshots-fade {
+            display: none;
+        }
+
+        .screenshots-dots {
+            display: none;
+        }
+
+        .screenshots-track {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem 2rem 1rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .screenshots-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshots-track img {
+            height: 520px;
+            width: auto;
+            border-radius: 28px;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .screenshots-track img:hover {
+            transform: translateY(-6px);
+        }
+
+        @media (max-width: 768px) {
+            .screenshots-fade {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 72px;
+                background: linear-gradient(to right, transparent, #1a1a1a);
+                pointer-events: none;
+                transition: opacity 0.3s;
+            }
+
+            .screenshots-dots {
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.75rem 0 0;
+            }
+
+            .dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #444;
+                cursor: pointer;
+                transition: background 0.2s, transform 0.2s;
+            }
+
+            .dot.active {
+                background: var(--accent);
+                transform: scale(1.4);
+            }
+        }
+
+        /* ── About ── */
+        .about {
+            background-color: #1e1e1e;
+            border-top: 1px solid #2d2d2d;
+            border-bottom: 1px solid #2d2d2d;
+            padding: 5rem 2rem;
+        }
+
+        .about-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .about-inner p {
+            font-size: 1.05rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .about-inner p strong {
+            color: #e0e0e0;
+        }
+
+        .app {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .app img {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        /* ── Chips ── */
+        .packs {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pack-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
             margin-top: 2rem;
         }
 
-        .footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
+        .chip {
+            background-color: #252525;
+            border: 1px solid #333;
+            border-radius: 999px;
+            padding: 0.45rem 1.1rem;
             font-size: 0.9rem;
-            border-bottom: 1px solid white;
+            color: #c0c0c0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .footer a:hover {
-            opacity: 0.8;
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid #2d2d2d;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #777;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        footer a:hover {
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 3rem 1.5rem 3rem;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            /* lift the hero children up so the title, images and text can interleave */
+            .hero-content {
+                display: contents;
+            }
+
+            .hero h1 {
+                order: -2;
+                font-size: 2.1rem;
+            }
+
+            .hero-screenshots {
+                order: -1;
+                margin: 0.75rem 0;
+            }
+
+            .badges {
+                justify-content: center;
+            }
+
+            .hero-sub {
+                max-width: 100%;
+            }
+
+            .hero-screenshots img:nth-child(1) {
+                height: 360px;
+            }
+
+            .hero-screenshots img:nth-child(2) {
+                height: 290px;
+                margin-left: -36px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero {
+                padding: 4rem 2.5rem;
+                gap: 2.5rem;
+            }
+
+            .hero-screenshots img {
+                height: 340px;
+            }
+
+            .hero-screenshots img:nth-child(1) {
+                height: 400px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .screenshots-track {
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
+
+    <div class="page">
+
+        <!-- Hero -->
         <section class="hero">
-            <div class="hero-copy">
-                <h1>Travel Planner: Owlio</h1>
-                <p class="tagline">Plan smarter. Travel better.</p>
-                <div class="features-row">
-                    <ul class="bullets">
-                        <li>Itinerary planner based on your arrival & departure times</li>
-                        <li>View your plans grouped on an interactive map</li>
-                        <li>Save all of your important documents in one place</li>
-                        <li>Recognize Landmarks and Paintings </li>
-                        <li>Find nearby best restaurants, cafes, and nightlife</li>
-                    </ul>
-                    <img class="features-icon" src="assets/appicon.png" alt="Travel Buddy: Owlio app icon">
-                </div>
-                <div class="store-links">
-                    <a href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189" aria-label="Download on the App Store">
-                        <img class="store-badge" src="assets/app-store-badge.png" alt="Download on the App Store">
-                    </a>
+            <div class="hero-content">
+                <h1>Your Whole Trip,<br><span>Planned in Seconds.</span></h1>
+                <p class="hero-sub">Pick a city, say when you land and when you leave, and choose how packed you want
+                    the days. What comes back is a <strong>real hour-by-hour plan</strong> — one that knows the first
+                    day starts at 4 PM and the last one ends at 11 AM at the airport.</p>
+                <p class="hero-note">Try it for free. No account needed.</p>
+                <div class="badges">
+                    <a href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
+                        aria-label="Download Travel Planner: Owlio on the App Store"
+                        onclick="trackEvent('app_download_click', {app_store: 'app_store', placement: 'hero'});"><img
+                            src="assets/app-store-badge.png" width="240" height="80"
+                        alt="Download Travel Planner: Owlio on the App Store"></a>
                 </div>
             </div>
-            <div class="hero-visual" aria-hidden="true">
-                <div class="phone left">
-                    <img src="assets/screenshot1.png" alt="Home screen">
+            <div class="hero-screenshots">
+                <img src="assets/tp_sg1.png" width="1072" height="2215" fetchpriority="high" decoding="async"
+                    alt="Travel Planner: Owlio home screen — enter a city, your dates and a pace to generate a plan">
+                <img src="assets/tp_sg2.png" width="1072" height="2215" decoding="async"
+                    alt="Travel Planner: Owlio day-by-day itinerary with timed stops in New York">
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+        <!-- How it works -->
+        <section class="features" id="how">
+            <p class="section-label">How it works</p>
+            <h2 class="section-title">A full plan in five steps.</h2>
+            <div class="steps-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon"><span class="step-number">1</span></div>
+                    <h3>Pick Your City</h3>
+                    <p>Type where you're going. One city per trip, so the plan stays walkable instead of scattered
+                        across a country.</p>
                 </div>
-                <div class="phone center">
-                    <img src="assets/screenshot2.png" alt="Daily itinierary screen">
+
+                <div class="feature-card">
+                    <div class="feature-icon"><span class="step-number">2</span></div>
+                    <h3>Set Arrival &amp; Departure</h3>
+                    <p>Not just the dates — the times. Landing at 4 PM and flying out Saturday morning gives you very
+                        different days than a clean check-in to check-out.</p>
                 </div>
-                <div class="phone right">
-                    <img src="assets/screenshot3.png" alt="Map screen">
+
+                <div class="feature-card">
+                    <div class="feature-icon"><span class="step-number">3</span></div>
+                    <h3>Choose Your Tempo</h3>
+                    <p>Balanced, or lean toward relaxed or packed. This decides how much gets squeezed into a day and
+                        how much room is left to just wander.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><span class="step-number">4</span></div>
+                    <h3>Tweak It</h3>
+                    <p>Generate the plan, then make it yours — reorder stops, drop the ones you don't care about, and
+                        add the places you already had in mind.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><span class="step-number">5</span></div>
+                    <h3>Go Enjoy It</h3>
+                    <p>Follow the day on the map, keep your tickets a tap away, and let the app tell you what you're
+                        looking at and where to eat next.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Screenshots -->
+        <section class="screenshots">
+            <p class="section-label">See it in action</p>
+            <h2 class="section-title">Built for people who actually go</h2>
+            <div class="screenshots-wrapper">
+                <div class="screenshots-track">
+                    <img src="assets/tp_sg1.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Plan your next trip — enter a city, dates and pace, then generate a plan">
+                    <img src="assets/tp_sg2.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Day-by-day itinerary with timed stops, descriptions and directions">
+                    <img src="assets/tp_sg3.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Every stop for the day grouped on an interactive map of New York">
+                    <img src="assets/tp_sg4.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Travel Planner: Owlio identifies landmarks and paintings with your camera">
+                    <img src="assets/tp_sg5.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Travel Planner: Owlio keeps your travel documents in one place, next to the plan they belong to">
+                </div>
+                <div class="screenshots-fade"></div>
+            </div>
+            <div class="screenshots-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Features -->
+        <section class="features">
+            <p class="section-label">What's inside</p>
+            <h2 class="section-title">Everything the trip needs, in one app.</h2>
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3.5 2" />
+                        </svg>
+                    </div>
+                    <h3>Time-Aware Itineraries</h3>
+                    <p>Plans are built around your real arrival and departure times, so the first and last day get the
+                        hours they actually have — not a full day each.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 3L4 5v16l5-2 6 2 5-2V3l-5 2-6-2z" />
+                            <path d="M9 3v16M15 5v16" />
+                        </svg>
+                    </div>
+                    <h3>Everything on a Map</h3>
+                    <p>See each day's stops grouped and numbered on an interactive map, so you can tell at a glance
+                        whether you've planned a walk or a commute.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z" />
+                            <path d="M14 3v5h5M9 13h6M9 17h4" />
+                        </svg>
+                    </div>
+                    <h3>Documents in One Place</h3>
+                    <p>Boarding passes, hotel confirmations, tickets and reservations live right next to the plan
+                        they belong to — findable when you're standing at the gate.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M3 8V6a2 2 0 012-2h2M17 4h2a2 2 0 012 2v2M21 16v2a2 2 0 01-2 2h-2M7 20H5a2 2 0 01-2-2v-2" />
+                            <circle cx="12" cy="12" r="3.2" />
+                        </svg>
+                    </div>
+                    <h3>Identify What You See</h3>
+                    <p>Point your camera at a landmark or a painting and find out what it is, who made it and why it
+                        matters — without hunting for a plaque.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Nearby, Ranked</h3>
+                    <p>Find the best restaurants, cafés and nightlife around you at that moment — useful when a plan
+                        falls through or dinner sneaks up on you.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4" />
+                            <path
+                                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                        </svg>
+                    </div>
+                    <h3>Weather at a Glance</h3>
+                    <p>The forecast sits alongside each day, so you can see the rain coming and swap the park for the
+                        gallery before you're already out in it.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Download -->
+        <section class="about" id="download">
+            <div class="about-inner" style="max-width:820px; text-align:center; align-items:center;">
+                <p class="section-label">Available for download on iOS</p>
+                <div class="app">
+                    <img src="assets/appicon.png" width="1024" height="1024" loading="lazy" decoding="async"
+                        alt="Travel Planner: Owlio app icon">
+                    Travel Planner: Owlio
+                </div>
+                <div class="badges">
+                    <a href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
+                        aria-label="Download Travel Planner: Owlio on the App Store"
+                        onclick="trackEvent('app_download_click', {app_store: 'app_store', placement: 'download_section'});"><img
+                            src="assets/app-store-badge.png" width="240" height="80" loading="lazy" decoding="async"
+                            alt="Download Travel Planner: Owlio on the App Store"></a>
                 </div>
             </div>
         </section>
+
+        <div class="section-divider"></div>
+
+        <!-- What lands in a plan -->
+        <section class="packs">
+            <p class="section-label">In every plan</p>
+            <h2 class="section-title">The whole day, covered</h2>
+            <div class="pack-chips">
+                <div class="chip">Landmarks</div>
+                <div class="chip">Museums &amp; Galleries</div>
+                <div class="chip">Restaurants</div>
+                <div class="chip">Cafés</div>
+                <div class="chip">Nightlife</div>
+                <div class="chip">Parks</div>
+                <div class="chip">Viewpoints</div>
+                <div class="chip">Day Trips</div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Travel Planner: Owlio &mdash; <a href="index.html">Home</a> &middot;
+                <a href="terms.html">Terms</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot;
+                <a href="support.html">Support</a>
+            </p>
+        </footer>
+
     </div>
-    <div class="footer">
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="support.html">Support</a>
-    </div>
+
+    <script>
+        // ── Screenshots carousel functionality ──
+        const track = document.querySelector('.screenshots-track');
+        const dots = Array.from(document.querySelectorAll('.dot'));
+        const fade = document.querySelector('.screenshots-fade');
+
+        function updateDots() {
+            const imgs = Array.from(track.querySelectorAll('img'));
+            const center = track.scrollLeft + track.clientWidth / 2;
+            let activeIndex = 0;
+            imgs.forEach((img, i) => {
+                if (img.offsetLeft <= center) activeIndex = i;
+            });
+            dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+            if (fade) {
+                const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+                fade.style.opacity = atEnd ? '0' : '1';
+            }
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const imgs = Array.from(track.querySelectorAll('img'));
+                if (imgs[i]) track.scrollTo({ left: imgs[i].offsetLeft, behavior: 'smooth' });
+            });
+        });
+
+        track.addEventListener('scroll', updateDots, { passive: true });
+    </script>
+
+    <!-- Firebase Analytics: automatic page_view + app_download_click events -->
+    <script type="module" src="assets/firebase-analytics.js"></script>
+
 </body>
-</html> 
+
+</html>
