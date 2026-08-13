@@ -13,11 +13,14 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = __dirname;
 const CONTENT = path.join(ROOT, 'content');
 const GUIDES_SRC = path.join(CONTENT, 'guides');
 const GUIDES_OUT = path.join(ROOT, 'guides');
+const SITEMAP_STATE = path.join(CONTENT, 'sitemap-state.json');
+const LLMS_TEMPLATE = path.join(CONTENT, 'llms-template.txt');
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -63,6 +66,45 @@ const STYLES = `
 
         .wrap { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
         .wrap-wide { max-width: 1100px; }
+
+        /* ── Top nav ──
+           Same bar as index.html: sticky, hides on scroll down, returns on scroll up. */
+        .topnav-bar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: transform 0.3s ease, border-color 0.2s ease;
+        }
+        .topnav-bar.is-scrolled { border-bottom-color: #e5e3ec; }
+        .topnav-bar.is-hidden { transform: translateY(-100%); }
+        @media (prefers-reduced-motion: reduce) { .topnav-bar { transition: none; } }
+
+        .topnav {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0.9rem 4rem;
+        }
+        .topnav-brand {
+            display: flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; color: #16161c; font-weight: 600; font-size: 1rem;
+        }
+        .topnav-brand img { width: 30px; height: 30px; border-radius: 7px; }
+        .topnav-links { display: flex; align-items: center; gap: 1.75rem; }
+        .topnav-links a {
+            color: #5f5f6b; text-decoration: none; font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .topnav-links a:hover { color: var(--accent); }
+        .topnav-links a.nav-download {
+            display: inline-flex; align-items: center;
+            padding: 0.5rem 1.15rem; border-radius: 999px;
+            background: var(--accent); color: #ffffff;
+            font-weight: 600; font-size: 0.9rem; white-space: nowrap;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .topnav-links a.nav-download:hover {
+            background: #4a2183; color: #ffffff; transform: translateY(-1px);
+        }
 
         /* ── Breadcrumb ── */
         .crumb { font-size: 0.85rem; color: #6f6f7a; margin-bottom: 2rem; }
@@ -211,6 +253,41 @@ const STYLES = `
             flex-shrink: 0; margin-top: -0.12em;
         }
 
+        /* ── Inline CTA ──
+           A quiet strip dropped in after the first image, where the reader is
+           engaged but far from the closing CTA. Deliberately lighter than .cta:
+           outlined store buttons, no screenshots, no heading hierarchy. */
+        .cta-inline {
+            display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+            background-color: #faf9fc; border: 1px solid #e5e3ec; border-radius: 14px;
+            padding: 1rem 1.25rem; margin: 2.5rem 0;
+        }
+        .cta-inline img {
+            width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+        }
+        .cta-inline p {
+            flex: 1 1 260px; margin: 0; font-size: 0.95rem; line-height: 1.45;
+            color: #6f6f7a;
+        }
+        .cta-inline strong { color: #16161c; font-weight: 600; }
+        .cta-inline-btn {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            padding: 0.55rem 1.05rem; border-radius: 10px;
+            border: 1px solid #d8d4e2; background: #ffffff;
+            color: var(--accent); font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; white-space: nowrap;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .cta-inline-btn:hover { background: #f2eefa; border-color: var(--accent); }
+        .cta-inline-btn svg {
+            width: 1.05em; height: 1.05em; fill: currentColor;
+            flex-shrink: 0; margin-top: -0.1em;
+        }
+        @media (max-width: 560px) {
+            .cta-inline { gap: 0.85rem; }
+            .cta-inline-btn { flex: 1 1 100%; justify-content: center; }
+        }
+
         /* Mirrors the homepage hero pairing. */
         .cta-shots { display: flex; align-items: center; justify-content: center; }
         .cta-shots img { width: auto; flex-shrink: 0; }
@@ -261,6 +338,14 @@ const STYLES = `
         footer a:hover { color: var(--accent); }
 
         @media (max-width: 768px) {
+            .topnav { padding: 0.75rem 1.25rem; gap: 0.75rem; }
+            .topnav-brand span { display: none; }
+            .topnav-links { gap: 1.1rem; }
+            .topnav-links a.nav-download { padding: 0.45rem 0.95rem; font-size: 0.85rem; }
+            /* Three nav items don't fit a phone — drop the homepage anchor and
+               keep the two that lead somewhere from here. */
+            .topnav-links a.nav-anchor { display: none; }
+
             .wrap { padding: 2rem 1.25rem 3.5rem; }
             h1 { font-size: 1.9rem; }
             h2 { font-size: 1.35rem; }
@@ -287,8 +372,9 @@ function head(site, { title, description, url, ogTitle, jsonld, image }) {
     return `<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="${site.assetPath}appicon.png">
-    <link rel="apple-touch-icon" href="${site.assetPath}appicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${site.assetPath}favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="${site.assetPath}favicon-192.png">
+    <link rel="apple-touch-icon" href="${site.assetPath}favicon-180.png">
     <title>${esc(title)}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -329,13 +415,82 @@ ${JSON.stringify(jsonld, null, 4).split('\n').map(l => '    ' + l).join('\n')}
 </head>`;
 }
 
+/**
+ * The homepage top nav, reproduced on every generated page so the header is the
+ * same everywhere. `placement` tags the download click so nav conversions on a
+ * guide are separable from the homepage in analytics.
+ */
+const topnav = (site, prefix, placement) => `    <div class="topnav-bar" id="topnav-bar">
+        <nav class="topnav">
+            <a class="topnav-brand" href="${prefix}index.html">
+                <img src="${site.assetPath}appicon.png" width="1024" height="1024" decoding="async"
+                    alt="${esc(site.name)} app icon">
+                <span>${esc(site.shortName || site.name)}</span>
+            </a>
+            <div class="topnav-links">
+                <a class="nav-anchor" href="${prefix}index.html#how">How it works</a>
+                <a href="${prefix}guides/index.html">City Guides</a>
+                <a class="nav-download" href="${site.appStoreUrl}"
+                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'${placement}'});">Download
+                    now</a>
+            </div>
+        </nav>
+    </div>`;
+
+/** Hides the sticky nav on scroll down, brings it back on scroll up. Mirrors index.html. */
+const NAV_SCRIPT = `    <script>
+        (function () {
+            const bar = document.getElementById('topnav-bar');
+            if (!bar) return;
+
+            const HIDE_AFTER = 220;   // don't hide until past the masthead
+            const DEADZONE = 6;       // ignore scroll jitter
+            let lastY = window.scrollY;
+            let ticking = false;
+
+            function onScroll() {
+                const y = Math.max(0, window.scrollY);
+                const delta = y - lastY;
+
+                bar.classList.toggle('is-scrolled', y > 4);
+
+                if (y <= HIDE_AFTER) {
+                    bar.classList.remove('is-hidden');
+                } else if (Math.abs(delta) > DEADZONE) {
+                    bar.classList.toggle('is-hidden', delta > 0);
+                }
+
+                lastY = y;
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(onScroll);
+                }
+            }, { passive: true });
+
+            onScroll();
+        })();
+    </script>`;
+
 const footer = (site, prefix) => `    <footer>
         <p>&copy; ${new Date().getFullYear()} ${esc(site.name)} &mdash; <a href="${prefix}index.html">Home</a> &middot;
             <a href="${prefix}guides/index.html">City Guides</a> &middot;
             <a href="${prefix}terms.html">Terms</a> &middot; <a href="${prefix}privacy-policy.html">Privacy</a> &middot;
-            <a href="${prefix}support.html">Support</a>
+            <a href="${prefix}support.html">Support</a> &middot;
+            <a href="#" onclick="openCookieSettings();return false;">Cookie settings</a>
         </p>
     </footer>`;
+
+/**
+ * Cookie consent. Sets Consent Mode v2 defaults and loads Firebase Analytics only
+ * once the visitor accepts, so no Google request or cookie happens before then.
+ * Must be on every page — that is what makes the banner site-wide.
+ */
+const CONSENT_SCRIPT = (prefix) =>
+    `    <script src="${prefix}assets/consent.js"></script>`;
 
 // ── section renderers ────────────────────────────────────────────────────────
 
@@ -428,6 +583,9 @@ const RENDER = {
         `        </div>`,
     ].filter(Boolean).join('\n'),
 };
+
+/** Section types that put a picture on screen — where the inline CTA follows. */
+const IMAGE_SECTIONS = new Set(['image', 'gallery', 'video']);
 
 const slugify = (s) => plain(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -552,6 +710,35 @@ function renderGuide(site, g, all) {
         .map(slug => all.find(x => x.slug === slug))
         .filter(Boolean);
 
+    const hero = g.heroImage ? [
+        `        <figure class="fig">`,
+        // Hero is above the fold, so it loads eagerly with high priority.
+        `            <img class="fig-img" src="../assets/guides/${g.heroImage.src}"`,
+        `                alt="${esc(g.heroImage.alt)}" width="${g.heroImage.width}" height="${g.heroImage.height}"`,
+        `                fetchpriority="high" decoding="async">`,
+        figCaption(g.heroImage),
+        `        </figure>`,
+    ].filter(Boolean).join('\n') : null;
+
+    // The inline CTA follows the first image the reader meets: the hero if there is
+    // one, otherwise the first image-bearing section. A guide with no images at all
+    // simply doesn't get one — the closing CTA already covers it.
+    const inlineCta = g.inlineCta === false ? null : ctaInline(site, g);
+    let ctaPending = Boolean(inlineCta);
+
+    const afterHero = (ctaPending && hero) ? (ctaPending = false, inlineCta) : null;
+
+    const sections = [];
+    for (const s of g.sections || []) {
+        const fn = RENDER[s.type];
+        if (!fn) throw new Error(`${g.slug}: unknown section type "${s.type}"`);
+        sections.push(fn(s));
+        if (ctaPending && IMAGE_SECTIONS.has(s.type)) {
+            sections.push(inlineCta);
+            ctaPending = false;
+        }
+    }
+
     const body = [
         `    <div class="wrap">`,
         `        <nav class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">City Guides</a> &rsaquo; ${esc(g.title)}</nav>`,
@@ -559,20 +746,9 @@ function renderGuide(site, g, all) {
         `        <h1>${inline(g.title)}</h1>`,
         g.standfirst && `        <p class="standfirst">${inline(g.standfirst)}</p>`,
         `        <p class="byline">Updated ${fmtDate(g.dateModified || g.datePublished)} &middot; ${Math.max(1, Math.round(words / 220))} min read</p>`,
-        g.heroImage ? [
-            `        <figure class="fig">`,
-            // Hero is above the fold, so it loads eagerly with high priority.
-            `            <img class="fig-img" src="../assets/guides/${g.heroImage.src}"`,
-            `                alt="${esc(g.heroImage.alt)}" width="${g.heroImage.width}" height="${g.heroImage.height}"`,
-            `                fetchpriority="high" decoding="async">`,
-            figCaption(g.heroImage),
-            `        </figure>`,
-        ].filter(Boolean).join('\n') : null,
-        ...(g.sections || []).map(s => {
-            const fn = RENDER[s.type];
-            if (!fn) throw new Error(`${g.slug}: unknown section type "${s.type}"`);
-            return fn(s);
-        }),
+        hero,
+        afterHero,
+        ...sections,
         g.faq && g.faq.length ? [
             `        <h2 id="faq">${esc(g.faqHeading || 'Common questions')}</h2>`,
             ...g.faq.map(f => [
@@ -611,12 +787,38 @@ ${head(site, {
     })}
 
 <body>
+${topnav(site, '../', `guide_nav_${g.slug}`)}
 ${body}
 ${footer(site, '../')}
-${hasVideo ? VIDEO_SCRIPT + '\n' : ''}</body>
+${NAV_SCRIPT}
+${hasVideo ? VIDEO_SCRIPT + '\n' : ''}${CONSENT_SCRIPT('../')}
+</body>
 
 </html>
 `;
+}
+
+/**
+ * Compact download strip placed after the first image of a guide, where the reader
+ * is engaged but still a long way from the closing CTA.
+ *
+ * Copy is overridable per guide via "inlineCta": { "heading": …, "body": … }, and
+ * the strip is suppressed entirely with "inlineCta": false.
+ */
+function ctaInline(site, g) {
+    const c = g.inlineCta || {};
+    return [
+        `        <aside class="cta-inline">`,
+        `            <img src="${site.assetPath}favicon-192.png" width="44" height="44" loading="lazy" decoding="async"`,
+        `                alt="">`,
+        `            <p><strong>${esc(c.heading || 'Want your whole trip planned?')}</strong> ` +
+        `${esc(c.body || `Try ${site.shortName || site.name} for free.`)}</p>`,
+        `            <a class="cta-inline-btn" href="${site.appStoreUrl}"`,
+        `                onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_inline_${g.slug}'});"><svg`,
+        `                    viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
+        `                    d="${APPLE_GLYPH}" /></svg>App Store</a>`,
+        `        </aside>`,
+    ].join('\n');
 }
 
 function cta(site, g) {
@@ -721,6 +923,7 @@ ${head(site, {
     })}
 
 <body>
+${topnav(site, '../', 'guides_hub_nav')}
     <div class="wrap wrap-wide">
         <nav class="crumb"><a href="../index.html">Home</a> &rsaquo; City Guides</nav>
         <p class="eyebrow">${esc(site.hub.eyebrow)}</p>
@@ -731,6 +934,8 @@ ${cards || '            <p>No guides published yet.</p>'}
         </div>
     </div>
 ${footer(site, '../')}
+${NAV_SCRIPT}
+${CONSENT_SCRIPT('../')}
 </body>
 
 </html>
@@ -739,20 +944,105 @@ ${footer(site, '../')}
 
 // ── sitemap ──────────────────────────────────────────────────────────────────
 
+/**
+ * <lastmod> must move only when a page's content actually moves. Stamping today's
+ * date on every build tells search engines the whole site was rewritten each time,
+ * which trains them to ignore the signal.
+ *
+ * So we hash the bytes we emit for each page and remember, in content/sitemap-state.json,
+ * the date that hash first appeared. Same hash next build → same date.
+ *
+ * Guides are the exception: their dates come from datePublished/dateModified in the
+ * guide's own JSON, because "did this guide meaningfully change?" is an editorial
+ * call, not a byte-level one. Re-running the build after a template tweak should not
+ * announce every guide as updated.
+ */
+const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex').slice(0, 16);
+
+const loadSitemapState = () => {
+    try { return read(SITEMAP_STATE); } catch (e) { return {}; }
+};
+
+/** Existing published dates, so adopting this tracking doesn't reset the site to today. */
+function seedFromSitemap() {
+    const seed = {};
+    try {
+        const xml = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+        const re = /<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g;
+        let m;
+        while ((m = re.exec(xml))) seed[m[1]] = m[2];
+    } catch (e) {
+        /* No sitemap yet — first build, everything is genuinely new. */
+    }
+    return seed;
+}
+
+/**
+ * llms.txt — the plain-prose brief an AI assistant reads to describe the site.
+ *
+ * Prose lives in content/llms-template.txt and is edited by hand. Only the volatile
+ * parts are substituted here, so a new guide can never leave the file listing a stale
+ * set of pages:
+ *
+ *   {{GUIDES}}    one bullet per published guide
+ *   {{BASE}}      site.baseUrl
+ *   {{APPSTORE}}  site.appStoreUrl
+ */
+function renderLlms(site, guides) {
+    const tpl = fs.readFileSync(LLMS_TEMPLATE, 'utf8');
+
+    const rows = [...guides]
+        .sort((a, b) => a.slug.localeCompare(b.slug))
+        .map(g => `- [${g.title}](${site.baseUrl}guides/${g.slug}.html): ${plain(g.metaDescription)}`);
+
+    return tpl
+        .replace('{{GUIDES}}', rows.length ? rows.join('\n') : '_No guides published yet._')
+        .replace(/\{\{BASE\}\}/g, site.baseUrl)
+        .replace(/\{\{APPSTORE\}\}/g, site.appStoreUrl);
+}
+
 function renderSitemap(site, guides) {
     const today = new Date().toISOString().slice(0, 10);
+    const prev = loadSitemapState();
+    const seed = seedFromSitemap();
+    const next = {};
+
+    /** Date for a hash-tracked page: unchanged bytes keep their old date. */
+    const trackedDate = (loc, file) => {
+        let hash;
+        try {
+            hash = sha1(fs.readFileSync(path.join(ROOT, file)));
+        } catch (e) {
+            return seed[loc] || today;   // page not on disk; don't invent a change
+        }
+        const known = prev[loc];
+        // Unchanged since we last looked.
+        if (known && known.hash === hash) { next[loc] = known; return known.lastmod; }
+        // No hash on record but a date already published: adopt it rather than
+        // claiming today, so the first build after this change is a no-op.
+        const date = (!known && seed[loc]) ? seed[loc] : today;
+        next[loc] = { hash, lastmod: date };
+        return date;
+    };
+
     const entry = (loc, mod, freq, pri) =>
         `    <url>\n        <loc>${loc}</loc>\n        <lastmod>${mod}</lastmod>\n` +
         `        <changefreq>${freq}</changefreq>\n        <priority>${pri}</priority>\n    </url>`;
 
     const rows = [
-        ...site.staticPages.map(p => entry(site.baseUrl + p.path, p.lastmod || today, p.changefreq, p.priority)),
-        entry(`${site.baseUrl}guides/`, today, 'weekly', '0.6'),
+        ...site.staticPages.map(p => entry(
+            site.baseUrl + p.path,
+            p.lastmod || trackedDate(site.baseUrl + p.path, p.path || 'index.html'),
+            p.changefreq, p.priority)),
+        entry(`${site.baseUrl}guides/`,
+            trackedDate(`${site.baseUrl}guides/`, 'guides/index.html'), 'weekly', '0.6'),
         ...[...guides]
             .sort((a, b) => a.slug.localeCompare(b.slug))
             .map(g => entry(`${site.baseUrl}guides/${g.slug}.html`,
                 g.dateModified || g.datePublished, 'monthly', '0.8')),
     ];
+
+    fs.writeFileSync(SITEMAP_STATE, JSON.stringify(next, null, 2) + '\n');
 
     return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -814,6 +1104,9 @@ function main() {
 
     fs.writeFileSync(path.join(GUIDES_OUT, 'index.html'), renderHub(site, guides));
     console.log(`  guides/index.html`);
+
+    fs.writeFileSync(path.join(ROOT, 'llms.txt'), renderLlms(site, guides));
+    console.log(`  llms.txt (${guides.length} guide${guides.length === 1 ? '' : 's'} listed)`);
 
     fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(site, guides));
     console.log(`  sitemap.xml (${site.staticPages.length + guides.length + 1} urls)`);

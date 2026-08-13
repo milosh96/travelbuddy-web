@@ -1,4 +1,47 @@
+# owlio.online — everything is public and crawlable.
+
 User-agent: *
+Allow: /
+
+# ── AI crawlers ───────────────────────────────────────────────────────────────
+# These are already covered by the wildcard above; naming them makes the choice
+# explicit rather than accidental. They fall into two groups.
+#
+# RETRIEVAL — fetch a page so an assistant can answer about it and cite the source.
+# Blocking these removes the site from AI answers entirely. Keep them allowed.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# TRAINING — collect pages to train future models. No citation or traffic comes back.
+# Allowed here; switch Allow to Disallow on any of these to opt out of training
+# while keeping the retrieval bots above.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://owlio.online/sitemap.xml

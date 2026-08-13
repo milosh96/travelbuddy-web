@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/appicon.png">
-    <link rel="apple-touch-icon" href="assets/appicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
     <title>Travel Planner: Owlio — Day-by-Day Trip Itinerary App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +46,7 @@
     <meta name="twitter:image" content="https://owlio.online/assets/appicon.png">
     <meta name="twitter:image:alt" content="Travel Planner: Owlio app icon">
 
-    <!-- No-op until the analytics module loads, so an early click can't throw -->
+    <!-- No-op until consent.js installs the queueing version, so an early click can't throw -->
     <script>window.trackEvent = window.trackEvent || function () { };</script>
 
     <!-- Structured Data -->
@@ -103,7 +104,65 @@
                     "https://owlio.online/assets/tp_sg4.png",
                     "https://owlio.online/assets/tp_sg5.png"
                 ],
-                "isPartOf": { "@id": "https://owlio.online/#website" }
+                "isPartOf": { "@id": "https://owlio.online/#website" },
+                "sameAs": [
+                    "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://owlio.online/#faq",
+                "isPartOf": { "@id": "https://owlio.online/#website" },
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Is Owlio free?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Owlio is free to try on the App Store, and you don't need an account or a sign-up to generate a plan."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does Owlio decide what goes into each day?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "It plans around your real arrival and departure times rather than whole dates, so a 4 PM landing gets a half day instead of a full one. Your chosen pace — relaxed, balanced or packed — then sets how much goes into the days in between."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I change the plan after it's generated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. You can reorder stops, remove the ones you don't want and add places you already had in mind."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does Owlio work for multi-city trips?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Owlio plans one city per trip. That's deliberate — it keeps each day walkable instead of spreading stops across a country. For a two-city trip, create a plan for each city."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which devices does Owlio run on?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "iPhone and iPad, on iOS 15.6 or later. There is no Android version at the moment."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What's in the app besides the itinerary?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Every stop on an interactive map, your boarding passes and tickets stored with the plan, landmark and painting identification through the camera, ranked restaurants and bars nearby, and the daily forecast alongside each day."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -381,10 +440,18 @@
             margin-bottom: 3rem;
         }
 
+        /* Flex rather than grid so an odd final row centres instead of
+           hanging off the left edge. */
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 1.5rem;
+        }
+
+        .features-grid .feature-card {
+            flex: 0 1 calc(33.333% - 1rem);
+            min-width: 260px;
         }
 
         .feature-card {
@@ -423,25 +490,152 @@
             stroke-linejoin: round;
         }
 
-        /* ── Steps ── */
-        .steps-grid {
+        /* ── FAQ ──
+           Mirrors the guide template's treatment. Every question here is also a
+           node in the FAQPage schema below — if you edit one, edit the other, or
+           you are marking up text that isn't on the page. */
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
+            flex-direction: column;
+            gap: 0.85rem;
         }
 
-        .steps-grid .feature-card {
-            flex: 0 1 calc(33.333% - 1rem);
-            min-width: 240px;
+        /* <details> so the accordion works without JS and stays keyboard-operable.
+           The answer text is always in the DOM, which is what keeps the FAQPage
+           schema honest. */
+        .faq-item {
+            background-color: #f7f6fa;
+            border: 1px solid #e5e3ec;
+            border-radius: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item[open],
+        .faq-item:hover {
+            border-color: #d8d4e2;
+        }
+
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            padding: 1.15rem 1.5rem;
+            font-weight: 600;
+            color: #16161c;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        /* Drop the native disclosure triangle in favour of the +/x below. */
+        .faq-q::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-q:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
+            border-radius: 14px;
+        }
+
+        /* A plus built from two bars — rotating it 45° turns it into an x. */
+        .faq-toggle {
+            position: relative;
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .faq-toggle::before,
+        .faq-toggle::after {
+            content: '';
+            position: absolute;
+            background-color: var(--accent);
+            border-radius: 1px;
+        }
+
+        .faq-toggle::before {
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 2px;
+            margin-top: -1px;
+        }
+
+        .faq-toggle::after {
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+        }
+
+        .faq-item[open] .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .faq-toggle {
+                transition: none;
+            }
+        }
+
+        .faq-a {
+            padding: 0 1.5rem 1.35rem;
+            color: #5f5f6b;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ── Steps ──
+           Deliberately unlike .feature-card: no boxes, filled numerals, two columns.
+           This sits directly under the hero, so it has to read as a short sequence
+           at a glance — not as a second grid of features. */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.25rem 3.5rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.15rem;
         }
 
         .step-number {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent);
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
             line-height: 1;
+        }
+
+        .step h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #16161c;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+        }
+
+        .step p {
+            font-size: 0.92rem;
+            color: #6f6f7a;
+            line-height: 1.55;
         }
 
         .feature-card h3 {
@@ -710,8 +904,13 @@
                 margin-left: -30px;
             }
 
-            .features-grid {
+            .features-grid .feature-card {
+                flex: 1 1 100%;
+            }
+
+            .steps-grid {
                 grid-template-columns: 1fr;
+                gap: 1.75rem;
             }
         }
 
@@ -729,8 +928,8 @@
                 height: 400px;
             }
 
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .features-grid .feature-card {
+                flex: 0 1 calc(50% - 0.75rem);
             }
         }
 
@@ -748,29 +947,29 @@
 
         <!-- Top nav — sticky; hides on scroll down, returns on scroll up -->
         <div class="topnav-bar" id="topnav-bar">
-        <nav class="topnav">
-            <a class="topnav-brand" href="index.html">
-                <img src="assets/appicon.png" width="1024" height="1024" decoding="async"
-                    alt="Travel Planner: Owlio app icon">
-                <span>Owlio</span>
-            </a>
-            <div class="topnav-links">
-                <a href="#how">How it works</a>
-                <a href="guides/index.html">City Guides</a>
-                <a class="nav-download" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
-                    onclick="trackEvent('app_download_click', {app_store: 'app_store', placement: 'nav'});">Download
-                    now</a>
-            </div>
-        </nav>
+            <nav class="topnav">
+                <a class="topnav-brand" href="index.html">
+                    <img src="assets/appicon.png" width="1024" height="1024" decoding="async"
+                        alt="Travel Planner: Owlio app icon">
+                    <span>Owlio</span>
+                </a>
+                <div class="topnav-links">
+                    <a href="#how">How it works</a>
+                    <a href="guides/index.html">City Guides</a>
+                    <a class="nav-download" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
+                        onclick="trackEvent('app_download_click', {app_store: 'app_store', placement: 'nav'});">Download
+                        now</a>
+                </div>
+            </nav>
         </div>
 
         <!-- Hero -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Your Day-by-Day Trip Itinerary,<br><span>Planned in 30 Seconds.</span></h1>
-                <p class="hero-sub">Instead of twenty open tabs, select your city, arrival and departure times and get
-                    a <strong>full day-by-day itinerary</strong>. Then follow the day on the map, with a pocket guide
-                    for every landmark on it.</p>
+                <h1>Your Day-by-Day Trip Itinerary,<br><span>Ready Before You Arrive.</span></h1>
+                <p class="hero-sub">You pick the city and your arrival and departure times. We plan around
+                    them &mdash; <strong>what to see, when, and in what order</strong> &mdash; with a pocket guide for
+                    each landmark.</p>
                 <p class="hero-note">Try it on iPhone and iPad. No account needed.</p>
                 <div class="badges">
                     <a class="cta-btn" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
@@ -793,42 +992,39 @@
         <!-- How it works -->
         <section class="features" id="how">
             <p class="section-label">How it works</p>
-            <h2 class="section-title">A full plan in five steps.</h2>
+            <h2 class="section-title">You pick the dates.<br>We create the plan.</h2>
             <div class="steps-grid">
 
-                <div class="feature-card">
-                    <div class="feature-icon"><span class="step-number">1</span></div>
-                    <h3>Pick Your City</h3>
-                    <p>Type where you're going. One city per trip, so the plan stays walkable instead of scattered
-                        across a country.</p>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <div>
+                        <h3>Pick your city</h3>
+                        <p>One city per trip, so the plan stays walkable.</p>
+                    </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><span class="step-number">2</span></div>
-                    <h3>Set Arrival &amp; Departure</h3>
-                    <p>Not just the dates — the times. Landing at 4 PM and flying out Saturday morning gives you very
-                        different days than a clean check-in to check-out.</p>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <div>
+                        <h3>Add your times</h3>
+                        <p>Not just the dates — when you actually land and fly out.</p>
+                    </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><span class="step-number">3</span></div>
-                    <h3>Choose Your Tempo</h3>
-                    <p>Balanced, or lean toward relaxed or packed. This decides how much gets squeezed into a day and
-                        how much room is left to just wander.</p>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <div>
+                        <h3>Choose your pace</h3>
+                        <p>Relaxed, balanced or packed. That sets how full each day gets.</p>
+                    </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><span class="step-number">4</span></div>
-                    <h3>Tweak It</h3>
-                    <p>Generate the plan, then make it yours — reorder stops, drop the ones you don't care about, and
-                        add the places you already had in mind.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><span class="step-number">5</span></div>
-                    <h3>Go Enjoy It</h3>
-                    <p>Follow the day on the map, keep your tickets a tap away, and let the app tell you what you're
-                        looking at and where to eat next.</p>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <div>
+                        <h3>Get your plan</h3>
+                        <p>A day-by-day itinerary on a map. Edit and eeorder anything you like.</p>
+                    </div>
                 </div>
 
             </div>
@@ -838,18 +1034,21 @@
 
         <!-- Screenshots -->
         <section class="screenshots">
-            <p class="section-label">See it in action</p>
-            <h2 class="section-title">What a finished plan actually looks like</h2>
+            <p class="section-label">A Look Inside</p>
+            <h2 class="section-title">Make trip planning our job, not yours.</h2>
             <div class="screenshots-wrapper">
                 <div class="screenshots-track">
                     <img src="assets/tp_sg1.png" width="1072" height="2215" loading="lazy" decoding="async"
                         alt="Plan your next trip — enter a city, dates and pace, then generate a plan">
                     <img src="assets/tp_sg2.png" width="1072" height="2215" loading="lazy" decoding="async"
                         alt="Day-by-day itinerary with timed stops, descriptions and directions">
-                    <img src="assets/tp_sg3.png" width="1072" height="2215" loading="lazy" decoding="async"
-                        alt="Every stop for the day grouped on an interactive map of New York">
                     <img src="assets/tp_sg4.png" width="1072" height="2215" loading="lazy" decoding="async"
                         alt="Travel Planner: Owlio identifies landmarks and paintings with your camera">
+                    <img src="assets/tp_sg6.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Travel Planner: Owlio identifies landmarks and paintings with your camera">
+                    <img src="assets/tp_sg3.png" width="1072" height="2215" loading="lazy" decoding="async"
+                        alt="Every stop for the day grouped on an interactive map of New York">
+
                     <img src="assets/tp_sg5.png" width="1072" height="2215" loading="lazy" decoding="async"
                         alt="Travel Planner: Owlio keeps your travel documents in one place, next to the plan they belong to">
                 </div>
@@ -857,6 +1056,7 @@
             </div>
             <div class="screenshots-dots">
                 <span class="dot active"></span>
+                <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -899,18 +1099,6 @@
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
-                            <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z" />
-                            <path d="M14 3v5h5M9 13h6M9 17h4" />
-                        </svg>
-                    </div>
-                    <h3>Documents in One Place</h3>
-                    <p>Boarding passes, hotel confirmations, tickets and reservations live right next to the plan
-                        they belong to — findable when you're standing at the gate.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24">
                             <path
                                 d="M3 8V6a2 2 0 012-2h2M17 4h2a2 2 0 012 2v2M21 16v2a2 2 0 01-2 2h-2M7 20H5a2 2 0 01-2-2v-2" />
                             <circle cx="12" cy="12" r="3.2" />
@@ -920,6 +1108,29 @@
                     <p>Point your camera at a landmark or a painting and find out what it is, who made it and why it
                         matters — without hunting for a plaque.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+                        </svg>
+                    </div>
+                    <h3>Countries You've Visited</h3>
+                    <p>Every trip you plan marks the country on your own world map, so the places you've actually
+                        been add up into something you can look back on.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z" />
+                            <path d="M14 3v5h5M9 13h6M9 17h4" />
+                        </svg>
+                    </div>
+                    <h3>Documents in One Place</h3>
+                    <p>Boarding passes, hotel confirmations, tickets and reservations live right next to the plan
+                        they belong to — findable when you're standing at the gate.</p>
+                </div>
+
 
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -946,6 +1157,58 @@
                         gallery before you're already out in it.</p>
                 </div>
 
+
+
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- FAQ — every Q/A here is mirrored in the FAQPage schema in <head> -->
+        <section class="features" id="faq">
+            <p class="section-label">Questions</p>
+            <h2 class="section-title">Before you download.</h2>
+            <div class="faq-list">
+
+                <details class="faq-item">
+                    <summary class="faq-q">Is Owlio free?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                    <p class="faq-a">Yes. Owlio is free to try on the App Store, and you don't need an account or a sign-up
+                        to generate a plan.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">How does Owlio decide what goes into each day?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                    <p class="faq-a">It plans around your real arrival and departure times rather than whole dates, so
+                        a 4 PM landing gets a half day instead of a full one. Your chosen pace &mdash; relaxed,
+                        balanced or packed &mdash; then sets how much goes into the days in between.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">Can I change the plan after it's generated?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                    <p class="faq-a">Yes. You can reorder stops, remove the ones you don't want and add places you
+                        already had in mind.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">Does Owlio work for multi-city trips?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                    <p class="faq-a">Owlio plans one city per trip. That's deliberate &mdash; it keeps each day
+                        walkable instead of spreading stops across a country. For a two-city trip, create a plan for
+                        each city.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">Which devices does Owlio run on?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                    <p class="faq-a">iPhone and iPad, on iOS 15.6 or later. There is no Android version at the
+                        moment.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">What's in the app besides the itinerary?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                    <p class="faq-a">Every stop on an interactive map, your boarding passes and tickets stored with
+                        the plan, landmark and painting identification through the camera, ranked restaurants and bars
+                        nearby, and the daily forecast alongside each day.</p>
+                </details>
+
             </div>
         </section>
 
@@ -955,7 +1218,7 @@
         <section class="about" id="download">
             <div class="about-inner" style="max-width:820px; text-align:center; align-items:center;">
                 <p class="section-label">Available for download on iOS</p>
-                <h2 class="section-title">Start planning your next trip, free.</h2>
+                <h2 class="section-title">Try it free on your next trip.</h2>
                 <div class="app">
                     <img src="assets/appicon.png" width="1024" height="1024" loading="lazy" decoding="async"
                         alt="Travel Planner: Owlio app icon">
@@ -997,7 +1260,8 @@
             <p>&copy; 2026 Travel Planner: Owlio &mdash; <a href="index.html">Home</a> &middot;
                 <a href="guides/index.html">Guides</a> &middot;
                 <a href="terms.html">Terms</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot;
-                <a href="support.html">Support</a>
+                <a href="support.html">Support</a> &middot;
+                <a href="#" onclick="openCookieSettings();return false;">Cookie settings</a>
             </p>
         </footer>
 
@@ -1072,8 +1336,11 @@
         })();
     </script>
 
-    <!-- Firebase Analytics: automatic page_view + app_download_click events -->
-    <script type="module" src="assets/firebase-analytics.js"></script>
+    <!--
+      Cookie consent. Loads assets/firebase-analytics.js itself, but only after the
+      visitor accepts — so no Google request or cookie happens before then.
+    -->
+    <script src="assets/consent.js"></script>
 
 </body>
 

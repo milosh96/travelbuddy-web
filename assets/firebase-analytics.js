@@ -1,10 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js';
-import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js';
+import { getAnalytics, logEvent, setConsent } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js';
 
 // Firebase project: travelplanner-ce302
-// TODO: register a Web app in the Firebase console (Project settings → Your apps → Web)
-// with Google Analytics enabled, then paste the web apiKey, appId and measurementId below.
-// The iOS/Android apiKey and appId from firebase_options.dart will NOT work here.
 const firebaseConfig = {
   apiKey: "AIzaSyD_ab6dvLFh70PoMNNFeGmU_RGm5mSM-Ec",
   authDomain: "travelplanner-ce302.firebaseapp.com",
@@ -15,14 +12,42 @@ const firebaseConfig = {
   measurementId: "G-TXN8X8PLDX"
 };
 
-const app = initializeApp(firebaseConfig);
+let analytics = null;
 
-// getAnalytics() starts automatic page_view collection (enhanced measurement),
-// which is what tracks site visits — no extra call needed.
-export const analytics = getAnalytics(app);
-export { logEvent };
+/**
+ * Starts Firebase Analytics. Called only by assets/consent.js — importing this
+ * module must never write a cookie on its own, which is why getAnalytics() lives
+ * in here rather than at the top level.
+ *
+ * @param {boolean} granted  Whether the visitor has accepted. Normally true, since
+ *   consent.js defers loading until then; false only in advanced consent mode,
+ *   where the SDK loads early and must run storage-less until the visitor decides.
+ *
+ * getAnalytics() begins automatic page_view collection (enhanced measurement), so
+ * visits are tracked without any further call.
+ */
+export function initAnalytics(granted = true) {
+  if (analytics) return analytics;
 
-// Global function for tracking events from HTML onclick handlers
-window.trackEvent = (eventName, params = {}) => {
-  logEvent(analytics, eventName, params);
-};
+  const app = initializeApp(firebaseConfig);
+
+  // Belt and braces: Consent Mode defaults are already denied in the page <head>.
+  // Saying it through the SDK too means storage follows the visitor's choice
+  // regardless of gtag load ordering.
+  const value = granted ? 'granted' : 'denied';
+  setConsent({
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
+    analytics_storage: value
+  });
+
+  analytics = getAnalytics(app);
+
+  // Hand consent.js a stable way to log queued and future events.
+  window.__owlioAnalytics = {
+    logEvent: (name, params = {}) => logEvent(analytics, name, params)
+  };
+
+  return analytics;
+}

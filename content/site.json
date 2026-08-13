@@ -1,41 +1,42 @@
 {
-    "name": "Travel Planner: Owlio",
-    "baseUrl": "https://owlio.online/",
-    "assetPath": "../assets/",
-    "themeColor": "#5b2a9e",
-    "appStoreId": "6753716189",
-    "appStoreUrl": "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
-    "author": {
-        "name": "Milos Cubrilo",
-        "id": "https://owlio.online/#author"
+  "name": "Travel Planner: Owlio",
+  "shortName": "Owlio",
+  "baseUrl": "https://owlio.online/",
+  "assetPath": "../assets/",
+  "themeColor": "#5b2a9e",
+  "appStoreId": "6753716189",
+  "appStoreUrl": "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+  "author": {
+    "name": "Milos Cubrilo",
+    "id": "https://owlio.online/#author"
+  },
+  "hub": {
+    "eyebrow": "Plan by destination",
+    "h1": "City Guides",
+    "standfirst": "Day-by-day itineraries for short city trips — what genuinely has to be on the list, and what you can safely skip. Pick a city to start.",
+    "titleTag": "City Guides — Travel Itineraries by City",
+    "metaDescription": "Day-by-day city itineraries covering the must-see attractions. What to prioritise, what to skip, and how to group it so you walk the least."
+  },
+  "staticPages": [
+    {
+      "path": "",
+      "changefreq": "monthly",
+      "priority": "1.0"
     },
-    "hub": {
-        "eyebrow": "Plan by destination",
-        "h1": "City Guides",
-        "standfirst": "Day-by-day itineraries for short city trips — what genuinely has to be on the list, and what you can safely skip. Pick a city to start.",
-        "titleTag": "City Guides — Travel Itineraries by City",
-        "metaDescription": "Day-by-day city itineraries covering the must-see attractions. What to prioritise, what to skip, and how to group it so you walk the least."
+    {
+      "path": "support.html",
+      "changefreq": "yearly",
+      "priority": "0.5"
     },
-    "staticPages": [
-        {
-            "path": "",
-            "changefreq": "monthly",
-            "priority": "1.0"
-        },
-        {
-            "path": "support.html",
-            "changefreq": "yearly",
-            "priority": "0.5"
-        },
-        {
-            "path": "privacy-policy.html",
-            "changefreq": "yearly",
-            "priority": "0.3"
-        },
-        {
-            "path": "terms.html",
-            "changefreq": "yearly",
-            "priority": "0.3"
-        }
-    ]
+    {
+      "path": "privacy-policy.html",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    },
+    {
+      "path": "terms.html",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    }
+  ]
 }

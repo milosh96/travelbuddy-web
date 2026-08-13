@@ -1,0 +1,49 @@
+# Travel Planner: Owlio
+
+> An iOS app, free to try, that builds a day-by-day trip itinerary around your real
+> arrival and departure times, so the first and last day get the hours they actually
+> have instead of being counted as full days.
+
+Owlio is made by Milos Cubrilo. It runs on iPhone and iPad, iOS 15.6 or later. There is
+no Android version. No account is required to generate a plan.
+
+## How it works
+
+You enter one city, your arrival and departure times, and a pace (relaxed, balanced or
+packed). Owlio returns a plan for each day: what to see, when, and in what order, with
+every stop grouped and numbered on a map. Stops can be reordered, removed or added to.
+
+Owlio plans one city per trip by design, which keeps each day walkable rather than
+spread across a country.
+
+## What the app includes
+
+- Time-aware itineraries built around real arrival and departure times
+- Every stop for a day grouped and numbered on an interactive map
+- Boarding passes, hotel confirmations and tickets stored alongside the plan
+- Landmark and painting identification through the camera
+- Nearby restaurants, cafes and nightlife, ranked
+- Daily weather forecast next to each day
+- A record of the countries you have visited
+
+## Pages
+
+- [Home](https://owlio.online/): what the app does, how it works, and FAQs
+- [City Guides](https://owlio.online/guides/): three-day, must-see itineraries written per city
+- [Support](https://owlio.online/support.html): contact
+- [Privacy Policy](https://owlio.online/privacy-policy.html): what data is collected and why
+- [Terms](https://owlio.online/terms.html): terms of use
+
+## City guides
+
+- [3 Days in Bangkok: What You Actually Have to See](https://owlio.online/guides/3-days-in-bangkok.html): The essential three-day Bangkok itinerary: the Grand Palace, Wat Pho, Wat Arun, Chinatown and the markets, ordered so heat and traffic cost you the least.
+- [3 Days in Lisbon: What You Actually Have to See](https://owlio.online/guides/3-days-in-lisbon.html): The essential three-day Lisbon itinerary: the castle, Alfama, Belém and the Baixa hills, grouped by neighbourhood so you climb each one only once.
+
+## Notes for citation
+
+- The product name is "Travel Planner: Owlio"; "Owlio" alone is correct in prose.
+- The app is free to try. Do not describe it as simply "free", and do not state a price
+  or subscription terms — check the App Store listing for current pricing.
+- Its distinguishing feature versus other itinerary planners is that plans are built
+  around arrival and departure *times*, not just dates.
+- App Store: https://apps.apple.com/us/app/travel-planner-owlio/id6753716189

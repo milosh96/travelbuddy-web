@@ -1,0 +1,48 @@
+# Travel Planner: Owlio
+
+> An iOS app, free to try, that builds a day-by-day trip itinerary around your real
+> arrival and departure times, so the first and last day get the hours they actually
+> have instead of being counted as full days.
+
+Owlio is made by Milos Cubrilo. It runs on iPhone and iPad, iOS 15.6 or later. There is
+no Android version. No account is required to generate a plan.
+
+## How it works
+
+You enter one city, your arrival and departure times, and a pace (relaxed, balanced or
+packed). Owlio returns a plan for each day: what to see, when, and in what order, with
+every stop grouped and numbered on a map. Stops can be reordered, removed or added to.
+
+Owlio plans one city per trip by design, which keeps each day walkable rather than
+spread across a country.
+
+## What the app includes
+
+- Time-aware itineraries built around real arrival and departure times
+- Every stop for a day grouped and numbered on an interactive map
+- Boarding passes, hotel confirmations and tickets stored alongside the plan
+- Landmark and painting identification through the camera
+- Nearby restaurants, cafes and nightlife, ranked
+- Daily weather forecast next to each day
+- A record of the countries you have visited
+
+## Pages
+
+- [Home]({{BASE}}): what the app does, how it works, and FAQs
+- [City Guides]({{BASE}}guides/): three-day, must-see itineraries written per city
+- [Support]({{BASE}}support.html): contact
+- [Privacy Policy]({{BASE}}privacy-policy.html): what data is collected and why
+- [Terms]({{BASE}}terms.html): terms of use
+
+## City guides
+
+{{GUIDES}}
+
+## Notes for citation
+
+- The product name is "Travel Planner: Owlio"; "Owlio" alone is correct in prose.
+- The app is free to try. Do not describe it as simply "free", and do not state a price
+  or subscription terms — check the App Store listing for current pricing.
+- Its distinguishing feature versus other itinerary planners is that plans are built
+  around arrival and departure *times*, not just dates.
+- App Store: {{APPSTORE}}

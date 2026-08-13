@@ -292,7 +292,9 @@
             "a": "Very, but it is steep. The distances are short and the hills are not. Budget roughly double the time your map suggests for anything between the river and the castle, and use the funiculars and metro when your legs have had enough."
         }
     ],
-    "related": [],
+    "related": [
+        "3-days-in-bangkok"
+    ],
     "cta": {
         "heading": "Tailored to your trip",
         "body": "Travelling to Lisbon? Plan your trip around your real arrival and departure times."
