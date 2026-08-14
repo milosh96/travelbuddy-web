@@ -428,7 +428,6 @@ const topnav = (site, prefix, placement) => `    <div class="topnav-bar" id="top
                 <span>${esc(site.shortName || site.name)}</span>
             </a>
             <div class="topnav-links">
-                <a class="nav-anchor" href="${prefix}index.html#how">How it works</a>
                 <a href="${prefix}guides/index.html">City Guides</a>
                 <a class="nav-download" href="${site.appStoreUrl}"
                     onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'${placement}'});">Download
