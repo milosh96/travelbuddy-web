@@ -298,10 +298,12 @@
         }
     ],
     "related": [
-        "3-days-in-lisbon"
+        "3-days-in-lisbon",
+        "3-days-in-istanbul"
     ],
     "cta": {
         "heading": "Tailored to your trip",
         "body": "Travelling to Bangkok? Plan your trip around your real arrival and departure times."
-    }
+    },
+    "dateModified": "2026-08-14"
 }
