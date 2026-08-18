@@ -1,0 +1,349 @@
+{
+    "slug": "3-days-in-london",
+    "title": "3 Days in London: What You Actually Have to See",
+    "titleTag": "3 Days in London: The Must-See Itinerary",
+    "ogTitle": "3 Days in London — The Must-See Itinerary",
+    "metaDescription": "The essential three-day London itinerary: Westminster, the Tower, the free museums and the South Bank, ordered around doors that shut by mid-afternoon.",
+    "primaryQuery": "3 days in london itinerary",
+    "secondaryQueries": [
+        "what to see in london in 3 days",
+        "is 3 days enough for london",
+        "are london museums free",
+        "is the london eye worth it",
+        "what days is changing the guard"
+    ],
+    "datePublished": "2026-08-14",
+    "city": "London",
+    "country": "United Kingdom",
+    "cardLabel": "3 days, the essentials",
+    "eyebrow": "London · 3 days",
+    "standfirst": "Three days is enough for London's essentials, but only if you understand when things shut. Here is what genuinely has to be on the list, ordered around the closing times that catch everyone out, and an honest account of what is worth paying for.",
+    "cardSummary": "Westminster, the Tower, the free museums and the South Bank — what to see and what to skip.",
+    "heroImage": {
+        "src": "westminster-bridge-big-ben.jpg",
+        "alt": "Westminster Bridge and the Elizabeth Tower under heavy grey cloud, with a gull crossing the frame",
+        "width": 1400,
+        "height": 1050,
+        "caption": "Westminster Bridge and the Elizabeth Tower. The weather in this photograph is not a bad day; it is the default.",
+        "credit": "Mikey",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Westminster_Bridge,_River_Thames_%26_Big_Ben_Clock_Tower_(8643344470).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "modified": "resized",
+        "workTitle": "Westminster Bridge, River Thames & Big Ben Clock Tower (8643344470)"
+    },
+    "sections": [
+        {
+            "type": "prose",
+            "body": [
+                "Three days covers London's essentials comfortably: Westminster and the river, the Tower and the City, and the free museums with the West End around them. What it does not cover is Greenwich, Hampton Court or Windsor, each of which eats a day and is the thing most three-day itineraries wrongly try to squeeze in.",
+                "London is too big to improvise in, so the plan below works in three clusters and walks inside each one. But the thing that actually breaks people's days is not distance. It is closing time. Westminster Abbey stops admitting sightseers at half past three. The British Museum turns everyone out at five. Meanwhile the river, the parks, the markets and the streets stay open as long as you want them."
+            ]
+        },
+        {
+            "type": "callout",
+            "body": [
+                "**Do the ticketed thing first, every day.** Anything with a door and a collection behind it closes early in London, often absurdly early. Anything free and outdoors does not close at all. Front-load each day with the building you have to be let into, and save the walking, the river and the views for when the doors have shut behind you."
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 1 — Westminster, Whitehall and the South Bank",
+            "body": [
+                "Westminster Abbey is the hard deadline of the whole trip. It admits sightseers from 9.30am on weekdays and stops at 3.30pm, closes earlier still on Saturdays, and shuts to visitors entirely on Sundays, when it is open for worship only. Everything else on this day is outdoors and forgiving, so the Abbey goes first and nothing else moves.",
+                "From there the day is a walk. Parliament Square, down Whitehall past the mounted guards, into Trafalgar Square, and then either the National Gallery or straight across the river. If it is a Friday, save the National Gallery for the evening: it stays open until 9pm, which makes it the one great collection in London you can visit after dinner."
+            ]
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "The Abbey has to happen before mid-afternoon. After that the day is outdoors and the order stops mattering.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Westminster Abbey",
+                    "detail": "Last sightseeing entry is mid-afternoon and it is closed to visitors on Sundays. Ticketed, and the one church here worth the money. Go at opening."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Parliament Square and Whitehall",
+                    "detail": "Big Ben, the Palace of Westminster and the walk up to Downing Street and the Horse Guards. Free, outdoors, and about twenty minutes end to end."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Changing the Guard",
+                    "detail": "Normally Monday, Wednesday and Friday at 11, and cancelled in heavy rain. Check the official schedule the morning of, because it moves."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Trafalgar Square and the National Gallery",
+                    "detail": "The permanent collection is free and open late on Fridays. Two rooms done properly beat forty rooms at a march."
+                },
+                {
+                    "time": "Evening",
+                    "name": "The South Bank",
+                    "detail": "Cross at Westminster Bridge and walk east along the river. Best stretch in the city at dusk, and it costs nothing."
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "src": "st-pauls-dome.jpg",
+            "alt": "The stone and lead dome of St Paul's Cathedral with its golden finial, photographed from ground level against a pale blue sky",
+            "width": 1400,
+            "height": 1005,
+            "caption": "St Paul's. The dome galleries are the part worth climbing, and none of the main floor is open to sightseers on a Sunday.",
+            "credit": "Julian Herzog",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_Dome_2020_Exterior_Ground.jpg",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "modified": "resized"
+        },
+        {
+            "type": "prose",
+            "heading": "Day 2 — The Tower, the river and Bankside",
+            "body": [
+                "The Tower of London is the one big paid attraction in this guide that earns its ticket, and it needs a morning rather than an hour. Book ahead. The Yeoman Warder tours are included and are the best thing in it. Join one before you go anywhere near the Crown Jewels queue.",
+                "After that the day runs west along the Thames on foot: Tower Bridge, the south bank past Shad Thames, Borough Market, Tate Modern, and the Millennium Bridge pointing straight at St Paul's. Almost all of it is free. St Paul's is the exception, and on Sundays it does not open to sightseers at all."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "tower-bridge-butlers-wharf.jpg",
+            "alt": "A section of Tower Bridge showing its blue and white ironwork, with the Butler's Wharf warehouses behind and a police boat on the river",
+            "width": 1400,
+            "height": 933,
+            "caption": "Tower Bridge and the converted warehouses at Butler's Wharf. Crossing it costs nothing; the exhibition inside is a separate ticket.",
+            "credit": "Matthias Bethke",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:2009-07-21_Tower_Bridge,_London.jpg",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "modified": "resized",
+            "workTitle": "2009-07-21 Tower Bridge, London"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "One ticket in the morning, then a free walk west along the water for the rest of the day.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Tower of London",
+                    "detail": "Book in advance and allow half a day. Start with a Yeoman Warder tour, which is included in the ticket and better than anything you would find on your own."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Tower Bridge",
+                    "detail": "Walking across is free. The glass-floor exhibition inside is a separate ticket and an easy thing to skip."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Borough Market",
+                    "detail": "Full trading runs Tuesday to Saturday and it is quieter, with fewer stalls, early in the week. Go hungry and eat standing up."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Tate Modern",
+                    "detail": "Free, in a converted power station, and the view from the upper floors over the river is one of the better ones in London."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Millennium Bridge and St Paul's",
+                    "detail": "The bridge lines up on the cathedral and is worth crossing for that alone. Sightseeing inside stops on Sundays."
+                }
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 3 — The British Museum, the West End and a free view",
+            "body": [
+                "The British Museum is free and closes at five, which makes it a morning. Free timed tickets are worth booking in the busy months even though entry costs nothing. Do not try to see all of it. Pick three or four things, walk to them, and leave.",
+                "Then the West End on foot: Bloomsbury into Covent Garden and Soho, which are close enough together that the Underground between them is a waste of a fare and often slower than walking. Finish somewhere high. The best view of London is free and higher than the one people queue to pay for."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "british-museum-great-court.jpg",
+            "alt": "The triangulated glass and steel roof of the British Museum's Great Court curving above the old Reading Room and a classical portico",
+            "width": 1400,
+            "height": 1080,
+            "caption": "The Great Court at the British Museum. Free to walk into, and closed by five like almost everything else with a roof.",
+            "credit": "Great Court, British Museum by Jim Osley",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Great_Court,_British_Museum_-_geograph.org.uk_-_3292065.jpg",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "modified": "resized"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Museum first because it shuts at five. Everything after it is streets, and streets do not close.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "British Museum",
+                    "detail": "Free, open 10 to 5, and worth booking a timed slot for in spring and summer. The Rosetta Stone, the Parthenon sculptures, the Sutton Hoo helmet, then out."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Covent Garden",
+                    "detail": "Fifteen minutes' walk south through Bloomsbury. The market building, the street performers, and lunch that is not a chain if you leave the piazza."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Soho and Chinatown",
+                    "detail": "Directly west, and the densest eating in central London. This is the part of the trip to leave unplanned."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "A park",
+                    "detail": "St James's Park for the pelicans and the view back to Whitehall, or Hyde Park if you want the size of it. Both free, both open late."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Sky Garden",
+                    "detail": "Free with a booked ticket, and the tickets are released weekly. Higher than the London Eye and it costs nothing at all."
+                }
+            ]
+        },
+        {
+            "type": "table",
+            "heading": "What is free, what is worth paying for, and what is not",
+            "columns": [
+                "What",
+                "Cost",
+                "Verdict"
+            ],
+            "rows": [
+                [
+                    "British Museum, National Gallery, Tate Modern, V&A, Natural History",
+                    "Free",
+                    "Permanent collections cost nothing. Only the special exhibitions charge"
+                ],
+                [
+                    "Sky Garden",
+                    "Free, booked",
+                    "155 m, and twenty metres higher than the wheel people pay for"
+                ],
+                [
+                    "Tower of London",
+                    "Paid",
+                    "The one big ticket that earns it. Book ahead and take the Warder tour"
+                ],
+                [
+                    "Westminster Abbey",
+                    "Paid",
+                    "Worth it, if you get through the door before the mid-afternoon cutoff"
+                ],
+                [
+                    "St Paul's dome climb",
+                    "Paid",
+                    "Worth it for the galleries. No sightseeing at all on Sundays"
+                ],
+                [
+                    "London Eye",
+                    "From £29",
+                    "Skip it. The Sky Garden is free, higher, and has the Eye in the view"
+                ],
+                [
+                    "Tower Bridge exhibition",
+                    "Paid",
+                    "Skip. Walking over the bridge is free and is the actual experience"
+                ],
+                [
+                    "The London Pass",
+                    "Paid",
+                    "Skip on three days. Most of what you will see is already free"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "heading": "When things shut",
+            "columns": [
+                "Where",
+                "Closing",
+                "So"
+            ],
+            "rows": [
+                [
+                    "Westminster Abbey",
+                    "15:30 weekdays, 15:00 Sat, no sightseeing Sun",
+                    "A morning, and never a Sunday"
+                ],
+                [
+                    "British Museum",
+                    "17:00 daily",
+                    "A morning, or an early afternoon at the latest"
+                ],
+                [
+                    "National Gallery",
+                    "18:00, and 21:00 on Fridays",
+                    "The one collection you can do after dinner, on a Friday"
+                ],
+                [
+                    "Sky Garden terrace",
+                    "18:00",
+                    "Sunset only in the winter months"
+                ],
+                [
+                    "The river, the parks, the markets",
+                    "Not a problem",
+                    "Everything free and outdoors is the back half of the day"
+                ]
+            ]
+        },
+        {
+            "type": "list",
+            "heading": "What three days does not cover",
+            "intro": "Cutting deliberately beats rushing. These need more time than you have:",
+            "items": [
+                "**Greenwich** — the observatory, the meridian and the Cutty Sark are a full day, and the river boat down is half the point.",
+                "**Windsor or Hampton Court** — a day trip out of the city, not an afternoon.",
+                "**South Kensington's museums** — the V&A and the Natural History Museum are free and enormous, and each deserves a morning of its own.",
+                "**A West End show** — worth doing, and it takes an evening you have already spent walking.",
+                "**Anything east of the Tower** — Shoreditch, Spitalfields and the markets out that way are a separate day."
+            ]
+        }
+    ],
+    "faqHeading": "Common questions about 3 days in London",
+    "faq": [
+        {
+            "q": "Is 3 days enough for London?",
+            "a": "For the essentials, yes. Three days covers Westminster and the river, the Tower and the City, and the British Museum with the West End around it. It is not enough to add Greenwich, Windsor or the South Kensington museums, each of which needs the better part of a day."
+        },
+        {
+            "q": "Are London museums really free?",
+            "a": "Yes. The permanent collections at the British Museum, the National Gallery, Tate Modern, Tate Britain, the V&A, the Natural History Museum, the Science Museum and the National Portrait Gallery are all free to enter. Only the temporary special exhibitions are ticketed, and none of them is compulsory."
+        },
+        {
+            "q": "Is the London Eye worth it?",
+            "a": "Not on a short trip. Tickets start around £29 online and cost more on the door, and the Sky Garden is free with a booked ticket, stands twenty metres higher, and has the London Eye in the view. Book the free one instead and put the money into the Tower."
+        },
+        {
+            "q": "Is the London Pass worth it?",
+            "a": "Rarely on three days. Most of what a first visit wants to see, the great museums and galleries, is free without any pass at all. That leaves a handful of paid attractions, and buying two or three of them directly usually costs less than the pass."
+        },
+        {
+            "q": "What days is Changing the Guard?",
+            "a": "It normally runs on Mondays, Wednesdays and Fridays at 11am, with inspections on the other days. It is called off in heavy rain, sometimes at short notice, so check the official schedule that morning rather than building your day around it."
+        },
+        {
+            "q": "What is closed on Sundays in London?",
+            "a": "Westminster Abbey shuts to sightseers entirely and opens for worship only. St Paul's does not open its main floor to visitors either. Borough Market runs a reduced operation early in the week. The museums, the parks and the river are all unaffected, so Sunday is the day to spend outdoors and in free collections."
+        },
+        {
+            "q": "How do you get around London?",
+            "a": "Walk inside each cluster and use the Underground only to jump between them. Tap in and out with a contactless card or phone, which fares-caps automatically over a day, so no travelcard is needed. Short central hops are usually faster on foot than underground once you count the stairs."
+        }
+    ],
+    "related": [
+        "3-days-in-lisbon",
+        "3-days-in-istanbul",
+        "3-days-in-bangkok"
+    ],
+    "cta": {
+        "heading": "Tailored to your trip",
+        "body": "Travelling to London? Plan your trip around your real arrival and departure times."
+    }
+}

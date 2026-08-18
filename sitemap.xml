@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://owlio.online/</loc>
-        <lastmod>2026-08-14</lastmod>
+        <lastmod>2026-08-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -26,7 +26,7 @@
     </url>
     <url>
         <loc>https://owlio.online/guides/</loc>
-        <lastmod>2026-08-14</lastmod>
+        <lastmod>2026-08-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -44,6 +44,12 @@
     </url>
     <url>
         <loc>https://owlio.online/guides/3-days-in-lisbon.html</loc>
+        <lastmod>2026-08-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://owlio.online/guides/3-days-in-london.html</loc>
         <lastmod>2026-08-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
