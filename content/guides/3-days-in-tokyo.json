@@ -1,0 +1,329 @@
+{
+    "slug": "3-days-in-tokyo",
+    "title": "3 Days in Tokyo: What You Actually Have to See",
+    "titleTag": "3 Days in Tokyo: The Must-See Itinerary",
+    "ogTitle": "3 Days in Tokyo — The Must-See Itinerary",
+    "metaDescription": "The essential three-day Tokyo itinerary: Asakusa, Shibuya, Shinjuku and the bay, two districts a day so the Yamanote loop does most of the work for you.",
+    "primaryQuery": "3 days in tokyo itinerary",
+    "secondaryQueries": [
+        "what to see in tokyo in 3 days",
+        "is 3 days enough for tokyo",
+        "what to book before tokyo",
+        "is shibuya sky worth it",
+        "what day is tsukiji closed"
+    ],
+    "datePublished": "2026-08-19",
+    "city": "Tokyo",
+    "country": "Japan",
+    "cardLabel": "3 days, the essentials",
+    "eyebrow": "Tokyo · 3 days",
+    "standfirst": "Three days is enough for Tokyo's essentials, but only if you stop trying to see the whole city. Here is what genuinely has to be on the list, grouped two districts a day, with the bookings that have to happen before you fly.",
+    "cardSummary": "Asakusa, Shibuya, Shinjuku and the bay — what to see, what to book, what to skip.",
+    "heroImage": {
+        "src": "shinjuku-kabukicho-neon.jpg",
+        "alt": "A narrow street in Kabukichō, Shinjuku, walled on both sides with stacked illuminated signs in Japanese and people walking down the middle",
+        "width": 1400,
+        "height": 933,
+        "caption": "Kabukichō after dark. Signage stacked five storeys high is the reason nobody looks at the buildings underneath it.",
+        "credit": "Basile Morin",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Colorful_neon_street_signs_in_Kabukich%C5%8D,_Shinjuku,_Tokyo.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "modified": "resized",
+        "workTitle": "Colorful neon street signs in Kabukichō, Shinjuku, Tokyo"
+    },
+    "sections": [
+        {
+            "type": "prose",
+            "body": [
+                "Three days covers Tokyo's essentials comfortably: Asakusa and Ueno on the east side, Shibuya and Shinjuku on the west, and the old centre with the bay behind it. What it does not cover is a day trip. Nikko, Kamakura, Hakone and Fuji each eat a full day, and cramming one in is what most three-day itineraries get wrong.",
+                "Tokyo has no centre. It is a dozen separate downtowns hanging off the Yamanote loop, and the mistake first-timers make is treating it as one city and trying to cross it five times a day. The trains are quick and constant. The stations are what cost you. Shinjuku holds the world record for the busiest station on earth, moves more than three million people a day, and has over two hundred exits, so coming up the wrong one leaves you fifteen minutes from where you meant to be."
+            ]
+        },
+        {
+            "type": "callout",
+            "body": [
+                "**Two districts a day, and pick ones that sit next to each other on the loop.** The Yamanote line strings Shinjuku, Shibuya, Ueno and Tokyo Station onto a single circle, so a well-built day needs one ride and no transfers. Treat every station as a stop in its own right, not a doorway, and note the exit number before you get off."
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 1 — Asakusa and Ueno",
+            "body": [
+                "Senso-ji is the oldest temple in the city and its grounds never close. The main hall opens at six in the morning, the shops along Nakamise open much later, and the gap between those two facts is the best hour of the trip. Come at dawn and the approach to the gate is empty. Come at noon and it is a slow shuffle between souvenir stalls.",
+                "Ueno is two stops up the loop and is where Tokyo keeps its museums. Pick one. The Tokyo National Museum holds the largest collection of Japanese art anywhere, and trying to pair it with a second museum on the same afternoon is how people stop looking at anything properly."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "sensoji-kaminarimon.jpg",
+            "alt": "The red Kaminarimon gate at Senso-ji with its huge black and red paper lantern hanging in the centre, framed by willow branches",
+            "width": 1400,
+            "height": 933,
+            "caption": "Kaminarimon, the outer gate at Senso-ji. The grounds stay open all night, which is the loophole nobody uses.",
+            "credit": "Arashiyama",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Kaminari_mon-%E9%9B%B7%E9%96%80.JPG",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "modified": "resized",
+            "workTitle": "Kaminari mon-雷門"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Get to the temple before the stalls open. Everything after that runs two stops up the Yamanote line.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Senso-ji",
+                    "detail": "The grounds are open around the clock and the main hall from six. At seven the place belongs to people who live there; by eleven it does not."
+                },
+                {
+                    "time": "Morning",
+                    "name": "Nakamise-dori",
+                    "detail": "The stall street running from the gate to the temple. It opens late morning, so this is the second pass rather than the first."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Ueno Park",
+                    "detail": "Ponds, shrines and the densest cluster of museums in Japan. Free to walk through, and the cherry trees make it famous for two weeks a year."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Tokyo National Museum",
+                    "detail": "Swords, screens, ceramics and armour. Give it two hours and do not try to add a second museum afterwards."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Ameyoko, then Akihabara",
+                    "detail": "The market lanes under the railway tracks, then one stop down the loop for the electronics and arcade blocks lit up after dark."
+                }
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 2 — Shibuya and Shinjuku",
+            "body": [
+                "Start quiet. Meiji Jingu sits inside a planted forest of a hundred thousand trees between Harajuku and Yoyogi, and at opening it is silent in a way nowhere else in this itinerary manages. Walk out through Harajuku afterwards, when Takeshita-dori is only beginning to fill up.",
+                "Shibuya Sky is the one view worth paying for and it sells out weeks ahead, especially the sunset slots. Book it before you fly. Then move up the loop to Shinjuku for the evening, where the station is the obstacle and the streets behind it are the reward."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "shibuya-crossing.jpg",
+            "alt": "Crowds streaming across the Shibuya scramble crossing at night under lit billboards and office towers",
+            "width": 1400,
+            "height": 1050,
+            "caption": "The scramble crossing at Shibuya. Watching it costs nothing, and the crowd is the attraction.",
+            "credit": "しんぎんぐきゃっと",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2021-04-27.jpg",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "modified": "resized",
+            "workTitle": "Tokyo Shibuya Scramble Crossing 2021-04-27"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Forest first, crossing at dusk, neon last. Book the observation deck before you leave home.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Meiji Jingu",
+                    "detail": "A shrine in a manufactured forest, entered under enormous wooden gates. Go at opening, when the gravel path is empty and the traffic is inaudible."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Harajuku and Omotesando",
+                    "detail": "Takeshita-dori for the noise, Omotesando one street over for the architecture. Ten minutes apart and nothing alike."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Shibuya Crossing",
+                    "detail": "Cross it once at street level, then watch it from above. The free upstairs windows around the station do the job if you are not going higher."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Shibuya Sky",
+                    "detail": "An open-air deck at 229 metres with nothing between you and the drop. Booked in advance only, and sunset slots go first."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Shinjuku after dark",
+                    "detail": "Omoide Yokocho for grilled skewers under the tracks, Kabukichō for the signage, Golden Gai for bars that seat six people."
+                }
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 3 — The old centre and the bay",
+            "body": [
+                "This is the day with closures in it, so check the calendar before you fix anything else. Tsukiji Outer Market trades from five in the morning until two in the afternoon and shuts on Sundays and Wednesdays. The Imperial Palace East Gardens close on Mondays and Fridays. If your last day lands badly on both, swap it with Day 1 and nothing else in this plan moves.",
+                "Tsukiji is where the tourists were told to stop going when the auction moved out to Toyosu, and that advice was wrong. The auction is a lottery and an early alarm for a short look at a warehouse. The outer market, with its knife shops and tamagoyaki stands, is where the eating always was and it is still there."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "tokyo-station-marunouchi.jpg",
+            "alt": "The restored red brick Marunouchi facade of Tokyo Station with its domed wings, glass towers rising behind and people crossing the plaza",
+            "width": 1400,
+            "height": 933,
+            "caption": "Tokyo Station's Marunouchi side. A 1914 brick terminus with the financial district stacked up directly behind it.",
+            "credit": "Bernard Spragg. NZ",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Railway_Station._(51337172927).jpg",
+            "license": "Public domain",
+            "modified": "resized"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Market at dawn, gardens mid-morning, and the bay saved for after dark because it stays open late.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Tsukiji Outer Market",
+                    "detail": "Open from five and winding down by two, closed Sundays and Wednesdays. Eat standing up and buy the knives you will regret leaving behind."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Imperial Palace East Gardens",
+                    "detail": "Free, and closed Mondays and Fridays. The palace itself is not open, but the stone foundations of the old castle keep are."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Tokyo Station and Marunouchi",
+                    "detail": "The 1914 brick frontage, restored, with the whole financial district behind it. Ten minutes' walk from the garden gate."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Ginza",
+                    "detail": "Flagship stores and basement food halls. On weekend afternoons the main avenue closes to traffic and everyone walks down the middle of it."
+                },
+                {
+                    "time": "Evening",
+                    "name": "teamLab",
+                    "detail": "Out on the bay, open late, and sold only online with no tickets at the door. An hour or two of walking barefoot through projected light."
+                }
+            ]
+        },
+        {
+            "type": "table",
+            "heading": "What to book before you fly",
+            "columns": [
+                "What",
+                "How far ahead",
+                "If you do not"
+            ],
+            "rows": [
+                [
+                    "teamLab",
+                    "3+ weeks for weekends and holidays",
+                    "There are no on-site sales at all. You do not get in"
+                ],
+                [
+                    "Shibuya Sky",
+                    "Weeks. Sunset slots go first",
+                    "A daytime slot, or nothing on a busy weekend"
+                ],
+                [
+                    "Ghibli Museum",
+                    "As early as it opens; it sells out fast",
+                    "No walk-ups, ever"
+                ],
+                [
+                    "Senso-ji, Meiji Jingu, Ueno Park",
+                    "Nothing to book",
+                    "Free, open, and never sold out"
+                ],
+                [
+                    "Imperial Palace East Gardens",
+                    "Nothing to book",
+                    "Free, but closed Mondays and Fridays"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "heading": "Which view to pay for",
+            "columns": [
+                "Where",
+                "Cost",
+                "Verdict"
+            ],
+            "rows": [
+                [
+                    "Tokyo Metropolitan Government Building",
+                    "Free",
+                    "202 m, no timed ticket, and Fuji on a clear winter day"
+                ],
+                [
+                    "Shibuya Sky",
+                    "Paid",
+                    "The one worth booking. Open-air at 229 m, which the others are not"
+                ],
+                [
+                    "Tokyo Tower",
+                    "Paid",
+                    "333 m of it, and the view from inside has no Tokyo Tower in it"
+                ],
+                [
+                    "Tokyo Skytree",
+                    "Paid, and the priciest",
+                    "Taller, further out, and a detour from everything above"
+                ]
+            ]
+        },
+        {
+            "type": "list",
+            "heading": "What three days does not cover",
+            "intro": "Cutting deliberately beats rushing. These need more time than you have:",
+            "items": [
+                "**Any day trip** — Nikko, Kamakura, Hakone and Fuji are each a full day, and one of them will cost you a third of this itinerary.",
+                "**A second museum on any day** — Ueno alone holds enough to fill a week, and stacking them is how people stop seeing anything.",
+                "**Toyosu tuna auction** — a lottery, a pre-dawn alarm, and a short look through glass.",
+                "**Shimokitazawa, Nakameguro, Yanaka** — the low-rise neighbourhoods people love most, and the first casualty of three days.",
+                "**Sumo or a baseball game** — both worth an evening, and both only on when they are on."
+            ]
+        }
+    ],
+    "faqHeading": "Common questions about 3 days in Tokyo",
+    "faq": [
+        {
+            "q": "Is 3 days enough for Tokyo?",
+            "a": "For a first pass at the city, yes. Three days covers Asakusa and Ueno, Shibuya and Shinjuku, and the old centre with the bay. It is not enough to add a day trip to Nikko, Kamakura or Hakone, each of which needs a full day and would take a third of your time."
+        },
+        {
+            "q": "What do you need to book before going to Tokyo?",
+            "a": "teamLab first, because it sells nothing at the door and weekend slots go three weeks or more ahead. Then Shibuya Sky, where sunset fills up first, and the Ghibli Museum if you want it at all. The temples, shrines and parks in this itinerary need no booking and cost nothing."
+        },
+        {
+            "q": "Is Shibuya Sky worth it?",
+            "a": "Yes, and it is the one view here worth paying for. The rooftop deck is open-air at 229 metres, which the enclosed observatories are not. If you would rather not pay, the Tokyo Metropolitan Government Building in Shinjuku has a free deck at 202 metres with no timed ticket."
+        },
+        {
+            "q": "What day is Tsukiji Outer Market closed?",
+            "a": "Sundays and Wednesdays. It trades from about five in the morning until two in the afternoon, so it is a breakfast destination rather than a lunch one. The Imperial Palace East Gardens close on Mondays and Fridays, which is the other closure that catches people on a short trip."
+        },
+        {
+            "q": "Can you see Mount Fuji from Tokyo?",
+            "a": "On clear days, yes, and the free observatory at the Tokyo Metropolitan Government Building is the easiest place to try. Cold, dry air gives the best odds, so December to February is far more reliable than summer, when haze usually hides it completely."
+        },
+        {
+            "q": "Is the JR Pass worth it for Tokyo?",
+            "a": "Not for a city-only trip. The pass is built for long-distance travel between cities and covers only JR lines, while much of Tokyo runs on metro lines it does not touch. Load a Suica or Pasmo card instead, tap through every gate, and top it up as you go."
+        },
+        {
+            "q": "Is the Tokyo subway hard to use?",
+            "a": "The trains are the easy part. Signage is bilingual, services are frequent and they run to the minute. The stations are what defeat people: Shinjuku alone has more than two hundred exits, so check the exit number for where you are going before you leave the platform."
+        }
+    ],
+    "related": [
+        "3-days-in-bangkok",
+        "3-days-in-paris",
+        "3-days-in-istanbul"
+    ],
+    "cta": {
+        "heading": "Tailored to your trip",
+        "body": "Travelling to Tokyo? Plan your trip around your real arrival and departure times."
+    }
+}
