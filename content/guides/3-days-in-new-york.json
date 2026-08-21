@@ -1,0 +1,339 @@
+{
+    "slug": "3-days-in-new-york",
+    "title": "3 Days in New York: What You Actually Have to See",
+    "titleTag": "3 Days in New York: The Must-See Itinerary",
+    "ogTitle": "3 Days in New York — The Must-See Itinerary",
+    "metaDescription": "The essential three-day New York itinerary: the harbour, Midtown, the Met and Central Park, planned in vertical strips so you cross town only once a day.",
+    "primaryQuery": "3 days in new york itinerary",
+    "secondaryQueries": [
+        "what to see in new york in 3 days",
+        "is 3 days enough for new york",
+        "what day is the met closed",
+        "is the statue of liberty worth it",
+        "empire state building or top of the rock"
+    ],
+    "datePublished": "2026-08-19",
+    "city": "New York",
+    "country": "United States",
+    "cardLabel": "3 days, the essentials",
+    "eyebrow": "New York · 3 days",
+    "standfirst": "Three days is enough for New York's essentials, but only if you stop crossing town. Here is what genuinely has to be on the list, arranged in vertical strips of Manhattan, with an honest account of which view is worth paying for.",
+    "cardSummary": "The harbour, Midtown, the Met and Central Park — what to see and what to skip.",
+    "heroImage": {
+        "src": "lower-manhattan-skyline.jpg",
+        "alt": "The Lower Manhattan skyline seen across the East River, with One World Trade Center at the centre and the Brooklyn Bridge at the right edge",
+        "width": 1400,
+        "height": 840,
+        "caption": "Lower Manhattan from the Brooklyn side. The Statue of Liberty is the speck on the far left, which is as big as she looks from most of this city.",
+        "credit": "Andre Carrotflower",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Lower_Manhattan_skyline_as_seen_from_ferry_terminal,_DUMBO,_Brooklyn_-_20200904.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "modified": "resized"
+    },
+    "sections": [
+        {
+            "type": "prose",
+            "body": [
+                "Three days covers New York's essentials comfortably: Lower Manhattan and the harbour, Midtown from Grand Central up to the park, and the Met with Central Park and the West Side below it. What it does not cover is the outer boroughs. Queens, the Bronx and most of Brooklyn each need a day, and trying to bolt one on is what most three-day itineraries get wrong.",
+                "Manhattan is long and thin, and so is everything that moves in it. A block north takes about a minute to walk. A block east takes three or four, because the crosstown blocks are far longer. The subway follows the same logic: it runs up and down the avenues constantly and across the island barely at all. Plan a day that zig-zags and you will spend it underground."
+            ]
+        },
+        {
+            "type": "callout",
+            "body": [
+                "**Work in vertical strips.** Twenty blocks up an avenue is a twenty-minute walk. Twenty blocks crosstown is closer to an hour, and the subway will not rescue you. Pick a north–south band of the island for each day, work it end to end, and cross town once, deliberately, when the day is done."
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 1 — Lower Manhattan and the harbour",
+            "body": [
+                "Start on the water and do not pay for it. The Staten Island Ferry runs around the clock, every day of the year, costs nothing and needs no ticket at all. It crosses the harbour within clear view of the Statue of Liberty and back again, which is the same view the harbour cruises sell.",
+                "If you want to stand on Liberty Island itself, that is a different trip and a ticketed one. The crown is the part that requires planning: only a few hundred people are allowed up each day and those tickets go three to four months ahead. Pedestal and grounds tickets are easier, but a three-day trip rarely has the half day it takes."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "statue-of-liberty-sunset.jpg",
+            "alt": "The Statue of Liberty in silhouette against an orange sunset, photographed from the water",
+            "width": 1400,
+            "height": 933,
+            "caption": "The statue from the deck of the Staten Island Ferry, which charges nothing and runs all night.",
+            "credit": "Dogbutts",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Lady_Liberty_at_Sunset_June_13_2013.JPG",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "modified": "resized",
+            "workTitle": "Lady Liberty at Sunset June 13 2013"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "The bottom of the island, on foot, finishing with a bridge crossing in the right direction.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Staten Island Ferry",
+                    "detail": "Free, no ticket, and it sails past the statue in both directions. Stay on at St George and come straight back; the round trip is the attraction."
+                },
+                {
+                    "time": "Midday",
+                    "name": "9/11 Memorial",
+                    "detail": "The two sunken pools standing in the tower footprints are free to walk up to. The museum below is a separate ticket and a serious two hours."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Wall Street and Stone Street",
+                    "detail": "Ten minutes of the financial district is plenty. Stone Street, one block of low brick buildings and outdoor tables, is the better half of it."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Brooklyn Bridge",
+                    "detail": "Take the subway to Brooklyn and walk back towards Manhattan. Going that direction the skyline is in front of you the whole way instead of behind you."
+                },
+                {
+                    "time": "Evening",
+                    "name": "DUMBO",
+                    "detail": "If you would rather end in Brooklyn, get off before the bridge and eat there. The waterfront park has the view the bridge walk is famous for."
+                }
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 2 — Midtown, bottom to top",
+            "body": [
+                "This day is one long walk north through the middle of the island, and almost every stop on it sits within a few avenues of the last. Grand Central is the place to start and it costs nothing to walk into. Look up: the ceiling is a painted night sky with the constellations laid out backwards, and it is the reason to go in.",
+                "Then the view. Top of the Rock is the one to pay for, and the argument is simple. It looks straight down Fifth Avenue at the Empire State Building with Central Park behind it, and the view from the Empire State Building is the only one in New York with no Empire State Building in it."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "grand-central-ceiling.jpg",
+            "alt": "The green painted ceiling of Grand Central Terminal showing faint gilded constellations above a row of arched windows",
+            "width": 1400,
+            "height": 629,
+            "caption": "Grand Central's painted sky. Free to stand under, and the constellations are famously the wrong way round.",
+            "credit": "Kidfly182",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Grand_Central_Terminal_Interior_002.jpg",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "modified": "resized"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Everything below is within about fifteen blocks of everything else. Walk it and skip the subway entirely.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "Grand Central Terminal",
+                    "detail": "Free, open early, and busiest at the moment it is most worth seeing. Stand on the balcony rather than the floor."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Bryant Park and the Public Library",
+                    "detail": "Two blocks west. The Rose Reading Room upstairs is free and quieter than anything else in Midtown."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "MoMA",
+                    "detail": "Open every day of the week, which makes it the reliable museum on a short trip. Two floors properly beats six at a jog."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Top of the Rock",
+                    "detail": "Booked in advance, and the deck faces the Empire State Building with the park behind it. Sunset slots go first."
+                },
+                {
+                    "time": "Evening",
+                    "name": "Times Square",
+                    "detail": "Go once, after dark, and give it fifteen minutes. It is a very bright advertising hoarding and everybody should see it exactly one time."
+                }
+            ]
+        },
+        {
+            "type": "prose",
+            "heading": "Day 3 — The Met, the park and the West Side",
+            "body": [
+                "The Met closes on Wednesdays, and it is the only closure in this itinerary that will actually ruin a day. If your last day lands midweek, swap it with Day 1 and nothing else shifts. It also runs late on Friday and Saturday evenings, which is the quietest time to be in it.",
+                "Afterwards walk into Central Park directly behind the museum and go south and west through it. That is your one crosstown move of the day, done on foot through trees instead of underground, and it drops you out on the Upper West Side."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "central-park-lake.jpg",
+            "alt": "The lake in Central Park in autumn, with yellow and green trees along the far bank and the Midtown towers rising behind them",
+            "width": 1400,
+            "height": 927,
+            "caption": "Central Park looking south to Midtown. Crossing the park on foot is the pleasant way to get from one side of the island to the other.",
+            "credit": "Gzzz",
+            "creditUrl": "https://commons.wikimedia.org/wiki/File:Central_Park_and_Midtown_Manhattan.JPG",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "modified": "resized",
+            "workTitle": "Central Park and Midtown Manhattan"
+        },
+        {
+            "type": "day",
+            "heading": "The must-sees",
+            "note": "Museum first, park as the crossing, West Side for the evening. Not a Wednesday.",
+            "stops": [
+                {
+                    "time": "Morning",
+                    "name": "The Metropolitan Museum",
+                    "detail": "Closed Wednesdays, late on Fridays and Saturdays. Pick three departments before you go in, because the building will otherwise pick them for you."
+                },
+                {
+                    "time": "Midday",
+                    "name": "Central Park",
+                    "detail": "Enter at the museum and head south. The Bethesda Terrace, the Mall and the lake are all on one straight line through the middle."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "The High Line",
+                    "detail": "A freight viaduct replanted as a raised park, running above the West Side. Free, and it takes about an hour end to end."
+                },
+                {
+                    "time": "Afternoon",
+                    "name": "Chelsea Market",
+                    "detail": "Directly under the middle of the High Line. A former biscuit factory full of food counters, and the easiest lunch on this day."
+                },
+                {
+                    "time": "Evening",
+                    "name": "The West Village",
+                    "detail": "The one part of Manhattan where the grid gives up and the streets bend. Worth an evening precisely because you cannot navigate it."
+                }
+            ]
+        },
+        {
+            "type": "table",
+            "heading": "Which view to pay for",
+            "columns": [
+                "Where",
+                "Cost",
+                "Verdict"
+            ],
+            "rows": [
+                [
+                    "Staten Island Ferry",
+                    "Free",
+                    "The harbour and the statue, at no cost, at any hour"
+                ],
+                [
+                    "Brooklyn Bridge",
+                    "Free",
+                    "Walk it towards Manhattan and the skyline stays in front of you"
+                ],
+                [
+                    "Top of the Rock",
+                    "Paid",
+                    "The one worth booking. Empire State in front, Central Park behind"
+                ],
+                [
+                    "Empire State Building",
+                    "Paid",
+                    "The only view in New York without the Empire State Building in it"
+                ],
+                [
+                    "Summit and Edge",
+                    "Paid, and the priciest",
+                    "Mirrors and glass floors. A photo shoot more than a viewpoint"
+                ],
+                [
+                    "Harbour sightseeing cruises",
+                    "Paid",
+                    "Skip. The free ferry covers the same water"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "heading": "What closes, and what books out",
+            "columns": [
+                "What",
+                "When",
+                "So"
+            ],
+            "rows": [
+                [
+                    "The Met",
+                    "Closed Wednesdays, late Fri and Sat",
+                    "Never plan it midweek. Friday evening is the quiet slot"
+                ],
+                [
+                    "MoMA",
+                    "Open every day",
+                    "The museum that always works around your dates"
+                ],
+                [
+                    "Statue of Liberty crown",
+                    "Sells out 3–4 months ahead",
+                    "A few hundred tickets a day. Decide early or drop it"
+                ],
+                [
+                    "Top of the Rock",
+                    "Sunset slots go first",
+                    "Book before you fly"
+                ],
+                [
+                    "Staten Island Ferry",
+                    "Every day, all night",
+                    "Nothing to book, ever"
+                ]
+            ]
+        },
+        {
+            "type": "list",
+            "heading": "What three days does not cover",
+            "intro": "Cutting deliberately beats rushing. These need more time than you have:",
+            "items": [
+                "**The outer boroughs** — Queens, the Bronx and Brooklyn past the bridge are each a day, and the food in them is the reason people move here.",
+                "**The Met done properly** — two million square feet, and three hours only buys you three departments.",
+                "**Liberty Island itself** — the ferry, the queue and the grounds take half a day once security is counted.",
+                "**A Broadway show** — worth an evening, and it is the evening you were going to spend walking.",
+                "**The Cloisters** — the Met's medieval outpost at the top of the island, and a long ride from everything else here."
+            ]
+        }
+    ],
+    "faqHeading": "Common questions about 3 days in New York",
+    "faq": [
+        {
+            "q": "Is 3 days enough for New York?",
+            "a": "For Manhattan, yes. Three days covers the harbour and Lower Manhattan, Midtown, and the Met with Central Park and the West Side. It is not enough to add the outer boroughs, and it is not enough to do the Met properly, which could absorb an entire day on its own."
+        },
+        {
+            "q": "What day is the Met closed?",
+            "a": "Wednesdays. It also closes on Thanksgiving, Christmas Day, New Year's Day and the first Monday in May. MoMA, by contrast, opens every day of the week, so if your dates are awkward the modern collection is the safer booking."
+        },
+        {
+            "q": "Is the Statue of Liberty worth it, and can you see it for free?",
+            "a": "You can see it for free, and on a short trip that is the better call. The Staten Island Ferry costs nothing, needs no ticket, runs day and night, and passes in clear view of the statue both ways. Landing on Liberty Island is a separate ticketed trip that takes most of a morning."
+        },
+        {
+            "q": "Empire State Building or Top of the Rock?",
+            "a": "Top of the Rock. It looks straight down at the Empire State Building with Central Park behind it, and the Empire State Building's own deck is the one view in the city that cannot include the building you came to look at. It is also usually the shorter queue."
+        },
+        {
+            "q": "Is a New York attraction pass worth it?",
+            "a": "Rarely on three days. Passes only pay off at four or five paid attractions, which is a punishing pace for a short trip, and the best things in this itinerary cost nothing: the ferry, the bridge, the memorial pools, Grand Central, Central Park and the High Line."
+        },
+        {
+            "q": "Can you walk across the Brooklyn Bridge?",
+            "a": "Yes, on a raised walkway above the traffic, and it is free. Walk it from Brooklyn towards Manhattan rather than the other way, because that way the skyline sits in front of you for the whole crossing instead of behind your shoulder."
+        },
+        {
+            "q": "How do you get around New York?",
+            "a": "Walk north and south, take the subway for long runs up or down the island, and avoid crosstown trips wherever you can. Tap a contactless card or phone straight at the turnstile. Crosstown blocks are three to four times longer than the ones between streets, which is why a short-looking walk east can take an hour."
+        }
+    ],
+    "related": [
+        "3-days-in-london",
+        "3-days-in-tokyo",
+        "3-days-in-paris"
+    ],
+    "cta": {
+        "heading": "Tailored to your trip",
+        "body": "Travelling to New York? Plan your trip around your real arrival and departure times."
+    }
+}
