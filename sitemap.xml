@@ -26,9 +26,15 @@
     </url>
     <url>
         <loc>https://owlio.online/guides/</loc>
-        <lastmod>2026-08-25</lastmod>
+        <lastmod>2026-08-26</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://owlio.online/guides/3-days-in-amsterdam.html</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://owlio.online/guides/3-days-in-bangkok.html</loc>
