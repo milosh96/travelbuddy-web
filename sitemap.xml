@@ -26,7 +26,7 @@
     </url>
     <url>
         <loc>https://owlio.online/guides/</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -87,6 +87,12 @@
     <url>
         <loc>https://owlio.online/guides/3-days-in-rome.html</loc>
         <lastmod>2026-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://owlio.online/guides/3-days-in-singapore.html</loc>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
