@@ -48,9 +48,13 @@ const read = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 // Mirrors index.html tokens exactly. Every generated page shares this block,
 // so a change here restyles the entire guide library in one build.
 
-/** Apple logo path data, shared by every download CTA. */
+/** Apple logo path data, shared by every App Store CTA. */
 const APPLE_GLYPH =
     'M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z';
+
+/** Google Play logo path data (viewBox 0 0 512 512), shared by every Play CTA. */
+const PLAY_GLYPH =
+    'M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z';
 
 const STYLES = `
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -252,6 +256,14 @@ const STYLES = `
             width: 1.15em; height: 1.15em; fill: currentColor;
             flex-shrink: 0; margin-top: -0.12em;
         }
+        /* Holds exactly the two store buttons. Equal 1fr tracks size both to the
+           wider one, so "Google Play" doesn't render a bigger button than
+           "App Store"; max-content keeps the pair shrink-wrapped. */
+        .cta-buttons {
+            display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+            gap: 0.75rem; width: max-content;
+        }
+        .cta-buttons > a { justify-content: center; }
 
         /* ── Inline CTA ──
            A quiet strip dropped in after the first image, where the reader is
@@ -285,7 +297,8 @@ const STYLES = `
         }
         @media (max-width: 560px) {
             .cta-inline { gap: 0.85rem; }
-            .cta-inline-btn { flex: 1 1 100%; justify-content: center; }
+            .cta-inline .cta-buttons { flex: 1 1 100%; }
+            .cta-buttons { width: 100%; grid-auto-flow: row; }
         }
 
         /* Mirrors the homepage hero pairing. */
@@ -429,12 +442,28 @@ const topnav = (site, prefix, placement) => `    <div class="topnav-bar" id="top
             </a>
             <div class="topnav-links">
                 <a href="${prefix}guides/index.html">City Guides</a>
-                <a class="nav-download" href="${site.appStoreUrl}"
-                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'${placement}'});">Download
+                <a class="nav-download" href="${site.appStoreUrl}" data-android-href="${site.playStoreUrl}"
+                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:this.dataset.store||'app_store',placement:'${placement}'});">Download
                     now</a>
             </div>
         </nav>
     </div>`;
+
+/**
+ * Repoints every store link carrying data-android-href at Google Play for Android
+ * visitors, and tags the click so the two stores stay separable in analytics. With
+ * JS off the markup's App Store href stands. Mirrors index.html.
+ */
+const STORE_SCRIPT = `    <script>
+        (function () {
+            if (!/android/i.test(navigator.userAgent)) return;
+            var links = document.querySelectorAll('a[data-android-href]');
+            for (var i = 0; i < links.length; i++) {
+                links[i].href = links[i].getAttribute('data-android-href');
+                links[i].dataset.store = 'google_play';
+            }
+        })();
+    </script>`;
 
 /** Hides the sticky nav on scroll down, brings it back on scroll up. Mirrors index.html. */
 const NAV_SCRIPT = `    <script>
@@ -789,6 +818,7 @@ ${head(site, {
 ${topnav(site, '../', `guide_nav_${g.slug}`)}
 ${body}
 ${footer(site, '../')}
+${STORE_SCRIPT}
 ${NAV_SCRIPT}
 ${hasVideo ? VIDEO_SCRIPT + '\n' : ''}${CONSENT_SCRIPT('../')}
 </body>
@@ -812,10 +842,16 @@ function ctaInline(site, g) {
         `                alt="">`,
         `            <p><strong>${esc(c.heading || 'Want your whole trip planned?')}</strong> ` +
         `${esc(c.body || `Try ${site.shortName || site.name} for free.`)}</p>`,
-        `            <a class="cta-inline-btn" href="${site.appStoreUrl}"`,
-        `                onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_inline_${g.slug}'});"><svg`,
-        `                    viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
-        `                    d="${APPLE_GLYPH}" /></svg>App Store</a>`,
+        `            <div class="cta-buttons">`,
+        `                <a class="cta-inline-btn" href="${site.appStoreUrl}"`,
+        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_inline_${g.slug}'});"><svg`,
+        `                        viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
+        `                        d="${APPLE_GLYPH}" /></svg>App Store</a>`,
+        `                <a class="cta-inline-btn" href="${site.playStoreUrl}"`,
+        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'google_play',placement:'guide_inline_${g.slug}'});"><svg`,
+        `                        viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path`,
+        `                        d="${PLAY_GLYPH}" /></svg>Google Play</a>`,
+        `            </div>`,
         `        </aside>`,
     ].join('\n');
 }
@@ -827,10 +863,16 @@ function cta(site, g) {
         `            <div class="cta-copy">`,
         `                <h2>${esc(c.heading || 'Tailored to your trip')}</h2>`,
         `                <p>${esc(c.body || 'Plan your trip around your real arrival and departure times.')}</p>`,
-        `                <a class="cta-btn" href="${site.appStoreUrl}"`,
-        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_${g.slug}'});"><svg`,
-        `                        viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
-        `                        d="${APPLE_GLYPH}" /></svg>Download iOS App</a>`,
+        `                <div class="cta-buttons">`,
+        `                    <a class="cta-btn" href="${site.appStoreUrl}"`,
+        `                        onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_${g.slug}'});"><svg`,
+        `                            viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
+        `                            d="${APPLE_GLYPH}" /></svg>App Store</a>`,
+        `                    <a class="cta-btn" href="${site.playStoreUrl}"`,
+        `                        onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'google_play',placement:'guide_${g.slug}'});"><svg`,
+        `                            viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path`,
+        `                            d="${PLAY_GLYPH}" /></svg>Google Play</a>`,
+        `                </div>`,
         `            </div>`,
         // Same overlapping screenshot pair as the homepage hero.
         `            <div class="cta-shots">`,
@@ -933,6 +975,7 @@ ${cards || '            <p>No guides published yet.</p>'}
         </div>
     </div>
 ${footer(site, '../')}
+${STORE_SCRIPT}
 ${NAV_SCRIPT}
 ${CONSENT_SCRIPT('../')}
 </body>
@@ -986,6 +1029,7 @@ function seedFromSitemap() {
  *   {{GUIDES}}    one bullet per published guide
  *   {{BASE}}      site.baseUrl
  *   {{APPSTORE}}  site.appStoreUrl
+ *   {{PLAYSTORE}} site.playStoreUrl
  */
 function renderLlms(site, guides) {
     const tpl = fs.readFileSync(LLMS_TEMPLATE, 'utf8');
@@ -997,7 +1041,8 @@ function renderLlms(site, guides) {
     return tpl
         .replace('{{GUIDES}}', rows.length ? rows.join('\n') : '_No guides published yet._')
         .replace(/\{\{BASE\}\}/g, site.baseUrl)
-        .replace(/\{\{APPSTORE\}\}/g, site.appStoreUrl);
+        .replace(/\{\{APPSTORE\}\}/g, site.appStoreUrl)
+        .replace(/\{\{PLAYSTORE\}\}/g, site.playStoreUrl);
 }
 
 function renderSitemap(site, guides) {

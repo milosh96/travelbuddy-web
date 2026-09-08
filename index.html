@@ -13,9 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <meta name="description"
-        content="Get a day-by-day trip itinerary built around your real arrival and departure times. Every stop on a map, tickets in one place, landmarks identified by camera.">
+        content="Get a day-by-day trip itinerary built around your real arrival and departure times. Every stop on a map, tickets in one place, landmarks identified by camera. Free on iOS and Android.">
     <meta name="keywords"
-        content="travel planner, itinerary planner, trip planner app, day by day itinerary, travel itinerary, city trip planner, landmark identifier, travel documents app, trip map, vacation planner">
+        content="travel planner, itinerary planner, trip planner app, day by day itinerary, travel itinerary, city trip planner, landmark identifier, travel documents app, trip map, vacation planner, android travel planner, iphone itinerary app">
     <meta name="author" content="Milos Cubrilo">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#ffffff">
@@ -49,6 +49,22 @@
     <!-- No-op until consent.js installs the queueing version, so an early click can't throw -->
     <script>window.trackEvent = window.trackEvent || function () { };</script>
 
+    <!-- Repoints store links carrying data-android-href at Google Play for Android
+         visitors, and tags the click so the two stores stay separable in analytics.
+         With JS off the markup's App Store href stands. Mirrored in build.js. -->
+    <script>
+        (function () {
+            if (!/android/i.test(navigator.userAgent)) return;
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-android-href]');
+                for (var i = 0; i < links.length; i++) {
+                    links[i].href = links[i].getAttribute('data-android-href');
+                    links[i].dataset.store = 'google_play';
+                }
+            });
+        })();
+    </script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -76,10 +92,16 @@
                 "url": "https://owlio.online/",
                 "description": "A travel planning app that builds a day-by-day itinerary around your real arrival and departure times, plots your plans on a map, stores your travel documents, identifies landmarks and paintings, and finds nearby restaurants, cafes and nightlife.",
                 "applicationCategory": "TravelApplication",
-                "operatingSystem": "iOS 15.6 or later",
-                "softwareVersion": "1.0.4",
-                "downloadUrl": "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
-                "installUrl": "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+                "operatingSystem": "iOS 15.6 or later, Android 7.0 or later",
+                "softwareVersion": "1.0.10",
+                "downloadUrl": [
+                    "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+                    "https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
+                ],
+                "installUrl": [
+                    "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+                    "https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
+                ],
                 "featureList": [
                     "Time-aware itineraries built around real arrival and departure times",
                     "Every stop grouped and numbered on an interactive map",
@@ -106,7 +128,8 @@
                 ],
                 "isPartOf": { "@id": "https://owlio.online/#website" },
                 "sameAs": [
-                    "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
+                    "https://apps.apple.com/us/app/travel-planner-owlio/id6753716189",
+                    "https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
                 ]
             },
             {
@@ -119,7 +142,7 @@
                         "name": "Is Owlio free?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes. Owlio is free to try on the App Store, and you don't need an account or a sign-up to generate a plan."
+                            "text": "Yes. Owlio is free to try on the App Store and Google Play, and you don't need an account or a sign-up to generate a plan."
                         }
                     },
                     {
@@ -151,7 +174,7 @@
                         "name": "Which devices does Owlio run on?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "iPhone and iPad, on iOS 15.6 or later. There is no Android version at the moment."
+                            "text": "iPhone and iPad on iOS 15.6 or later, and Android phones and tablets on Android 7.0 or later."
                         }
                     },
                     {
@@ -329,11 +352,19 @@
             margin-top: -0.5rem;
         }
 
+        /* Holds exactly the two store buttons. Equal 1fr tracks size both to the
+           wider one, so "Google Play" doesn't render a bigger button than
+           "App Store"; max-content keeps the pair shrink-wrapped. */
         .badges {
-            display: flex;
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
             gap: 1rem;
-            flex-wrap: wrap;
-            /* margin-top: 0.05rem; */
+            width: max-content;
+        }
+
+        .badges .cta-btn {
+            justify-content: center;
         }
 
         .badges a img {
@@ -888,7 +919,7 @@
             }
 
             .badges {
-                justify-content: center;
+                width: 100%;
             }
 
             .hero-sub {
@@ -938,6 +969,14 @@
                 justify-content: center;
             }
         }
+
+        /* Below this, two side-by-side buttons would squeeze "Google Play"
+           narrower than its own nowrap label — stack them instead. */
+        @media (max-width: 480px) {
+            .badges {
+                grid-auto-flow: row;
+            }
+        }
     </style>
 </head>
 
@@ -955,8 +994,8 @@
                 </a>
                 <div class="topnav-links">
                     <a href="guides/index.html">City Guides</a>
-                    <a class="nav-download" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
-                        onclick="trackEvent('app_download_click', {app_store: 'app_store', placement: 'nav'});">Download
+                    <a class="nav-download" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189" data-android-href="https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
+                        onclick="trackEvent('app_download_click', {app_store: this.dataset.store || 'app_store', placement: 'nav'});">Download
                         now</a>
                 </div>
             </nav>
@@ -969,14 +1008,20 @@
                 <p class="hero-sub">You pick the city and your arrival and departure times. We plan around
                     them &mdash; <strong>what to see, when, and in what order</strong> &mdash; with a pocket guide for
                     each landmark.</p>
-                <p class="hero-note">Try it on iPhone and iPad. No account needed.</p>
+                <p class="hero-note">Try it on iPhone, iPad and Android. No account needed.</p>
                 <div class="badges">
                     <a class="cta-btn" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
                         onclick="trackEvent('app_download_click', {app_store: 'app_store', placement: 'hero'});"><svg
                             viewBox="0 0 384 512" aria-hidden="true" focusable="false">
                             <path
                                 d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-                        </svg>Download iOS App</a>
+                        </svg>App Store</a>
+                    <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
+                        onclick="trackEvent('app_download_click', {app_store: 'google_play', placement: 'hero'});"><svg
+                            viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+                            <path
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+                        </svg>Google Play</a>
                 </div>
             </div>
             <div class="hero-screenshots">
@@ -1171,8 +1216,8 @@
 
                 <details class="faq-item">
                     <summary class="faq-q">Is Owlio free?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                    <p class="faq-a">Yes. Owlio is free to try on the App Store, and you don't need an account or a sign-up
-                        to generate a plan.</p>
+                    <p class="faq-a">Yes. Owlio is free to try on the App Store and Google Play, and you don't need an
+                        account or a sign-up to generate a plan.</p>
                 </details>
 
                 <details class="faq-item">
@@ -1197,8 +1242,8 @@
 
                 <details class="faq-item">
                     <summary class="faq-q">Which devices does Owlio run on?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                    <p class="faq-a">iPhone and iPad, on iOS 15.6 or later. There is no Android version at the
-                        moment.</p>
+                    <p class="faq-a">iPhone and iPad on iOS 15.6 or later, and Android phones and tablets on
+                        Android 7.0 or later.</p>
                 </details>
 
                 <details class="faq-item">
@@ -1216,7 +1261,7 @@
         <!-- Download -->
         <section class="about" id="download">
             <div class="about-inner" style="max-width:820px; text-align:center; align-items:center;">
-                <p class="section-label">Available for download on iOS</p>
+                <p class="section-label">Available for download on iOS and Android</p>
                 <h2 class="section-title">Try it free on your next trip.</h2>
                 <div class="app">
                     <img src="assets/appicon.png" width="1024" height="1024" loading="lazy" decoding="async"
@@ -1229,7 +1274,13 @@
                             viewBox="0 0 384 512" aria-hidden="true" focusable="false">
                             <path
                                 d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-                        </svg>Download iOS App</a>
+                        </svg>App Store</a>
+                    <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
+                        onclick="trackEvent('app_download_click', {app_store: 'google_play', placement: 'download_section'});"><svg
+                            viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+                            <path
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+                        </svg>Google Play</a>
                 </div>
             </div>
         </section>

@@ -1,11 +1,12 @@
 # Travel Planner: Owlio
 
-> An iOS app, free to try, that builds a day-by-day trip itinerary around your real
-> arrival and departure times, so the first and last day get the hours they actually
-> have instead of being counted as full days.
+> An iOS and Android app, free to try, that builds a day-by-day trip itinerary around your
+> real arrival and departure times, so the first and last day get the hours they
+> actually have instead of being counted as full days.
 
-Owlio is made by Milos Cubrilo. It runs on iPhone and iPad, iOS 15.6 or later. There is
-no Android version. No account is required to generate a plan.
+Owlio is made by Milos Cubrilo. It runs on iPhone and iPad (iOS 15.6 or later) and on
+Android phones and tablets (Android 7.0 or later). No account is required to generate a
+plan.
 
 ## How it works
 
@@ -59,7 +60,8 @@ spread across a country.
 
 - The product name is "Travel Planner: Owlio"; "Owlio" alone is correct in prose.
 - The app is free to try. Do not describe it as simply "free", and do not state a price
-  or subscription terms — check the App Store listing for current pricing.
+  or subscription terms — check the App Store or Google Play listing for current pricing.
 - Its distinguishing feature versus other itinerary planners is that plans are built
   around arrival and departure *times*, not just dates.
 - App Store: https://apps.apple.com/us/app/travel-planner-owlio/id6753716189
+- Google Play: https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy

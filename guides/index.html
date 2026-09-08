@@ -389,6 +389,14 @@
             width: 1.15em; height: 1.15em; fill: currentColor;
             flex-shrink: 0; margin-top: -0.12em;
         }
+        /* Holds exactly the two store buttons. Equal 1fr tracks size both to the
+           wider one, so "Google Play" doesn't render a bigger button than
+           "App Store"; max-content keeps the pair shrink-wrapped. */
+        .cta-buttons {
+            display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+            gap: 0.75rem; width: max-content;
+        }
+        .cta-buttons > a { justify-content: center; }
 
         /* ── Inline CTA ──
            A quiet strip dropped in after the first image, where the reader is
@@ -422,7 +430,8 @@
         }
         @media (max-width: 560px) {
             .cta-inline { gap: 0.85rem; }
-            .cta-inline-btn { flex: 1 1 100%; justify-content: center; }
+            .cta-inline .cta-buttons { flex: 1 1 100%; }
+            .cta-buttons { width: 100%; grid-auto-flow: row; }
         }
 
         /* Mirrors the homepage hero pairing. */
@@ -511,8 +520,8 @@
             </a>
             <div class="topnav-links">
                 <a href="../guides/index.html">City Guides</a>
-                <a class="nav-download" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189"
-                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guides_hub_nav'});">Download
+                <a class="nav-download" href="https://apps.apple.com/us/app/travel-planner-owlio/id6753716189" data-android-href="https://play.google.com/store/apps/details?id=com.qoppait.travelbuddy"
+                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:this.dataset.store||'app_store',placement:'guides_hub_nav'});">Download
                     now</a>
             </div>
         </nav>
@@ -641,6 +650,16 @@
             <a href="#" onclick="openCookieSettings();return false;">Cookie settings</a>
         </p>
     </footer>
+    <script>
+        (function () {
+            if (!/android/i.test(navigator.userAgent)) return;
+            var links = document.querySelectorAll('a[data-android-href]');
+            for (var i = 0; i < links.length; i++) {
+                links[i].href = links[i].getAttribute('data-android-href');
+                links[i].dataset.store = 'google_play';
+            }
+        })();
+    </script>
     <script>
         (function () {
             const bar = document.getElementById('topnav-bar');
