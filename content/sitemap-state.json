@@ -1,7 +1,7 @@
 {
   "https://owlio.online/": {
-    "hash": "cb501c81b7b764b5",
-    "lastmod": "2026-09-08"
+    "hash": "7eb38d7f7f7bfdef",
+    "lastmod": "2026-09-09"
   },
   "https://owlio.online/support.html": {
     "hash": "b8e6829a57d2e531",
@@ -16,7 +16,11 @@
     "lastmod": "2026-09-08"
   },
   "https://owlio.online/guides/": {
-    "hash": "cd9999cbb1d7b041",
-    "lastmod": "2026-09-08"
+    "hash": "342b67834577c8f7",
+    "lastmod": "2026-09-10"
+  },
+  "https://owlio.online/blog/": {
+    "hash": "5a40da470299cdb2",
+    "lastmod": "2026-09-10"
   }
 }

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://owlio.online/</loc>
-        <lastmod>2026-09-08</lastmod>
+        <lastmod>2026-09-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -26,7 +26,7 @@
     </url>
     <url>
         <loc>https://owlio.online/guides/</loc>
-        <lastmod>2026-09-08</lastmod>
+        <lastmod>2026-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -137,5 +137,17 @@
         <lastmod>2026-09-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://owlio.online/blog/</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://owlio.online/blog/planning-a-trip-around-flight-times.html</loc>
+        <lastmod>2026-09-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 </urlset>

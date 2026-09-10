@@ -19,6 +19,13 @@
     "titleTag": "City Guides — Travel Itineraries by City",
     "metaDescription": "Day-by-day city itineraries covering the must-see attractions. What to prioritise, what to skip, and how to group it so you walk the least."
   },
+  "blog": {
+    "eyebrow": "Trip planning, tested",
+    "h1": "Blog",
+    "standfirst": "How to plan a city trip that actually fits the hours you have — plus honest comparisons of the apps and spreadsheets people use to do it.",
+    "titleTag": "Blog — Trip Planning Apps and How-Tos",
+    "metaDescription": "Comparisons of trip planning apps, and practical guides to planning a city trip around your real flight times. Written for short trips, not two-week tours."
+  },
   "staticPages": [
     {
       "path": "",

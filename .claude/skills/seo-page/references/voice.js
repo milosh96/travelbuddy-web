@@ -16,6 +16,8 @@ function collect(node, out, key) {
 module.exports = function (g) {
   const out = [];
   if (g.standfirst) out.push(g.standfirst);
+  // Blog posts only — full sentences, so they belong in the measurement.
+  if (g.keyTakeaways) g.keyTakeaways.forEach(t => out.push(t));
   collect(g.sections, out, null);
   collect(g.faq, out, null);
   if (g.heroImage && g.heroImage.caption) out.push(g.heroImage.caption);

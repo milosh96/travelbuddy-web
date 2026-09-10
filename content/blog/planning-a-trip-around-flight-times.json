@@ -1,0 +1,206 @@
+{
+  "slug": "planning-a-trip-around-flight-times",
+  "title": "Planning a Trip Around Your Actual Flight Times, Not Just the Dates",
+  "titleTag": "How to Plan a Trip Around Your Real Flight Times",
+  "metaDescription": "Three nights is one full day and two fragments. How to size the ends of a short city trip around real arrival and departure times, and what fits in them.",
+  "excerpt": "A flight landing at 16:40 does not give you a day. How to work out the real hours at each end of a short city trip, what fits in them, and which planning tools actually ask.",
+  "category": "Planning",
+  "primaryQuery": "how do i plan a trip itinerary around my actual flight arrival and departure times",
+  "secondaryQueries": [
+    "flight time itinerary planning",
+    "partial day travel planning",
+    "plan around arrival time travel",
+    "what travel app accounts for real flight times when building an itinerary"
+  ],
+  "datePublished": "2026-09-09",
+  "eyebrow": "Planning",
+  "standfirst": "Three nights in a city is one full day and two fragments. Size the fragments before choosing anything to see.",
+  "keyTakeaways": [
+    "Three nights in a city buys one full day and two partial ones, not three days of sightseeing.",
+    "Standard hotel check-in is 3pm and check-out is 11am, and those two times are what cut the first afternoon and the last morning short.",
+    "Work out the usable hours at each end before choosing anything to see: landing time plus roughly two and a half hours to reach the hotel, and departure time minus three hours at the airport plus the ride out to it.",
+    "Keep anything ticketed, timed or far from the hotel off the arrival and departure days. Those blocks are for things that survive being cut short."
+  ],
+  "sections": [
+    {
+      "type": "prose",
+      "body": [
+        "A flight that lands at 16:40 does not give you a day. It gives you an evening, and only if the bags come out quickly. Most plans for a short city trip get built from the dates anyway. Three nights in Lisbon, therefore three days of sightseeing. The arithmetic breaks at both ends.",
+        "Three nights buys one full day. The rest is two fragments. An afternoon cut short by a landing time and by a hotel that will not release the room before three, and a morning cut short by the ride back to the airport. Price those fragments as whole days and the plan is wrong before the plane has landed, which is why so many first evenings end as a supermarket sandwich and an early night.",
+        "The fix is arithmetic, not discipline. Work out how many hours each end of the trip actually has, then choose what to put in them."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Why a three-night trip is not three days",
+      "body": [
+        "Three nights gives you one full day, one partial afternoon and one partial morning. The number of nights and the number of usable days are different numbers, and the gap between them is set by two clocks nobody on the trip controls: the airline's and the hotel's.",
+        "The hotel clock is the more predictable of the two. Across the industry, standard check-in sits at 3pm and check-out at 11am, with some properties pushing check-in to 4pm and check-out to noon. Hotels will often release a room early when one is clean, and most will store bags at any hour, but neither is something to build a plan on.",
+        "So the shape of a three-night trip is fixed before any sight is chosen. Arrive, lose the afternoon to the journey. One clean day. A second clean day. Then a morning that ends at check-out, or earlier if the flight is early."
+      ]
+    },
+    {
+      "type": "callout",
+      "body": [
+        "**A trip has two half-days at its ends, and their length is set by a flight time and a hotel's clock.** Everything else in this article follows from measuring them before choosing anything to see."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "How many hours does the arrival day actually have?",
+      "body": [
+        "Subtract from the landing time rather than adding to it. Take wheels-down, add however long it takes to clear the airport and reach the hotel, and whatever is left before dinner is the arrival day.",
+        "The table below assumes two and a half hours from landing to standing in the hotel lobby on an international arrival: taxiing and disembarking, immigration, bags, then the train or taxi into town. That figure is a placeholder. Substitute the real one for the airport being flown into, because it swings hard. A small European airport with an EU passport can be done in forty minutes. A large hub at the wrong hour can take three before the ride into the city has even started."
+      ]
+    },
+    {
+      "type": "table",
+      "columns": ["Flight lands", "At the hotel around", "Hours before an 8pm dinner", "What that is honestly good for"],
+      "rows": [
+        ["09:30", "12:00", "8", "A genuine day, once the bags are stored. One neighbourhood, one sight"],
+        ["13:00", "15:30", "4.5", "One unticketed sight and the walk to it"],
+        ["16:40", "19:10", "under 1", "Getting to dinner. Nothing else fits"],
+        ["22:15", "00:45", "none", "Sleep. Day one starts tomorrow"]
+      ]
+    },
+    {
+      "type": "prose",
+      "body": [
+        "The pattern in that table is the whole argument. Between a 13:00 landing and a 16:40 landing there is only three and a half hours of difference on paper, and the entire content of the first day between them in practice. One is an afternoon. The other is a taxi and a meal."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "What belongs in an arrival afternoon",
+      "body": [
+        "Things that survive being cut short. The arrival block is the least predictable stretch of the whole trip, so nothing in it should have a ticket, a reservation or a closing time that matters."
+      ]
+    },
+    {
+      "type": "list",
+      "intro": "What works on an arrival afternoon:",
+      "items": [
+        "**The walk around the neighbourhood you are sleeping in.** It has to happen at some point, it needs no ticket, and it turns the next two mornings into navigation you already know.",
+        "**One outdoor thing that is free and open late.** A river, a viewpoint, a square. Nothing is lost if the bags took an hour longer than expected.",
+        "**Dinner, booked late and near.** Somewhere twenty minutes from the hotel at 8:30pm beats somewhere celebrated at 7pm across the city.",
+        "**The supermarket run.** Water, breakfast, whatever the room lacks. Unglamorous, and it buys back forty minutes on the first real morning."
+      ]
+    },
+    {
+      "type": "list",
+      "intro": "What to keep out of it:",
+      "items": [
+        "**Anything with a timed ticket.** A slot missed because a passport queue ran long is money gone and a mood set for the trip.",
+        "**The headline sight.** It deserves the morning it will get on day two, not the tail of a travel day.",
+        "**A day trip, in any direction.** Arrival day is the worst possible day to add a second journey to.",
+        "**A museum that closes at 6pm.** Forty minutes inside a building worth three hours is not a visit."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "The last morning is shorter than the first afternoon",
+      "body": [
+        "Usually, yes, and it catches people out because the trip feels established by then. Check-out is 11am. Airlines and the TSA both recommend arriving three hours before an international flight. Add the journey out to the airport and a 13:05 departure means leaving the city at roughly 9am.",
+        "That is not a morning. It is breakfast, a shower, and bags. A 13:05 flight and a 19:00 flight are the same date on a booking and two completely different last days, and only one of them holds a museum.",
+        "The useful move is to run the calculation backwards on the last day and stop treating it as spare capacity. If the departure leaves three clear hours after check-out, the bags go into hotel storage and one nearby thing goes into the plan. If it does not, the last morning is a coffee, and anything that was hoping to land there needs to be somewhere else."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Do trip planning apps account for flight times?",
+      "body": [
+        "Some know the flight times exactly and do nothing with them; others build a plan and never ask. As of September 2026, the tools split roughly into two groups, and the split is worth understanding before choosing one.",
+        "The first group organises what has already been booked. TripIt is the clearest example: forward the confirmation emails to it and it assembles them into one itinerary, with real-time flight alerts on top. It knows precisely when the flight lands, because it read the booking. It does not propose anything to do with the hours around that landing, because proposing things is not what it is for.",
+        "The second group is a canvas. Wanderlog advertises importing flight and hotel reservations, adding places from guides in one click, real-time collaboration, expense splitting and route optimisation. That is a strong set of tools for collecting a trip and arranging it. The route optimisation works on the geography between the places already chosen. How many of them fit between a 19:10 hotel arrival and dinner is still a judgement call, and it is still yours."
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "What each kind of tool actually does with a landing time",
+      "columns": ["", "Owlio", "TripIt", "Wanderlog"],
+      "rows": [
+        ["What you give it", "One city, arrival and departure times, a pace", "Forwarded confirmation emails", "Imported reservations, plus the places you add"],
+        ["What it hands back", "A day-by-day plan with the stops grouped and numbered on a map", "One consolidated itinerary of your bookings, with flight alerts", "A canvas of your places, with route optimisation and a map"],
+        ["Does a 16:40 landing change the plan?", "Yes — it is one of the inputs", "It records it; there is no sightseeing plan to change", "The reservation appears on the day; the ordering stays yours"],
+        ["Where it beats the others", "Sizing the first and last day before you pick anything", "Reading a booking email and watching the flight in real time", "Groups: collaboration, expense splitting, collecting places"]
+      ]
+    },
+    {
+      "type": "prose",
+      "body": [
+        "There is no version of this where one app wins everything. TripIt's email parsing is better than anything Owlio does with travel documents, and its real-time flight alerts are a genuinely separate product that Owlio does not attempt. Wanderlog is the better tool for four people planning together, because Owlio has no collaboration and no expense splitting at all.",
+        "What Owlio does is the narrow thing this article is about. You give it a city, the time the flight lands and the time it leaves, and a pace, and it returns each day as an ordered set of stops on a map — with the first and last day sized to the hours they really have. That is the whole pitch, and it is worth knowing that the same design decision has a cost: Owlio plans one city per trip on purpose. A ten-day route through four cities is the wrong job for it."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "A worked example: land 16:40 Friday, leave 13:05 Monday",
+      "body": [
+        "Three nights, which reads as three days and is not. Running the arithmetic gives the real shape of the trip in about two minutes."
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "**Friday.** Lands 16:40, at the hotel around 19:10. Usable: one evening. Plan: the walk around the hotel's neighbourhood, one lit-up outdoor thing, a late dinner nearby. Nothing ticketed.",
+        "**Saturday.** The first full day, and the only one that can absorb a mistake. The headline sight goes here, booked ahead, ideally at opening.",
+        "**Sunday.** The second full day. Check what is closed. Sunday is the weekly dead day in a lot of cities, and the only day some markets run.",
+        "**Monday.** Leaves 13:05, so the airport at 10:05, so out of the city around 09:00. Usable: breakfast. Bag storage is irrelevant on a morning this short, because there is no time to come back for them.",
+        "**The count.** Two full days and two edges, from a booking that said three nights. Every decision above follows from that number, not from the one on the booking."
+      ]
+    },
+    {
+      "type": "prose",
+      "body": [
+        "Both full days in that example are what the city guides on this site are written for. The [3 days in Florence](../guides/3-days-in-florence.html) guide is the sharpest illustration of why arrival time matters beyond the first evening: three of that city's must-sees run on separate, non-transferable timed reservations, so a late Friday landing does not just cost an afternoon, it removes a slot from the pool the rest of the trip has to be built around."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "What this approach costs",
+      "body": [
+        "Honesty about the arrival day means accepting a smaller trip than the booking implied, and that is genuinely worse news than the alternative. Somebody who plans three full days will do more on paper. They will also spend the first evening rearranging it.",
+        "It also assumes one city. On a multi-city route the same logic applies at every hop, which is more arithmetic than most people will do by hand, and the answer is usually fewer hops planned the same way.",
+        "And it will not save a badly chosen flight. A 22:15 arrival and an 07:00 departure produce a two-night trip with one usable day in it, whatever tool draws the plan. The arithmetic is most valuable before the flight is booked, when the difference between the 13:00 landing and the 16:40 landing is still a choice."
+      ]
+    }
+  ],
+  "faqHeading": "Common questions",
+  "faq": [
+    {
+      "q": "How do I plan a trip around my actual flight arrival and departure times?",
+      "a": "Size the ends first. Add roughly two and a half hours to the landing time to reach the hotel, and subtract three hours at the airport plus the ride out from the departure time. Whatever is left at each end is the real block, and only then choose what fits in it."
+    },
+    {
+      "q": "What should I do on my first day when I land in the afternoon?",
+      "a": "Nothing ticketed and nothing far. Walk the neighbourhood you are sleeping in, find one outdoor thing that is open late and free, and book dinner nearby for later than feels natural. An afternoon landing reliably becomes an evening, so plan the evening."
+    },
+    {
+      "q": "Is three nights enough for a city?",
+      "a": "Three nights is enough for two full days plus two fragments, which is enough for one city's must-sees and nothing beyond them. It is not enough for a day trip out of that city, and treating it as three full days is the mistake that makes short trips feel rushed."
+    },
+    {
+      "q": "What can I do before hotel check-in?",
+      "a": "Standard check-in is 3pm, so anything before it needs to work with luggage or without it. Most hotels will hold bags before check-in, which turns a morning arrival into a usable day, but it is a courtesy and not a guarantee. Ask when booking; do not assume it."
+    },
+    {
+      "q": "How early do I need to leave the city on the last day?",
+      "a": "Airlines and the TSA recommend arriving three hours before an international flight. Add the journey to the airport, and a 13:05 departure means leaving around 9am. Run that subtraction before planning anything into the last morning."
+    },
+    {
+      "q": "Which travel app accounts for real flight times when building an itinerary?",
+      "a": "TripIt records flight times accurately but does not build a sightseeing plan around them. Wanderlog imports the reservation and leaves the ordering to you. Owlio takes the arrival and departure times as inputs and sizes the first and last day to the hours they actually have."
+    }
+  ],
+  "cta": {
+    "heading": "Sized to your actual flight times",
+    "body": "Enter the city, when you land and when you leave. Owlio plans each day around the hours you really have."
+  },
+  "inlineCta": false,
+  "relatedGuides": [
+    "3-days-in-florence",
+    "3-days-in-vienna",
+    "3-days-in-venice"
+  ]
+}

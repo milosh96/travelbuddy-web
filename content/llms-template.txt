@@ -31,6 +31,7 @@ spread across a country.
 
 - [Home]({{BASE}}): what the app does, how it works, and FAQs
 - [City Guides]({{BASE}}guides/): three-day, must-see itineraries written per city
+- [Blog]({{BASE}}blog/): app comparisons and how-to guides on planning a short city trip
 - [Support]({{BASE}}support.html): contact
 - [Privacy Policy]({{BASE}}privacy-policy.html): what data is collected and why
 - [Terms]({{BASE}}terms.html): terms of use
@@ -38,6 +39,10 @@ spread across a country.
 ## City guides
 
 {{GUIDES}}
+
+## Blog
+
+{{POSTS}}
 
 ## Notes for citation
 

@@ -19,6 +19,8 @@ const ROOT = __dirname;
 const CONTENT = path.join(ROOT, 'content');
 const GUIDES_SRC = path.join(CONTENT, 'guides');
 const GUIDES_OUT = path.join(ROOT, 'guides');
+const BLOG_SRC = path.join(CONTENT, 'blog');
+const BLOG_OUT = path.join(ROOT, 'blog');
 const SITEMAP_STATE = path.join(CONTENT, 'sitemap-state.json');
 const LLMS_TEMPLATE = path.join(CONTENT, 'llms-template.txt');
 
@@ -317,6 +319,45 @@ const STYLES = `
         .related { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid #e5e3ec; }
         .related h2 { font-size: 1.2rem; margin-top: 0; }
 
+        /* ── Key takeaways ──
+           Sits directly under the masthead so the answer is the first thing on the
+           page, for a reader skimming and for an answer engine extracting. */
+        .takeaways {
+            background-color: #f7f6fa; border: 1px solid #e5e3ec; border-radius: 14px;
+            padding: 1.5rem 1.75rem; margin: 2rem 0 0;
+        }
+        .takeaways h2 {
+            font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--accent); font-weight: 600; margin: 0 0 0.9rem;
+        }
+        .takeaways ul { margin: 0 0 0 1.1rem; }
+        .takeaways li { color: #5f5f6b; margin-bottom: 0.55rem; }
+        .takeaways li:last-child { margin-bottom: 0; }
+
+        /* ── Blog index ──
+           A dated, reverse-chronological list rather than a card grid: posts are
+           read newest-first and the excerpt does the selling, not a thumbnail. */
+        .post-list { margin-top: 2.5rem; border-top: 1px solid #e5e3ec; }
+        .post-item {
+            display: block; text-decoration: none; padding: 1.75rem 0;
+            border-bottom: 1px solid #e5e3ec;
+        }
+        .post-meta {
+            font-size: 0.8rem; color: #6f6f7a; margin-bottom: 0.5rem;
+            display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+        }
+        .post-cat {
+            color: var(--accent); font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; font-size: 0.72rem;
+        }
+        .post-item h2 {
+            font-size: 1.35rem; font-weight: 700; color: #16161c;
+            margin: 0 0 0.5rem; letter-spacing: -0.01em; line-height: 1.3;
+            transition: color 0.2s;
+        }
+        .post-item:hover h2 { color: var(--accent); }
+        .post-excerpt { color: #5f5f6b; font-size: 0.98rem; margin: 0; }
+
         /* ── City cards ── */
         .city-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -364,6 +405,8 @@ const STYLES = `
             h2 { font-size: 1.35rem; }
             .standfirst { font-size: 1.05rem; }
             .city-grid { grid-template-columns: 1fr; }
+            .post-item h2 { font-size: 1.2rem; }
+            .takeaways { padding: 1.25rem 1.35rem; }
             .stop { flex-direction: column; gap: 0.25rem; }
             .stop-time { width: auto; }
             .day { padding: 1.5rem; }
@@ -371,6 +414,10 @@ const STYLES = `
                 grid-template-columns: 1fr; gap: 1.75rem;
                 padding: 1.75rem 1.5rem; text-align: center;
             }
+            /* The stacked CTA centres its text, but the button pair is a
+               max-content grid box — text-align cannot move it, so centre the
+               box itself. Below 560px it goes full-width and this is a no-op. */
+            .cta .cta-buttons { margin-inline: auto; }
             .cta-shots img:nth-child(1) { height: 240px; }
             .cta-shots img:nth-child(2) { height: 206px; margin-left: -26px; }
         }`;
@@ -506,6 +553,7 @@ const NAV_SCRIPT = `    <script>
 const footer = (site, prefix) => `    <footer>
         <p>&copy; ${new Date().getFullYear()} ${esc(site.name)} &mdash; <a href="${prefix}index.html">Home</a> &middot;
             <a href="${prefix}guides/index.html">City Guides</a> &middot;
+            <a href="${prefix}blog/index.html">Blog</a> &middot;
             <a href="${prefix}terms.html">Terms</a> &middot; <a href="${prefix}privacy-policy.html">Privacy</a> &middot;
             <a href="${prefix}support.html">Support</a> &middot;
             <a href="#" onclick="openCookieSettings();return false;">Cookie settings</a>
@@ -583,7 +631,7 @@ const RENDER = {
     // on arrival. The iframe uses youtube-nocookie.com.
     video: (s) => {
         const poster = s.poster
-            ? `../assets/guides/${s.poster}`
+            ? assetRel(s.poster)
             : `https://i.ytimg.com/vi/${s.youtubeId}/hqdefault.jpg`;
         return [
             s.heading && `        <h2 id="${slugify(s.heading)}">${inline(s.heading)}</h2>`,
@@ -617,11 +665,22 @@ const IMAGE_SECTIONS = new Set(['image', 'gallery', 'video']);
 
 const slugify = (s) => plain(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+/**
+ * Image sources.
+ *
+ * A bare filename means assets/guides/ — that is where every city guide's photos
+ * live and where the whole library already points. A src containing a slash is
+ * taken as-is under assets/, which is how blog posts reach assets/blog/ without
+ * every existing guide having to be rewritten.
+ */
+const assetRel = (src) => `../assets/${src.includes('/') ? src : 'guides/' + src}`;
+const assetAbs = (site, src) => `${site.baseUrl}assets/${src.includes('/') ? src : 'guides/' + src}`;
+
 /** <img> with explicit dimensions so the layout never shifts while it loads. */
 function figImg(im, cls, indent = 2) {
     const pad = '    '.repeat(indent + 1);
     return [
-        `${pad}<img class="${cls}" src="../assets/guides/${im.src}"`,
+        `${pad}<img class="${cls}" src="${assetRel(im.src)}"`,
         `${pad}    alt="${esc(im.alt)}" width="${im.width}" height="${im.height}"`,
         `${pad}    loading="lazy" decoding="async">`,
     ].join('\n');
@@ -658,18 +717,74 @@ function figCaption(im, indent = 2) {
     return `${pad}<figcaption>${im.caption ? inline(im.caption) : ''}${credit}</figcaption>`;
 }
 
-// ── guide page ───────────────────────────────────────────────────────────────
+// ── shared article parts ─────────────────────────────────────────────────────
 
-function renderGuide(site, g, all) {
-    const url = `${site.baseUrl}guides/${g.slug}.html`;
-    const words = (g.sections || []).reduce((n, s) => {
+/** Visible-body word count. Feeds Article.wordCount and the reading estimate. */
+function countWords(item) {
+    return (item.sections || []).reduce((n, s) => {
         let t = [s.heading, s.intro].filter(Boolean).join(' ');
         if (s.body) t += ' ' + (Array.isArray(s.body) ? s.body.join(' ') : s.body);
         if (s.items) t += ' ' + s.items.join(' ');
         if (s.stops) t += ' ' + s.stops.map(x => `${x.name} ${x.detail}`).join(' ');
         if (s.rows) t += ' ' + s.rows.flat().join(' ');
         return n + wordCount(t);
-    }, 0) + (g.faq || []).reduce((n, f) => n + wordCount(f.q + ' ' + f.a), 0);
+    }, 0)
+        + wordCount((item.keyTakeaways || []).join(' '))
+        + (item.faq || []).reduce((n, f) => n + wordCount(f.q + ' ' + f.a), 0);
+}
+
+/**
+ * The answer box. Renders directly under the masthead, so the page's conclusion is
+ * the first thing on screen and the first thing an answer engine reaches — before
+ * it has to decide whether the rest of the page is worth reading.
+ */
+function takeaways(item) {
+    if (!item.keyTakeaways || !item.keyTakeaways.length) return null;
+    return [
+        `        <div class="takeaways">`,
+        `            <h2 id="key-takeaways">${esc(item.takeawaysHeading || 'The short answer')}</h2>`,
+        `            <ul>`,
+        ...item.keyTakeaways.map(t => `                <li>${inline(t)}</li>`),
+        `            </ul>`,
+        `        </div>`,
+    ].join('\n');
+}
+
+/**
+ * Renders the ordered sections, dropping the inline CTA after the first section
+ * that puts a picture on screen. Shared by guides and blog posts.
+ */
+function composeSections(item, inlineCta, alreadyPlaced) {
+    let pending = Boolean(inlineCta) && !alreadyPlaced;
+    const out = [];
+    for (const s of item.sections || []) {
+        const fn = RENDER[s.type];
+        if (!fn) throw new Error(`${item.slug}: unknown section type "${s.type}"`);
+        out.push(fn(s));
+        if (pending && IMAGE_SECTIONS.has(s.type)) { out.push(inlineCta); pending = false; }
+    }
+    return out;
+}
+
+/** FAQ block — rendered visibly, and the only source the FAQPage schema draws from. */
+function faqBlock(item) {
+    if (!item.faq || !item.faq.length) return null;
+    return [
+        `        <h2 id="faq">${esc(item.faqHeading || 'Common questions')}</h2>`,
+        ...item.faq.map(f => [
+            `        <div class="faq-item">`,
+            `            <p class="faq-q">${inline(f.q)}</p>`,
+            `            <p class="faq-a">${inline(f.a)}</p>`,
+            `        </div>`,
+        ].join('\n')),
+    ].join('\n');
+}
+
+// ── guide page ───────────────────────────────────────────────────────────────
+
+function renderGuide(site, g, all) {
+    const url = `${site.baseUrl}guides/${g.slug}.html`;
+    const words = countWords(g);
 
     const graph = [
         {
@@ -682,7 +797,7 @@ function renderGuide(site, g, all) {
             author: { '@id': `${site.baseUrl}#author` },
             publisher: { '@id': `${site.baseUrl}#author` },
             image: g.heroImage
-                ? `${site.baseUrl}assets/guides/${g.heroImage.src}`
+                ? assetAbs(site, g.heroImage.src)
                 : `${site.baseUrl}assets/appicon.png`,
             mainEntityOfPage: url,
             isPartOf: { '@id': `${site.baseUrl}#website` },
@@ -724,7 +839,7 @@ function renderGuide(site, g, all) {
                 description: s.description || s.caption || s.title,
                 uploadDate: s.uploadDate || g.datePublished,
                 thumbnailUrl: s.poster
-                    ? `${site.baseUrl}assets/guides/${s.poster}`
+                    ? assetAbs(site, s.poster)
                     : `https://i.ytimg.com/vi/${s.youtubeId}/hqdefault.jpg`,
                 embedUrl: `https://www.youtube-nocookie.com/embed/${s.youtubeId}`,
                 ...(s.duration ? { duration: s.duration } : {}),
@@ -741,7 +856,7 @@ function renderGuide(site, g, all) {
     const hero = g.heroImage ? [
         `        <figure class="fig">`,
         // Hero is above the fold, so it loads eagerly with high priority.
-        `            <img class="fig-img" src="../assets/guides/${g.heroImage.src}"`,
+        `            <img class="fig-img" src="${assetRel(g.heroImage.src)}"`,
         `                alt="${esc(g.heroImage.alt)}" width="${g.heroImage.width}" height="${g.heroImage.height}"`,
         `                fetchpriority="high" decoding="async">`,
         figCaption(g.heroImage),
@@ -752,20 +867,8 @@ function renderGuide(site, g, all) {
     // one, otherwise the first image-bearing section. A guide with no images at all
     // simply doesn't get one — the closing CTA already covers it.
     const inlineCta = g.inlineCta === false ? null : ctaInline(site, g);
-    let ctaPending = Boolean(inlineCta);
-
-    const afterHero = (ctaPending && hero) ? (ctaPending = false, inlineCta) : null;
-
-    const sections = [];
-    for (const s of g.sections || []) {
-        const fn = RENDER[s.type];
-        if (!fn) throw new Error(`${g.slug}: unknown section type "${s.type}"`);
-        sections.push(fn(s));
-        if (ctaPending && IMAGE_SECTIONS.has(s.type)) {
-            sections.push(inlineCta);
-            ctaPending = false;
-        }
-    }
+    const afterHero = (inlineCta && hero) ? inlineCta : null;
+    const sections = composeSections(g, inlineCta, Boolean(afterHero));
 
     const body = [
         `    <div class="wrap">`,
@@ -773,19 +876,12 @@ function renderGuide(site, g, all) {
         g.eyebrow && `        <p class="eyebrow">${esc(g.eyebrow)}</p>`,
         `        <h1>${inline(g.title)}</h1>`,
         g.standfirst && `        <p class="standfirst">${inline(g.standfirst)}</p>`,
-        `        <p class="byline">Updated ${fmtDate(g.dateModified || g.datePublished)} &middot; ${Math.max(1, Math.round(words / 220))} min read</p>`,
+        `        <p class="byline">Updated ${fmtDate(g.dateModified || g.datePublished)} &middot; ${readingTime(words)} min read</p>`,
+        takeaways(g),
         hero,
         afterHero,
         ...sections,
-        g.faq && g.faq.length ? [
-            `        <h2 id="faq">${esc(g.faqHeading || 'Common questions')}</h2>`,
-            ...g.faq.map(f => [
-                `        <div class="faq-item">`,
-                `            <p class="faq-q">${inline(f.q)}</p>`,
-                `            <p class="faq-a">${inline(f.a)}</p>`,
-                `        </div>`,
-            ].join('\n')),
-        ].join('\n') : null,
+        faqBlock(g),
         g.cta !== false ? cta(site, g) : null,
         related.length ? [
             `        <div class="related">`,
@@ -808,7 +904,7 @@ ${head(site, {
         url,
         ogTitle: g.ogTitle,
         image: g.heroImage && {
-            url: `${site.baseUrl}assets/guides/${g.heroImage.src}`,
+            url: assetAbs(site, g.heroImage.src),
             width: g.heroImage.width, height: g.heroImage.height, alt: g.heroImage.alt,
         },
         jsonld: { '@context': 'https://schema.org', '@graph': graph },
@@ -834,7 +930,7 @@ ${hasVideo ? VIDEO_SCRIPT + '\n' : ''}${CONSENT_SCRIPT('../')}
  * Copy is overridable per guide via "inlineCta": { "heading": …, "body": … }, and
  * the strip is suppressed entirely with "inlineCta": false.
  */
-function ctaInline(site, g) {
+function ctaInline(site, g, kind = 'guide') {
     const c = g.inlineCta || {};
     return [
         `        <aside class="cta-inline">`,
@@ -844,11 +940,11 @@ function ctaInline(site, g) {
         `${esc(c.body || `Try ${site.shortName || site.name} for free.`)}</p>`,
         `            <div class="cta-buttons">`,
         `                <a class="cta-inline-btn" href="${site.appStoreUrl}"`,
-        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_inline_${g.slug}'});"><svg`,
+        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'${kind}_inline_${g.slug}'});"><svg`,
         `                        viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
         `                        d="${APPLE_GLYPH}" /></svg>App Store</a>`,
         `                <a class="cta-inline-btn" href="${site.playStoreUrl}"`,
-        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'google_play',placement:'guide_inline_${g.slug}'});"><svg`,
+        `                    onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'google_play',placement:'${kind}_inline_${g.slug}'});"><svg`,
         `                        viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path`,
         `                        d="${PLAY_GLYPH}" /></svg>Google Play</a>`,
         `            </div>`,
@@ -856,7 +952,7 @@ function ctaInline(site, g) {
     ].join('\n');
 }
 
-function cta(site, g) {
+function cta(site, g, kind = 'guide') {
     const c = g.cta || {};
     return [
         `        <div class="cta">`,
@@ -865,11 +961,11 @@ function cta(site, g) {
         `                <p>${esc(c.body || 'Plan your trip around your real arrival and departure times.')}</p>`,
         `                <div class="cta-buttons">`,
         `                    <a class="cta-btn" href="${site.appStoreUrl}"`,
-        `                        onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'guide_${g.slug}'});"><svg`,
+        `                        onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'app_store',placement:'${kind}_${g.slug}'});"><svg`,
         `                            viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path`,
         `                            d="${APPLE_GLYPH}" /></svg>App Store</a>`,
         `                    <a class="cta-btn" href="${site.playStoreUrl}"`,
-        `                        onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'google_play',placement:'guide_${g.slug}'});"><svg`,
+        `                        onclick="if(window.trackEvent)trackEvent('app_download_click',{app_store:'google_play',placement:'${kind}_${g.slug}'});"><svg`,
         `                            viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path`,
         `                            d="${PLAY_GLYPH}" /></svg>Google Play</a>`,
         `                </div>`,
@@ -905,6 +1001,8 @@ const VIDEO_SCRIPT = `    <script>
 const fmtDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
 });
+
+const readingTime = (words) => Math.max(1, Math.round(words / 220));
 
 // ── hub page ─────────────────────────────────────────────────────────────────
 
@@ -984,6 +1082,243 @@ ${CONSENT_SCRIPT('../')}
 `;
 }
 
+// ── blog post ────────────────────────────────────────────────────────────────
+
+/**
+ * A blog post is the same machinery as a guide with a different spine: no `city`,
+ * no hub card, and a `category` + `excerpt` that the dated index reads instead.
+ *
+ * `related` names sibling post slugs; `relatedGuides` names city-guide slugs, so a
+ * comparison post can hand the reader an actual itinerary rather than only more
+ * posts about apps.
+ */
+function renderPost(site, p, posts, guides) {
+    const url = `${site.baseUrl}blog/${p.slug}.html`;
+    const blogUrl = `${site.baseUrl}blog/`;
+    const words = countWords(p);
+
+    const graph = [
+        {
+            '@type': 'BlogPosting',
+            '@id': `${url}#article`,
+            headline: p.title,
+            description: p.metaDescription,
+            datePublished: p.datePublished,
+            dateModified: p.dateModified || p.datePublished,
+            author: { '@id': `${site.baseUrl}#author` },
+            publisher: { '@id': `${site.baseUrl}#author` },
+            image: p.heroImage
+                ? assetAbs(site, p.heroImage.src)
+                : `${site.baseUrl}assets/appicon.png`,
+            mainEntityOfPage: url,
+            isPartOf: { '@id': `${site.baseUrl}#website` },
+            articleSection: p.category,
+            keywords: [p.primaryQuery, ...(p.secondaryQueries || [])].join(', '),
+            wordCount: words,
+        },
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${url}#breadcrumb`,
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: site.baseUrl },
+                { '@type': 'ListItem', position: 2, name: 'Blog', item: blogUrl },
+                { '@type': 'ListItem', position: 3, name: p.title, item: url },
+            ],
+        },
+    ];
+
+    // FAQPage is emitted ONLY when the questions are rendered in visible text below.
+    if (p.faq && p.faq.length) {
+        graph.push({
+            '@type': 'FAQPage',
+            '@id': `${url}#faq`,
+            mainEntity: p.faq.map(f => ({
+                '@type': 'Question',
+                name: plain(f.q),
+                acceptedAnswer: { '@type': 'Answer', text: plain(f.a) },
+            })),
+        });
+    }
+
+    for (const sec of p.sections || []) {
+        if (sec.type === 'video' && sec.owned) {
+            graph.push({
+                '@type': 'VideoObject',
+                '@id': `${url}#video-${sec.youtubeId}`,
+                name: sec.title,
+                description: sec.description || sec.caption || sec.title,
+                uploadDate: sec.uploadDate || p.datePublished,
+                thumbnailUrl: sec.poster
+                    ? assetAbs(site, sec.poster)
+                    : `https://i.ytimg.com/vi/${sec.youtubeId}/hqdefault.jpg`,
+                embedUrl: `https://www.youtube-nocookie.com/embed/${sec.youtubeId}`,
+                ...(sec.duration ? { duration: sec.duration } : {}),
+            });
+        }
+    }
+
+    const hasVideo = (p.sections || []).some(sec => sec.type === 'video');
+
+    const links = [
+        ...(p.related || []).map(slug => {
+            const r = posts.find(x => x.slug === slug);
+            return r && { href: `${r.slug}.html`, title: r.title };
+        }),
+        ...(p.relatedGuides || []).map(slug => {
+            const r = guides.find(x => x.slug === slug);
+            return r && { href: `../guides/${r.slug}.html`, title: r.title };
+        }),
+    ].filter(Boolean);
+
+    const hero = p.heroImage ? [
+        `        <figure class="fig">`,
+        `            <img class="fig-img" src="${assetRel(p.heroImage.src)}"`,
+        `                alt="${esc(p.heroImage.alt)}" width="${p.heroImage.width}" height="${p.heroImage.height}"`,
+        `                fetchpriority="high" decoding="async">`,
+        figCaption(p.heroImage),
+        `        </figure>`,
+    ].filter(Boolean).join('\n') : null;
+
+    const inlineCta = p.inlineCta === false ? null : ctaInline(site, p, 'blog');
+    const afterHero = (inlineCta && hero) ? inlineCta : null;
+    const sections = composeSections(p, inlineCta, Boolean(afterHero));
+
+    const body = [
+        `    <div class="wrap">`,
+        `        <nav class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">Blog</a> &rsaquo; ${esc(p.title)}</nav>`,
+        `        <p class="eyebrow">${esc(p.eyebrow || p.category)}</p>`,
+        `        <h1>${inline(p.title)}</h1>`,
+        p.standfirst && `        <p class="standfirst">${inline(p.standfirst)}</p>`,
+        `        <p class="byline">Updated ${fmtDate(p.dateModified || p.datePublished)} &middot; ${readingTime(words)} min read</p>`,
+        takeaways(p),
+        hero,
+        afterHero,
+        ...sections,
+        faqBlock(p),
+        p.cta !== false ? cta(site, p, 'blog') : null,
+        links.length ? [
+            `        <div class="related">`,
+            `            <h2>Keep reading</h2>`,
+            `            <ul>`,
+            ...links.map(l => `                <li><a href="${l.href}">${esc(l.title)}</a></li>`),
+            `            </ul>`,
+            `        </div>`,
+        ].join('\n') : null,
+        `    </div>`,
+    ].filter(Boolean).join('\n');
+
+    return `<!DOCTYPE html>
+<!-- GENERATED by build.js — do not edit. Source: content/blog/ -->
+<html lang="en">
+
+${head(site, {
+        title: p.titleTag || p.title,
+        description: p.metaDescription,
+        url,
+        ogTitle: p.ogTitle,
+        image: p.heroImage && {
+            url: assetAbs(site, p.heroImage.src),
+            width: p.heroImage.width, height: p.heroImage.height, alt: p.heroImage.alt,
+        },
+        jsonld: { '@context': 'https://schema.org', '@graph': graph },
+    })}
+
+<body>
+${topnav(site, '../', `blog_nav_${p.slug}`)}
+${body}
+${footer(site, '../')}
+${STORE_SCRIPT}
+${NAV_SCRIPT}
+${hasVideo ? VIDEO_SCRIPT + '\n' : ''}${CONSENT_SCRIPT('../')}
+</body>
+
+</html>
+`;
+}
+
+// ── blog index ───────────────────────────────────────────────────────────────
+
+/**
+ * Newest first, no pagination, no thumbnails. The excerpt is what sells the click,
+ * so it is a required field rather than a fallback to the meta description.
+ */
+function renderBlogIndex(site, posts) {
+    const url = `${site.baseUrl}blog/`;
+    const cfg = site.blog || {};
+    const sorted = [...posts].sort((a, b) =>
+        b.datePublished.localeCompare(a.datePublished) || a.slug.localeCompare(b.slug));
+
+    const graph = [
+        {
+            '@type': 'Blog',
+            '@id': `${url}#blog`,
+            name: cfg.h1 || 'Blog',
+            description: cfg.metaDescription,
+            url,
+            publisher: { '@id': `${site.baseUrl}#author` },
+            isPartOf: { '@id': `${site.baseUrl}#website` },
+            blogPost: sorted.map(p => ({ '@id': `${url}${p.slug}.html#article` })),
+        },
+        {
+            '@type': 'ItemList',
+            '@id': `${url}#list`,
+            itemListElement: sorted.map((p, i) => ({
+                '@type': 'ListItem', position: i + 1, name: p.title,
+                url: `${url}${p.slug}.html`,
+            })),
+        },
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${url}#breadcrumb`,
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: site.baseUrl },
+                { '@type': 'ListItem', position: 2, name: 'Blog', item: url },
+            ],
+        },
+    ];
+
+    const rows = sorted.map(p => [
+        `            <a class="post-item" href="${p.slug}.html">`,
+        `                <p class="post-meta"><span class="post-cat">${esc(p.category)}</span>` +
+        `<span>${fmtDate(p.datePublished)}</span><span>&middot;</span>` +
+        `<span>${readingTime(countWords(p))} min read</span></p>`,
+        `                <h2>${inline(p.title)}</h2>`,
+        `                <p class="post-excerpt">${inline(p.excerpt)}</p>`,
+        `            </a>`,
+    ].join('\n')).join('\n');
+
+    return `<!DOCTYPE html>
+<!-- GENERATED by build.js — do not edit. Source: content/blog/ -->
+<html lang="en">
+
+${head(site, {
+        title: cfg.titleTag,
+        description: cfg.metaDescription,
+        url,
+        jsonld: { '@context': 'https://schema.org', '@graph': graph },
+    })}
+
+<body>
+${topnav(site, '../', 'blog_index_nav')}
+    <div class="wrap">
+        <nav class="crumb"><a href="../index.html">Home</a> &rsaquo; Blog</nav>
+        <p class="eyebrow">${esc(cfg.eyebrow || '')}</p>
+        <h1>${esc(cfg.h1 || 'Blog')}</h1>
+        <p class="standfirst">${esc(cfg.standfirst || '')}</p>
+        <div class="post-list">
+${rows || '            <p>No posts published yet.</p>'}
+        </div>
+    </div>
+${footer(site, '../')}
+${STORE_SCRIPT}
+${NAV_SCRIPT}
+${CONSENT_SCRIPT('../')}
+</body>
+
+</html>
+`;
+}
+
 // ── sitemap ──────────────────────────────────────────────────────────────────
 
 /**
@@ -1027,25 +1362,33 @@ function seedFromSitemap() {
  * set of pages:
  *
  *   {{GUIDES}}    one bullet per published guide
+ *   {{POSTS}}     one bullet per published blog post
  *   {{BASE}}      site.baseUrl
  *   {{APPSTORE}}  site.appStoreUrl
  *   {{PLAYSTORE}} site.playStoreUrl
  */
-function renderLlms(site, guides) {
+function renderLlms(site, guides, posts) {
     const tpl = fs.readFileSync(LLMS_TEMPLATE, 'utf8');
 
     const rows = [...guides]
         .sort((a, b) => a.slug.localeCompare(b.slug))
         .map(g => `- [${g.title}](${site.baseUrl}guides/${g.slug}.html): ${plain(g.metaDescription)}`);
 
+    // Newest first — an assistant reading this should meet the current comparison
+    // before an older one.
+    const postRows = [...posts]
+        .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+        .map(x => `- [${x.title}](${site.baseUrl}blog/${x.slug}.html): ${plain(x.excerpt)}`);
+
     return tpl
+        .replace('{{POSTS}}', postRows.length ? postRows.join('\n') : '_No posts published yet._')
         .replace('{{GUIDES}}', rows.length ? rows.join('\n') : '_No guides published yet._')
         .replace(/\{\{BASE\}\}/g, site.baseUrl)
         .replace(/\{\{APPSTORE\}\}/g, site.appStoreUrl)
         .replace(/\{\{PLAYSTORE\}\}/g, site.playStoreUrl);
 }
 
-function renderSitemap(site, guides) {
+function renderSitemap(site, guides, posts) {
     const today = new Date().toISOString().slice(0, 10);
     const prev = loadSitemapState();
     const seed = seedFromSitemap();
@@ -1084,6 +1427,13 @@ function renderSitemap(site, guides) {
             .sort((a, b) => a.slug.localeCompare(b.slug))
             .map(g => entry(`${site.baseUrl}guides/${g.slug}.html`,
                 g.dateModified || g.datePublished, 'monthly', '0.8')),
+        entry(`${site.baseUrl}blog/`,
+            trackedDate(`${site.baseUrl}blog/`, 'blog/index.html'), 'weekly', '0.6'),
+        // 0.7, below the guides: posts support the guides rather than the reverse.
+        ...[...posts]
+            .sort((a, b) => a.slug.localeCompare(b.slug))
+            .map(x => entry(`${site.baseUrl}blog/${x.slug}.html`,
+                x.dateModified || x.datePublished, 'monthly', '0.7')),
     ];
 
     fs.writeFileSync(SITEMAP_STATE, JSON.stringify(next, null, 2) + '\n');
@@ -1100,9 +1450,27 @@ ${rows.join('\n')}
 const REQUIRED = ['slug', 'title', 'titleTag', 'metaDescription', 'primaryQuery',
     'datePublished', 'city', 'sections'];
 
-function validate(g, file, seen) {
+/** Posts have no city and no hub card; the dated index reads category + excerpt. */
+const REQUIRED_POST = ['slug', 'title', 'titleTag', 'metaDescription', 'primaryQuery',
+    'datePublished', 'category', 'excerpt', 'sections'];
+
+/**
+ * A closed set, for the same reason city names are spelled consistently: the index
+ * shows the category on every row, and a typo silently invents a new one.
+ */
+const BLOG_CATEGORIES = new Set(['Comparisons', 'Roundups', 'Planning', 'App guides']);
+
+function validate(g, file, seen, required = REQUIRED) {
     const errs = [];
-    for (const k of REQUIRED) if (!g[k]) errs.push(`missing "${k}"`);
+    for (const k of required) if (!g[k]) errs.push(`missing "${k}"`);
+    if (required === REQUIRED_POST) {
+        if (g.category && !BLOG_CATEGORIES.has(g.category)) {
+            errs.push(`category "${g.category}" is not one of: ${[...BLOG_CATEGORIES].join(', ')}`);
+        }
+        if (g.excerpt && g.excerpt.length > 200) {
+            errs.push(`excerpt is ${g.excerpt.length} chars (max 200)`);
+        }
+    }
     if (g.slug && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(g.slug)) errs.push(`slug "${g.slug}" must be lowercase-hyphenated`);
     if (g.slug && seen.has(g.slug)) errs.push(`duplicate slug "${g.slug}"`);
     if (g.titleTag && g.titleTag.length > 60) errs.push(`titleTag is ${g.titleTag.length} chars (max 60)`);
@@ -1121,7 +1489,9 @@ function main() {
     const site = read(path.join(CONTENT, 'site.json'));
 
     if (!fs.existsSync(GUIDES_SRC)) fs.mkdirSync(GUIDES_SRC, { recursive: true });
+    if (!fs.existsSync(BLOG_SRC)) fs.mkdirSync(BLOG_SRC, { recursive: true });
     fs.mkdirSync(GUIDES_OUT, { recursive: true });
+    fs.mkdirSync(BLOG_OUT, { recursive: true });
 
     const files = fs.readdirSync(GUIDES_SRC).filter(f => f.endsWith('.json')).sort();
     const seen = new Set();
@@ -1131,11 +1501,31 @@ function main() {
         return g;
     });
 
+    const postSeen = new Set();
+    const posts = fs.readdirSync(BLOG_SRC).filter(f => f.endsWith('.json')).sort()
+        .map(f => {
+            const x = read(path.join(BLOG_SRC, f));
+            validate(x, `content/blog/${f}`, postSeen, REQUIRED_POST);
+            return x;
+        });
+
     // Warn on dangling related-slugs rather than failing the build.
     for (const g of guides) {
         for (const r of g.related || []) {
             if (!guides.some(x => x.slug === r)) {
                 console.warn(`  ! ${g.slug}: related slug "${r}" does not exist — link dropped`);
+            }
+        }
+    }
+    for (const x of posts) {
+        for (const r of x.related || []) {
+            if (!posts.some(y => y.slug === r)) {
+                console.warn(`  ! ${x.slug}: related post "${r}" does not exist — link dropped`);
+            }
+        }
+        for (const r of x.relatedGuides || []) {
+            if (!guides.some(y => y.slug === r)) {
+                console.warn(`  ! ${x.slug}: relatedGuides slug "${r}" does not exist — link dropped`);
             }
         }
     }
@@ -1149,13 +1539,23 @@ function main() {
     fs.writeFileSync(path.join(GUIDES_OUT, 'index.html'), renderHub(site, guides));
     console.log(`  guides/index.html`);
 
-    fs.writeFileSync(path.join(ROOT, 'llms.txt'), renderLlms(site, guides));
-    console.log(`  llms.txt (${guides.length} guide${guides.length === 1 ? '' : 's'} listed)`);
+    for (const x of posts) {
+        fs.writeFileSync(path.join(BLOG_OUT, `${x.slug}.html`), renderPost(site, x, posts, guides));
+        console.log(`  blog/${x.slug}.html`);
+    }
 
-    fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(site, guides));
-    console.log(`  sitemap.xml (${site.staticPages.length + guides.length + 1} urls)`);
+    fs.writeFileSync(path.join(BLOG_OUT, 'index.html'), renderBlogIndex(site, posts));
+    console.log(`  blog/index.html`);
 
-    console.log(`\nBuilt ${guides.length} guide${guides.length === 1 ? '' : 's'}.`);
+    fs.writeFileSync(path.join(ROOT, 'llms.txt'), renderLlms(site, guides, posts));
+    console.log(`  llms.txt (${guides.length} guide${guides.length === 1 ? '' : 's'}, ` +
+        `${posts.length} post${posts.length === 1 ? '' : 's'} listed)`);
+
+    fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(site, guides, posts));
+    console.log(`  sitemap.xml (${site.staticPages.length + guides.length + posts.length + 2} urls)`);
+
+    console.log(`\nBuilt ${guides.length} guide${guides.length === 1 ? '' : 's'} and ` +
+        `${posts.length} post${posts.length === 1 ? '' : 's'}.`);
 }
 
 try {

@@ -31,6 +31,7 @@ spread across a country.
 
 - [Home](https://owlio.online/): what the app does, how it works, and FAQs
 - [City Guides](https://owlio.online/guides/): three-day, must-see itineraries written per city
+- [Blog](https://owlio.online/blog/): app comparisons and how-to guides on planning a short city trip
 - [Support](https://owlio.online/support.html): contact
 - [Privacy Policy](https://owlio.online/privacy-policy.html): what data is collected and why
 - [Terms](https://owlio.online/terms.html): terms of use
@@ -55,6 +56,10 @@ spread across a country.
 - [3 Days in Tokyo: What You Actually Have to See](https://owlio.online/guides/3-days-in-tokyo.html): The essential three-day Tokyo itinerary: Asakusa, Shibuya, Shinjuku and the bay, two districts a day so the Yamanote loop does most of the work for you.
 - [3 Days in Venice: What You Actually Have to See](https://owlio.online/guides/3-days-in-venice.html): The essential three-day Venice itinerary: why the tide table and the boat timetable, not the map, set the order, and which day the lagoon islands take.
 - [3 Days in Vienna: What You Actually Have to See](https://owlio.online/guides/3-days-in-vienna.html): The essential three-day Vienna itinerary. Half the must-sees are performances on a season that goes dark in July. Build the trip around your dates.
+
+## Blog
+
+- [Planning a Trip Around Your Actual Flight Times, Not Just the Dates](https://owlio.online/blog/planning-a-trip-around-flight-times.html): A flight landing at 16:40 does not give you a day. How to work out the real hours at each end of a short city trip, what fits in them, and which planning tools actually ask.
 
 ## Notes for citation
 
