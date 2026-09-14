@@ -59,6 +59,7 @@ spread across a country.
 
 ## Blog
 
+- [When Your Flight Lands Late at Night: How to Plan the Arrival](https://owlio.online/blog/flight-lands-late-what-to-do.html): A late landing is decided by three closing times: the last airport train, the hotel front desk and the last kitchen. What to check before flying, and why the next morning pays for the night.
 - [Travel App vs Spreadsheet: Which One Actually Plans the Trip](https://owlio.online/blog/travel-app-vs-spreadsheet-itinerary.html): A spreadsheet will hold eleven stops on a Tuesday without ever mentioning that eleven stops do not fit. Where spreadsheets beat apps, where they cannot help, and which to use for a short city trip.
 - [Planning a Trip Around Your Actual Flight Times, Not Just the Dates](https://owlio.online/blog/planning-a-trip-around-flight-times.html): A flight landing at 16:40 does not give you a day. How to work out the real hours at each end of a short city trip, what fits in them, and which planning tools actually ask.
 
