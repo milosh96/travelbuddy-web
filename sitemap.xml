@@ -158,7 +158,7 @@
     </url>
     <url>
         <loc>https://owlio.online/blog/</loc>
-        <lastmod>2026-09-21</lastmod>
+        <lastmod>2026-09-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -201,6 +201,12 @@
     <url>
         <loc>https://owlio.online/blog/travel-app-vs-spreadsheet-itinerary.html</loc>
         <lastmod>2026-09-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://owlio.online/blog/what-to-do-between-checkout-and-flight.html</loc>
+        <lastmod>2026-09-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
