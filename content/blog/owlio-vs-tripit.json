@@ -1,0 +1,158 @@
+{
+  "slug": "owlio-vs-tripit",
+  "title": "Owlio vs TripIt: Two Planners That Answer Different Questions",
+  "titleTag": "Owlio vs TripIt: Which Trip Planner Do You Need?",
+  "metaDescription": "TripIt organises what you have booked; Owlio plans what to see in the hours between. Where each one wins on a single-city trip, checked September 2026.",
+  "excerpt": "TripIt reads a flight to track it. Owlio reads the same flight to size the day. Where each wins, what TripIt Pro costs as of September 2026, and why a single-city trip may need both.",
+  "category": "Comparisons",
+  "primaryQuery": "owlio vs tripit",
+  "secondaryQueries": [
+    "how does owlio compare to tripit for trip planning",
+    "what is the difference between owlio and other travel planner apps",
+    "trip planner app alternatives",
+    "tripit alternative for sightseeing"
+  ],
+  "datePublished": "2026-09-30",
+  "eyebrow": "Comparisons",
+  "standfirst": "Both apps start from a flight. TripIt asks when it lands so it can tell you when to leave for the airport. Owlio asks so it can decide how much of Tuesday exists.",
+  "keyTakeaways": [
+    "TripIt and Owlio read the same flight for opposite reasons: TripIt tracks it, and Owlio uses it to work out how many hours of the city the landing leaves.",
+    "TripIt is the better tool for anything already booked, because it turns forwarded confirmation emails into one itinerary, and its Pro tier adds real-time flight alerts and alternate flights (as of September 2026, $49 a year).",
+    "Owlio is the only one of the two that proposes what to see, in what order and on which day, and it plans one city per trip on purpose.",
+    "Neither replaces the other: Owlio has no booking import or flight tracking, and none of TripIt's free or Pro feature lists proposes what to see.",
+    "For a single-city trip the honest answer is often both, TripIt for the booking and Owlio for the days between them."
+  ],
+  "sections": [
+    {
+      "type": "prose",
+      "body": [
+        "Owlio and TripIt are not really competitors, and choosing between them comes down to which gap the trip has. TripIt is for the trip that is already booked and needs to be kept straight. Owlio is for the trip that is booked and still empty, where the hard part is deciding what goes on which day.",
+        "Take a flight that lands at 16:40. TripIt records it, watches it, and tells you when to leave for the airport on the way home. Owlio takes the same landing and concludes that the first day is an evening, then plans one accordingly. Same input, two different questions.",
+        "That difference decides everything below, including the cases where TripIt is plainly the better choice. This comparison was checked against TripIt's own pages in September 2026."
+      ]
+    },
+    {
+      "type": "callout",
+      "body": [
+        "**TripIt starts from what you have booked. Owlio starts from a city and the hours you have in it.** Most of the comparison follows from that."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "What is the difference between Owlio and TripIt?",
+      "body": [
+        "TripIt organises reservations you have already made, and Owlio builds a day-by-day plan for a city you have not yet seen. TripIt's own line is \"You handle the booking, TripIt builds your itinerary\": forward a confirmation email to plans@tripit.com and it assembles the flights, hotel and rentals into one trip.",
+        "Owlio inverts the input. You give it one city, your real arrival and departure times and a pace (relaxed, balanced or packed), and it returns the stops, ordered and placed on a map. A 4pm landing gets a half day instead of a full one. The [flight-times post](planning-a-trip-around-flight-times.html) works through that arithmetic in full.",
+        "So TripIt's output is a record of decisions already made elsewhere. Owlio's output is the decisions. Neither app has a feature that does the other's job, and both sides of that are deliberate."
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Owlio vs TripIt at a glance",
+      "columns": ["", "Owlio", "TripIt"],
+      "rows": [
+        ["What you give it", "A city, arrival and departure times, a pace", "Confirmation emails, forwarded to plans@tripit.com"],
+        ["What it produces", "A day-by-day plan of stops on a map", "One itinerary of the bookings you already have"],
+        ["Proposes what to see", "Yes, that is the product", "No such feature on its free or Pro lists; plans can be added by hand"],
+        ["Flight alerts, alternate flights", "None", "Pro: real-time alerts, alternate flights, fare refund monitoring"],
+        ["Adds bookings from your inbox", "No import at all", "Pro: adds plans from your inbox for you"],
+        ["Trip shape", "One city per trip", "Whatever you have booked, across cities"],
+        ["Documents", "Boarding passes and tickets kept next to the plan", "3 per trip free, 25 per trip with Pro"],
+        ["Platforms", "iOS 15.6+ and Android 7.0+", "iOS and Android"],
+        ["Price", "Free to try", "Free tier; Pro is $49 a year, with a free trial (September 2026)"]
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Where does TripIt beat Owlio?",
+      "body": [
+        "On everything that happens to a booking, TripIt is far ahead. Owlio does not import a single reservation, so a flight number and a hotel address get typed or stored as documents. TripIt reads the confirmation email and builds the entry itself.",
+        "The paid tier goes further into the travel day. As of September 2026 TripIt Pro lists real-time flight alerts, alternate flights, terminal and gate reminders, a prompt for when to leave for the airport, and connecting-gate guidance. Owlio attempts none of it. If a trip is three flights and two hotels, that machinery matters more than any sightseeing suggestion.",
+        "Shape is the other clear loss. Owlio plans one city per trip and says so; a two-city trip needs two plans. TripIt organises whatever arrives in the inbox, so a four-stop route is just more emails. It also has the scale that Owlio does not, with its App Store listing citing nearly 20 million travellers and a 4.8 rating across 311K ratings.",
+        "Sharing tilts the same way. TripIt's free tier helps you share plans with others, and Pro adds Inner Circle, which gives chosen people automatic access to every trip. Owlio has no collaboration at all."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Where does Owlio beat TripIt?",
+      "body": [
+        "Owlio wins at the part TripIt never attempts, which is deciding what to do with the hours. Nothing on TripIt's free or Pro feature lists proposes a museum, an order for a day or a route between stops. It stores the tickets once you have them. It does not tell you that eleven stops will not fit in a Tuesday.",
+        "The plan is also sized to the trip's real ends. A first day that starts at 16:40 is not a full day, and Owlio does not price it as one, where a date-only planner would. The pace setting then decides how full the days in between get, and every day's stops sit numbered on an interactive map so a walk can be told from a commute at a glance.",
+        "The rest of the app is built around being in the city. Point the camera at a landmark or a painting and it names it. Nearby restaurants, cafés and bars are ranked for wherever you are standing, and the forecast sits beside each day. TripIt also displays weather on its free tier, so that one is a tie."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Who should use TripIt, and who should use Owlio?",
+      "body": [
+        "Use TripIt if the trouble is bookings, and Owlio if the trouble is an empty day. Each is the wrong tool for the other's problem, and the mismatch is easy to spot in advance."
+      ]
+    },
+    {
+      "type": "list",
+      "intro": "The honest sorting:",
+      "items": [
+        "**TripIt is right** for someone with several flights, hotels and rentals across more than one city, or for a frequent flyer who wants alerts on the travel day itself.",
+        "**TripIt is wrong** for someone landing in Lisbon with a hotel booked and no idea what to do on Tuesday. It will hold the hotel beautifully and offer nothing for the day.",
+        "**Owlio is right** for a single-city trip of two to four days where the bookings are done and the hours are not.",
+        "**Owlio is wrong** for a four-city trip in ten days, for anyone who needs flight tracking, and for a group that wants to edit one plan together. It plans one city per trip on purpose, and it has no collaboration."
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Can you use Owlio and TripIt together?",
+      "body": [
+        "Yes, and on a single-city trip it is often the best setup, because the two never touch the same job. TripIt holds the flights, the hotel and the alerts. Owlio holds the days.",
+        "The handover is the landing time. Read it off the TripIt itinerary, give it to Owlio, and the plan comes back sized to the hours that are left. A finished example of what such a plan looks like is in the [3 days in Lisbon](../guides/3-days-in-lisbon.html) guide.",
+        "The overlap is small. Both keep documents, and TripIt's free tier stops at three per trip while Pro allows 25. Both show a map. Beyond that, running the two costs one extra app and removes the two failures each has alone: a tidy trip with nothing planned, and a full plan for a day the flight has already cut in half."
+      ]
+    },
+    {
+      "type": "callout",
+      "body": [
+        "**Pricing and features were checked on TripIt's own pricing page and help centre in September 2026.** TripIt has changed what sits in each tier before. Confirm the current split before paying for Pro."
+      ]
+    }
+  ],
+  "faqHeading": "Common questions",
+  "faq": [
+    {
+      "q": "Is Owlio a TripIt alternative?",
+      "a": "Only partly. Owlio covers the part TripIt leaves out, which is choosing what to see and in what order for one city. It does not import bookings, track flights or send alerts. Anyone who wants TripIt's booking organisation will still need TripIt, or something like it."
+    },
+    {
+      "q": "Does TripIt plan what to do in a city?",
+      "a": "No. TripIt organises reservations you already have, and you can add other plans by hand on its website or app. None of the features on its free or Pro lists proposes sightseeing or builds a day around your arrival time. That gap is the one Owlio fills."
+    },
+    {
+      "q": "How much does TripIt cost?",
+      "a": "TripIt has a free tier, and TripIt Pro is $49 a year on TripIt's own pricing page as of September 2026, with a free trial offered. The App Store lists the annual subscription at $48.99. Pro adds flight alerts, alternate flights and 25 documents per trip."
+    },
+    {
+      "q": "Does Owlio work for trips with more than one city?",
+      "a": "One city per trip, by design. It keeps each day walkable instead of spreading stops across a country. For a two-city trip, create a plan for each city. If the route matters more than the days in each place, TripIt is the better fit."
+    },
+    {
+      "q": "Which is better for a short city break?",
+      "a": "For deciding what to do with two to four days in one city, Owlio, because it plans around the real landing and departure times. For keeping the flights, hotel and alerts straight, TripIt. Many short breaks need both, since the two do not overlap."
+    },
+    {
+      "q": "Do Owlio and TripIt work offline?",
+      "a": "TripIt says its app lets you access your itinerary offline while you stay signed in. Owlio's site does not state an offline mode, so this comparison makes no claim either way. Check the app before relying on either without a signal."
+    }
+  ],
+  "related": [
+    "planning-a-trip-around-flight-times",
+    "travel-app-vs-spreadsheet-itinerary",
+    "beyond-google-maps-trip-planning"
+  ],
+  "relatedGuides": [
+    "3-days-in-lisbon",
+    "3-days-in-rome",
+    "3-days-in-paris"
+  ],
+  "cta": {
+    "heading": "Fill the days TripIt leaves empty",
+    "body": "Give Owlio a city and your real arrival and departure times, and it returns a plan sized to the hours you actually have. Free to try on iPhone, iPad and Android."
+  }
+}

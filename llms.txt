@@ -62,6 +62,7 @@ spread across a country.
 
 ## Blog
 
+- [Owlio vs TripIt: Two Planners That Answer Different Questions](https://owlio.online/blog/owlio-vs-tripit.html): TripIt reads a flight to track it. Owlio reads the same flight to size the day. Where each wins, what TripIt Pro costs as of September 2026, and why a single-city trip may need both.
 - [Between Hotel Checkout and Your Flight: How to Plan the Last Day](https://owlio.online/blog/what-to-do-between-checkout-and-flight.html): An evening flight leaves hours between checkout and the airport, and where the bags sit decides whether they are yours. How to size the gap, store the luggage and fit one real thing into it.
 - [Museums Closed on Monday? Plan the Weekday, Not Just the Dates](https://owlio.online/blog/museum-closing-days.html): Monday is the usual museum closing day, and the famous exceptions are exactly the museums people travel for. How to check a trip's weekdays before the headline sight disappears.
 - [Apps That Identify Landmarks and Paintings: Start With Your Phone](https://owlio.online/blog/landmark-identifier-apps.html): Your phone already names landmarks and famous paintings for free. How to use what is built in, when a dedicated scanner earns its place, and why the name is the cheap part.
